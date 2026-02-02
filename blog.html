@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NeuroGlint - ブログ。Tableau、GA4、BigQueryなどの技術Tipsを発信しています。">
+  <title>Blog | NeuroGlint</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">NeuroGlint</a>
+      <nav class="header__nav">
+        <a href="index.html" class="header__nav-link">Home</a>
+        <a href="profile.html" class="header__nav-link">Profile</a>
+        <a href="portfolio.html" class="header__nav-link">Portfolio</a>
+        <a href="blog.html" class="header__nav-link">Blog</a>
+      </nav>
+      <button class="header__menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Blog</h1>
+      <p class="page-header__subtitle">技術記事</p>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="section" style="padding-top: var(--spacing-md); padding-bottom: 0;">
+    <div class="container">
+      <div class="fade-in" style="display: flex; flex-wrap: wrap; gap: var(--spacing-xs); justify-content: center;">
+        <button class="btn btn--primary" style="padding: 8px 20px; font-size: 0.85rem;">All</button>
+        <button class="btn btn--outline" style="padding: 8px 20px; font-size: 0.85rem;">Tableau</button>
+        <button class="btn btn--outline" style="padding: 8px 20px; font-size: 0.85rem;">GA4</button>
+        <button class="btn btn--outline" style="padding: 8px 20px; font-size: 0.85rem;">BigQuery</button>
+        <button class="btn btn--outline" style="padding: 8px 20px; font-size: 0.85rem;">Google広告</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog List -->
+  <section class="section">
+    <div class="container">
+      <!-- Empty State (記事ができるまで表示) -->
+      <div class="empty-state fade-in">
+        <div class="empty-state__icon">📝</div>
+        <p class="empty-state__text">Coming Soon...</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">
+          技術記事を準備中です。<br>
+          Tableau、GA4、BigQueryなどのTipsを発信予定です。
+        </p>
+      </div>
+
+      <!-- 
+      ========================================
+      記事ができたら以下のテンプレートを使用
+      ========================================
+      
+      <div class="card-grid">
+        <a href="blog/article-01.html" class="card fade-in">
+          <img src="img/blog-01.jpg" alt="記事タイトル" class="card__image">
+          <div class="card__body">
+            <span class="card__tag">Tableau</span>
+            <h3 class="card__title">TableauでLOD表現を使いこなす方法</h3>
+            <p class="card__text">
+              FIXED、INCLUDE、EXCLUDEの違いと実践的な使用例を解説します。
+            </p>
+            <div class="card__meta">
+              <span>2025.01.15</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="blog/article-02.html" class="card fade-in fade-in-delay-1">
+          <img src="img/blog-02.jpg" alt="記事タイトル" class="card__image">
+          <div class="card__body">
+            <span class="card__tag">GA4</span>
+            <h3 class="card__title">GA4のカスタムイベント設定ガイド</h3>
+            <p class="card__text">
+              GTMを使ったカスタムイベントの設定方法をステップバイステップで解説。
+            </p>
+            <div class="card__meta">
+              <span>2025.01.10</span>
+            </div>
+          </div>
+        </a>
+        
+        <a href="blog/article-03.html" class="card fade-in fade-in-delay-2">
+          <img src="img/blog-03.jpg" alt="記事タイトル" class="card__image">
+          <div class="card__body">
+            <span class="card__tag">BigQuery</span>
+            <h3 class="card__title">BigQueryでよく使うSQL関数10選</h3>
+            <p class="card__text">
+              実務でよく使うBigQueryのSQL関数を実例とともに紹介します。
+            </p>
+            <div class="card__meta">
+              <span>2025.01.05</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">NeuroGlint</div>
+      <nav class="footer__nav">
+        <a href="index.html" class="footer__nav-link">Home</a>
+        <a href="profile.html" class="footer__nav-link">Profile</a>
+        <a href="portfolio.html" class="footer__nav-link">Portfolio</a>
+        <a href="blog.html" class="footer__nav-link">Blog</a>
+      </nav>
+      <p class="footer__copyright">&copy; 2025 NeuroGlint. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

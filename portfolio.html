@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NeuroGlint - ポートフォリオ。Tableauダッシュボードや分析事例をご紹介します。">
+  <title>Portfolio | NeuroGlint</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">NeuroGlint</a>
+      <nav class="header__nav">
+        <a href="index.html" class="header__nav-link">Home</a>
+        <a href="profile.html" class="header__nav-link">Profile</a>
+        <a href="portfolio.html" class="header__nav-link">Portfolio</a>
+        <a href="blog.html" class="header__nav-link">Blog</a>
+      </nav>
+      <button class="header__menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">Portfolio</h1>
+      <p class="page-header__subtitle">制作実績</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Content -->
+  <section class="section">
+    <div class="container">
+      <!-- Empty State (成果物ができるまで表示) -->
+      <div class="empty-state fade-in">
+        <div class="empty-state__icon">📊</div>
+        <p class="empty-state__text">Coming Soon...</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">
+          Tableauダッシュボードなどの制作物を準備中です。<br>
+          公開までしばらくお待ちください。
+        </p>
+      </div>
+
+      <!-- 
+      ========================================
+      成果物ができたら以下のテンプレートを使用
+      ========================================
+      
+      <div class="card-grid">
+        <div class="card fade-in">
+          <img src="img/portfolio-01.jpg" alt="プロジェクト名" class="card__image">
+          <div class="card__body">
+            <span class="card__tag">Tableau</span>
+            <h3 class="card__title">EC売上ダッシュボード</h3>
+            <p class="card__text">
+              ECサイトの売上データを可視化。商品別・地域別・時系列での分析が可能なダッシュボードを構築しました。
+            </p>
+            <div class="card__meta">
+              <span>Tableau</span>
+              <span>BigQuery</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card fade-in fade-in-delay-1">
+          <img src="img/portfolio-02.jpg" alt="プロジェクト名" class="card__image">
+          <div class="card__body">
+            <span class="card__tag">GA4</span>
+            <h3 class="card__title">マーケティング分析レポート</h3>
+            <p class="card__text">
+              GA4とGoogle広告のデータを統合し、マーケティング施策の効果を可視化するレポートを作成しました。
+            </p>
+            <div class="card__meta">
+              <span>GA4</span>
+              <span>Looker Studio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      -->
+
+    </div>
+  </section>
+
+  <!-- Tableau Public Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title">Tableau Public</h2>
+        <p class="section__subtitle">公開ダッシュボード</p>
+      </div>
+      <div class="fade-in" style="text-align: center;">
+        <p style="color: var(--color-text-light); margin-bottom: var(--spacing-md);">
+          Tableau Publicでダッシュボードを公開しています。
+        </p>
+        <a href="#" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+          Tableau Public を見る →
+        </a>
+        <p style="margin-top: var(--spacing-sm); font-size: 0.85rem; color: var(--color-text-muted);">
+          ※ リンク先は準備中です
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">NeuroGlint</div>
+      <nav class="footer__nav">
+        <a href="index.html" class="footer__nav-link">Home</a>
+        <a href="profile.html" class="footer__nav-link">Profile</a>
+        <a href="portfolio.html" class="footer__nav-link">Portfolio</a>
+        <a href="blog.html" class="footer__nav-link">Blog</a>
+      </nav>
+      <p class="footer__copyright">&copy; 2025 NeuroGlint. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

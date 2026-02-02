@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NeuroGlint - データ活用コンサルティング。混沌としたデータから、ビジネスの洞察を導き出します。">
+  <title>NeuroGlint | 混沌を、洞察へ。</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">NeuroGlint</a>
+      <nav class="header__nav">
+        <a href="index.html" class="header__nav-link">Home</a>
+        <a href="profile.html" class="header__nav-link">Profile</a>
+        <a href="portfolio.html" class="header__nav-link">Portfolio</a>
+        <a href="blog.html" class="header__nav-link">Blog</a>
+      </nav>
+      <button class="header__menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero__content">
+      <h1 class="hero__catchphrase">混沌を、洞察へ。</h1>
+      <p class="hero__subtitle">
+        データの中にある答えを見つけ出し、<br>
+        ビジネスの意思決定を支援します。
+      </p>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title">About</h2>
+        <p class="section__subtitle">NeuroGlintについて</p>
+      </div>
+      <div class="fade-in fade-in-delay-1" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1.1rem; color: var(--color-text-light);">
+          NeuroGlint（ニューログリント）は、<br class="sp-only">
+          Neural（神経的理解）と Glint（きらめき）を組み合わせた造語です。
+        </p>
+        <p style="font-size: 1.1rem; color: var(--color-text-light); margin-top: 1.5rem;">
+          ビジネスの現場では、データはあるけれど活用できていない——<br>
+          そんな「混沌」とした状況に光を見出すお手伝いをします。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title">Services</h2>
+        <p class="section__subtitle">提供できること</p>
+      </div>
+      <div class="card-grid">
+        <div class="card fade-in fade-in-delay-1">
+          <div class="card__body">
+            <span class="card__tag">BI構築</span>
+            <h3 class="card__title">Tableauダッシュボード構築</h3>
+            <p class="card__text">
+              経営指標やマーケティングデータを可視化。意思決定に必要な情報をひと目で把握できるダッシュボードを構築します。
+            </p>
+          </div>
+        </div>
+        <div class="card fade-in fade-in-delay-2">
+          <div class="card__body">
+            <span class="card__tag">分析基盤</span>
+            <h3 class="card__title">GA4活用支援</h3>
+            <p class="card__text">
+              GA4を導入したけれど見方がわからない、活用できていない——そんな課題を解決し、データドリブンなマーケティングを実現します。
+            </p>
+          </div>
+        </div>
+        <div class="card fade-in fade-in-delay-3">
+          <div class="card__body">
+            <span class="card__tag">データ連携</span>
+            <h3 class="card__title">BigQuery × BI環境構築</h3>
+            <p class="card__text">
+              クラウドデータウェアハウスとBIツールを連携させ、大量データの分析基盤を構築。スケーラブルなデータ活用環境を実現します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title">Portfolio</h2>
+        <p class="section__subtitle">制作実績</p>
+      </div>
+      <div class="empty-state fade-in">
+        <div class="empty-state__icon">📊</div>
+        <p class="empty-state__text">Coming Soon...</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">制作物は準備中です</p>
+      </div>
+      <div style="text-align: center; margin-top: var(--spacing-md);" class="fade-in">
+        <a href="portfolio.html" class="btn btn--outline">View All</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header fade-in">
+        <h2 class="section__title">Blog</h2>
+        <p class="section__subtitle">技術記事</p>
+      </div>
+      <div class="empty-state fade-in">
+        <div class="empty-state__icon">📝</div>
+        <p class="empty-state__text">Coming Soon...</p>
+        <p style="margin-top: 1rem; color: var(--color-text-muted);">記事は準備中です</p>
+      </div>
+      <div style="text-align: center; margin-top: var(--spacing-md);" class="fade-in">
+        <a href="blog.html" class="btn btn--outline">View All</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">NeuroGlint</div>
+      <nav class="footer__nav">
+        <a href="index.html" class="footer__nav-link">Home</a>
+        <a href="profile.html" class="footer__nav-link">Profile</a>
+        <a href="portfolio.html" class="footer__nav-link">Portfolio</a>
+        <a href="blog.html" class="footer__nav-link">Blog</a>
+      </nav>
+      <p class="footer__copyright">&copy; 2025 NeuroGlint. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
