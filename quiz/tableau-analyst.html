@@ -352,13 +352,13 @@ const allQuestions = [
     "id": 24,
     "question": "次のダッシュボードがあります。現在、マップはダッシュボード上の他のシートのデータに影響を与えるフィルターとして使用されています。マップ上のデータポイントを選択すると、「Detail table」(詳細テーブル)のみがフィルタリングされるようにダッシュボードを設定する必要があります。何をすべきですか?",
     "options": [
-      "A. 「Sales over time」(時間の経過に伴う売上)のコンテキストメニューから、[アクションを無視]を選択します。",
-      "B. 「Sales over time」(時間の経過に伴う売上)のコンテキストメニューから、[ダッシュボードアイテムの削除]を選択します。",
-      "C. 「Profits by State」(州別の利益)のコンテキストメニューから、[フィルターとして使用]の選択を解除します。",
-      "D. 「Sales over time」(時間の経過に伴う売上)のコンテキストメニューから、[選択解除]を選択します。"
+      "A. [Sales by Category] のコンテキストメニューから、[アクションを無視] を選択します。",
+      "B. [Sales by Category] のコンテキストメニューから、[ダッシュボードアイテムの削除] を選択します。",
+      "C. [Map] のコンテキストメニューから、[フィルターとして使用] の選択を解除します。",
+      "D. [Sales by Category] のコンテキストメニューから、[選択解除] を選択します。"
     ],
     "answer": "A",
-    "explanation": "A. 「Sales over time」(時間の経過に伴う売上)のコンテキストメニューから、[アクションを無視]を選択します。 - 正解です。ダッシュボードアクション(この場合はマップからのフィルター)が設定されている場合、デフォルトでは他のすべてのシートに適用されることがあります。「Detail table」のみをフィルター対象にし、「Sales over time」を除外したい場合、フィルターさせたくないシート(「Sales over time」)のコンテキストメニューに移動し、「アクションを無視」を選択します。これにより、マップからのフィルターアクションがこのシートに適用されなくなります。\nB. 「Sales over time」(時間の経過に伴う売上)のコンテキストメニューから、[ダッシュボードアイテムの削除]を選択します。 - これにより、「Sales over time」シートがダッシュボードから完全に削除されてしまい、要件を満たしません。\nC. 「Profits by State」(州別の利益)のコンテキストメニューから、[フィルターとして使用]の選択を解除します。 - 「Profits by State」(マップシートと想定)で[フィルターとして使用]を選択解除すると、マップは「Detail table」を含む どの シートもフィルターしなくなります。\nD. 「Sales over time」(時間の経過に伴う売上)のコンテキストメニューから、[選択解除]を選択します。 - [選択解除]は、シート上のマークの現在の選択をクリアする操作であり、ダッシュボードのフィルターアクションの構成とは関係ありません。",
+    "explanation": "A. [Sales by Category] のコンテキストメニューから、[アクションを無視] を選択します。 - 正解です。ダッシュボードのフィルターアクション設定では、ソースシート（Map）からのフィルターがデフォルトで他のすべてのシートに適用されます。[Detail Table] のみをフィルター対象にしたい場合、フィルターから除外したいシート（[Sales by Category]）のコンテキストメニューで「アクションを無視」を選択します。これにより、そのシートだけがフィルターアクションの影響を受けなくなります。\nB. [Sales by Category] のコンテキストメニューから、[ダッシュボードアイテムの削除] を選択します。 - これはシート自体をダッシュボードから完全に削除してしまいます。フィルター対象から除外したいだけなので、削除は不適切です。\nC. [Map] のコンテキストメニューから、[フィルターとして使用] の選択を解除します。 - これを解除するとMapからのフィルターアクション自体が無効になり、Detail Tableへのフィルターも含めてすべてのフィルターが停止してしまいます。\nD. [Sales by Category] のコンテキストメニューから、[選択解除] を選択します。 - Tableauのコンテキストメニューに「選択解除」という選択肢は存在しません。",
     "category": "ダッシュボード",
     "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzIwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMyMCI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzIwIiBmaWxsPSIjRjVGNUY1IiByeD0iNiIvPgo8dGV4dCB4PSIzMDAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMzMzMiIGZvbnQtd2VpZ2h0PSJib2xkIj7jg4Djg4Pjgrfjg6Xjg5zjg7zjg4kgLSDjg5XjgqPjg6vjgr/jg7zjgqLjgq/jgrfjg6fjg7Pjga7oqK3lrpo8L3RleHQ+CjxyZWN0IHg9IjE1IiB5PSIzNSIgd2lkdGg9IjU3MCIgaGVpZ2h0PSIyNzAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNEREQiIHJ4PSI0Ii8+CjwhLS0gTWFwIChzb3VyY2UpIC0tPgo8cmVjdCB4PSIyNSIgeT0iNDUiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTc1IiBmaWxsPSIjRThGNEU4IiBzdHJva2U9IiNCQkIiIHJ4PSIzIi8+Cjx0ZXh0IHg9IjE1NSIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzU1NSIgZm9udC13ZWlnaHQ9ImJvbGQiPk1hcCAo44Oe44OD44OXKSAtIOOCveODvOOCuTwvdGV4dD4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTIwIiByPSI4IiBmaWxsPSIjNEU3OUE3IiBvcGFjaXR5PSIwLjciLz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMTQwIiByPSIxMiIgZmlsbD0iI0YyOEUyQiIgb3BhY2l0eT0iMC43IiBzdHJva2U9IiNFMTU3NTkiIHN0cm9rZS13aWR0aD0iMiIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMDAiIHI9IjYiIGZpbGw9IiM3NkI3QjIiIG9wYWNpdHk9IjAuNyIvPgo8Y2lyY2xlIGN4PSIxMzAiIGN5PSIxNjAiIHI9IjEwIiBmaWxsPSIjNTlBMTRGIiBvcGFjaXR5PSIwLjciLz4KPHRleHQgeD0iMTU1IiB5PSIxOTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI5IiBmaWxsPSIjRTE1NzU5Ij7ilrIg44GT44GT44KS6YG45oqe44GZ44KL44Go4oCmPC90ZXh0Pgo8IS0tIEJhciBjaGFydCAobm90IGZpbHRlcmVkKSAtLT4KPHJlY3QgeD0iMjk1IiB5PSI0NSIgd2lkdGg9IjI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0Y1RjVGNSIgc3Ryb2tlPSIjQkJCIiByeD0iMyIvPgo8dGV4dCB4PSI0MzUiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiPlNhbGVzIGJ5IENhdGVnb3J577yI44OV44Kj44Or44K/44O844Gq44GX77yJPC90ZXh0Pgo8cmVjdCB4PSIzMTAiIHk9IjY4IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyIiBmaWxsPSIjQkJCIiByeD0iMSIvPgo8cmVjdCB4PSIzMTAiIHk9IjgzIiB3aWR0aD0iODAiIGhlaWdodD0iMTIiIGZpbGw9IiNCQkIiIHJ4PSIxIi8+CjxyZWN0IHg9IjMxMCIgeT0iOTgiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIiIGZpbGw9IiNCQkIiIHJ4PSIxIi8+CjwhLS0gRGV0YWlsIHRhYmxlIChmaWx0ZXJlZCAtIHRhcmdldCkgLS0+CjxyZWN0IHg9IjI5NSIgeT0iMTM1IiB3aWR0aD0iMjgwIiBoZWlnaHQ9Ijg1IiBmaWxsPSIjRThFQ0Y0IiBzdHJva2U9IiM0RTc5QTciIHN0cm9rZS13aWR0aD0iMiIgcng9IjMiLz4KPHRleHQgeD0iNDM1IiB5PSIxNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzRFNzlBNyIgZm9udC13ZWlnaHQ9ImJvbGQiPkRldGFpbCBUYWJsZe+8iOODleOCo+ODq+OCv+ODvOWvvuixoe+8ieKckzwvdGV4dD4KPHJlY3QgeD0iMzA1IiB5PSIxNjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTQiIGZpbGw9IiM0RTc5QTciIHJ4PSIxIi8+Cjx0ZXh0IHg9IjQzNSIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0id2hpdGUiPk9yZGVyIElEIHwgUHJvZHVjdCB8IFNhbGVzIHwgUHJvZml0PC90ZXh0Pgo8dGV4dCB4PSI0MzUiIHk9IjE4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM2NjYiPumBuOaKnuOBleOCjOOBn+WcsOWfn+OBruODh+ODvOOCv+OBruOBv+ihqOekujwvdGV4dD4KPCEtLSBBY3Rpb24gY29uZmlnIG5vdGUgLS0+CjxyZWN0IHg9IjI1IiB5PSIyMzAiIHdpZHRoPSI1NTUiIGhlaWdodD0iNjAiIGZpbGw9IiNGRkY4RTgiIHN0cm9rZT0iI0YwRDA4MCIgcng9IjMiLz4KPHRleHQgeD0iNTAiIHk9IjI1MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj7oqK3lrpo6IOODgOODg+OCt+ODpeODnOODvOODiSDihpIg44Ki44Kv44K344On44OzIOKGkiDjg5XjgqPjg6vjgr/jg7w8L3RleHQ+Cjx0ZXh0IHg9IjUwIiB5PSIyNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+44K944O844K544K344O844OIOiBNYXAgfCDjgr/jg7zjgrLjg4Pjg4jjgrfjg7zjg4g6IERldGFpbCBUYWJsZSDjga7jgb/vvIjku5bjga7jgrfjg7zjg4jjga/pmaTlpJbvvIk8L3RleHQ+Cjwvc3ZnPg=="
   },
@@ -694,15 +694,15 @@ const allQuestions = [
   },
   {
     "id": 48,
-    "question": "あなたはいくつかのビューをサブスクライブしています。ビューのサブスクライブを解除する必要があります。何を使用すべきですか?",
+    "question": "データアナリストが、Tableau Server上のダッシュボードで、売上が10万円を下回った場合に自動通知を受けたいと考えています。使用すべき機能はどれですか？",
     "options": [
-      "A. [自分と共有] ページ",
-      "B. Tableau Desktopの [データソース] ページ",
-      "C. Tableau Prepの [通知] エリア",
-      "D. Tableau Webページの [マイコンテンツ] エリア"
+      "A. サブスクリプション",
+      "B. データドリブンアラート",
+      "C. カスタムビュー",
+      "D. コメント"
     ],
-    "answer": "D",
-    "explanation": "A. [自分と共有] ページ - [自分と共有] ページは、他のユーザーがあなたと共有したコンテンツを表示する場所であり、サブスクリプションを管理する場所ではありません。\nB. Tableau Desktopの [データソース] ページ - Tableau Desktopの [データソース] ページは、データ接続を管理する場所です。Tableau ServerやCloud上のサブスクリプション管理は行えません。\nC. Tableau Prepの [通知] エリア - Tableau Prepはデータ準備(ETL)ツールであり、ビューのサブスクリプションを管理する機能はありません。\nD. Tableau Webページの [マイコンテンツ] エリア - 正解です。Tableau ServerまたはTableau Cloudにサインインし、自分のアカウント設定や [マイコンテンツ] エリアにアクセスすると、現在サブスクライブしているビューのリストが表示され、そこからサブスクリプションを解除することができます。",
+    "answer": "B",
+    "explanation": "A. サブスクリプション - サブスクリプションはビューのスナップショットを定期的にメール配信する機能です。特定の条件に基づく通知ではなく、スケジュールに基づく配信です。\nB. データドリブンアラート - 正解です。データドリブンアラートは、ビュー上の数値軸に対して閾値を設定し、データがその条件を満たした時にメール通知を送信する機能です。「売上が10万円を下回る」のような条件を設定できます。\nC. カスタムビュー - カスタムビューはフィルターやパラメーターの設定状態を保存する機能であり、条件付き通知とは無関係です。\nD. コメント - コメントはビューに対するテキストの注記機能であり、自動通知機能ではありません。",
     "category": "Tableau Server/Cloud"
   },
   {
@@ -790,31 +790,31 @@ const allQuestions = [
   },
   {
     "id": 55,
-    "question": "次のダッシュボードがあります。現在、マップはダッシュボードの他のシートのデータに影響を与えるフィルターとして使用されています。マップ上のデータポイントを選択したときに、[Detail table]のみがフィルターされるようにダッシュボードを設定する必要があります。何をすべきですか?",
+    "question": "ダッシュボードにフィルターアクションを設定する際、ソースシートでデータポイントの選択を解除したときの動作として、どのオプションを設定できますか？",
     "options": [
-      "A. [Sales over time] のコンテキストメニューから、[アクションを無視] を選択します。",
-      "B. [Sales over time] のコンテキストメニューから、[ダッシュボードアイテムの削除] を選択します。",
-      "C. [Profits by State] のコンテキストメニューから、[フィルターとして使用] の選択を解除します。",
-      "D. [Sales over time] のコンテキストメニューから、[選択解除] を選択します。"
+      "A. 「フィルターを保持」- 最後に選択したフィルターを維持する",
+      "B. 「すべての値を表示」- フィルターを解除してすべてのデータを表示する",
+      "C. 「すべての値を除外」- ターゲットシートのすべてのデータを非表示にする",
+      "D. 「上記すべて」- A、B、Cのすべてが設定可能なオプションである"
     ],
-    "answer": "A",
-    "explanation": "A. [Sales over time] のコンテキストメニューから、[アクションを無視] を選択します。 - 正解です。ダッシュボードで [フィルターとして使用] を有効にすると、デフォルトで他のすべてのシートにフィルターアクションが適用されます。[アクションを無視] を選択すると、その特定のターゲットシート（[Sales over time]）だけがフィルターアクションから除外され、他のシート（[Detail table]）にはフィルターが適用されたままになります。\nB. [Sales over time] のコンテキストメニューから、[ダッシュボードアイテムの削除] を選択します。 - この操作は、[Sales over time] のシート自体をダッシュボードから完全に取り除いてしまいます。要件はシートを削除することではなく、フィルターの対象外にすることです。\nC. [Profits by State] のコンテキストメニューから、[フィルターとして使用] の選択を解除します。 - これはフィルターのソース（マップ）での操作です。[フィルターとして使用] を解除すると、フィルターアクション自体が無効になり、[Detail table] を含むすべてのシートがフィルターされなくなってしまいます。\nD. [Sales over time] のコンテキストメニューから、[選択解除] を選択します。 - [選択解除] は、ダッシュボードアクションの構成（どのシートが影響を受けるか）を変更するためのメニューオプションではありません。",
+    "answer": "D",
+    "explanation": "A. 「フィルターを保持」- 最後に選択したフィルターを維持する - フィルターアクションの「選択項目をクリアした場合」の設定オプションの1つです。選択解除しても直前のフィルター状態を維持します。\nB. 「すべての値を表示」- フィルターを解除してすべてのデータを表示する - これもオプションの1つで、デフォルト設定です。選択解除するとターゲットシートにすべてのデータが表示されます。\nC. 「すべての値を除外」- ターゲットシートのすべてのデータを非表示にする - これもオプションの1つです。選択解除するとターゲットシートが空になります。データを選択するまでターゲットを隠したい場合に使用します。\nD. 「上記すべて」 - 正解です。フィルターアクションの「選択項目をクリアした場合」には「フィルターを保持」「すべての値を表示」「すべての値を除外」の3つのオプションすべてが用意されています。用途に応じて使い分けます。",
     "category": "ダッシュボード",
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MDAgMzIwIiB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMyMCI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzIwIiBmaWxsPSIjRjVGNUY1IiByeD0iNiIvPgo8dGV4dCB4PSIzMDAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMzMzMiIGZvbnQtd2VpZ2h0PSJib2xkIj7jg4Djg4Pjgrfjg6Xjg5zjg7zjg4kgLSDjg5XjgqPjg6vjgr/jg7zjgqLjgq/jgrfjg6fjg7Pjga7oqK3lrpo8L3RleHQ+CjxyZWN0IHg9IjE1IiB5PSIzNSIgd2lkdGg9IjU3MCIgaGVpZ2h0PSIyNzAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNEREQiIHJ4PSI0Ii8+CjwhLS0gTWFwIChzb3VyY2UpIC0tPgo8cmVjdCB4PSIyNSIgeT0iNDUiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTc1IiBmaWxsPSIjRThGNEU4IiBzdHJva2U9IiNCQkIiIHJ4PSIzIi8+Cjx0ZXh0IHg9IjE1NSIgeT0iNjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzU1NSIgZm9udC13ZWlnaHQ9ImJvbGQiPk1hcCAo44Oe44OD44OXKSAtIOOCveODvOOCuTwvdGV4dD4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTIwIiByPSI4IiBmaWxsPSIjNEU3OUE3IiBvcGFjaXR5PSIwLjciLz4KPGNpcmNsZSBjeD0iMTUwIiBjeT0iMTQwIiByPSIxMiIgZmlsbD0iI0YyOEUyQiIgb3BhY2l0eT0iMC43IiBzdHJva2U9IiNFMTU3NTkiIHN0cm9rZS13aWR0aD0iMiIvPgo8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMDAiIHI9IjYiIGZpbGw9IiM3NkI3QjIiIG9wYWNpdHk9IjAuNyIvPgo8Y2lyY2xlIGN4PSIxMzAiIGN5PSIxNjAiIHI9IjEwIiBmaWxsPSIjNTlBMTRGIiBvcGFjaXR5PSIwLjciLz4KPHRleHQgeD0iMTU1IiB5PSIxOTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI5IiBmaWxsPSIjRTE1NzU5Ij7ilrIg44GT44GT44KS6YG45oqe44GZ44KL44Go4oCmPC90ZXh0Pgo8IS0tIEJhciBjaGFydCAobm90IGZpbHRlcmVkKSAtLT4KPHJlY3QgeD0iMjk1IiB5PSI0NSIgd2lkdGg9IjI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0Y1RjVGNSIgc3Ryb2tlPSIjQkJCIiByeD0iMyIvPgo8dGV4dCB4PSI0MzUiIHk9IjYyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiPlNhbGVzIGJ5IENhdGVnb3J577yI44OV44Kj44Or44K/44O844Gq44GX77yJPC90ZXh0Pgo8cmVjdCB4PSIzMTAiIHk9IjY4IiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEyIiBmaWxsPSIjQkJCIiByeD0iMSIvPgo8cmVjdCB4PSIzMTAiIHk9IjgzIiB3aWR0aD0iODAiIGhlaWdodD0iMTIiIGZpbGw9IiNCQkIiIHJ4PSIxIi8+CjxyZWN0IHg9IjMxMCIgeT0iOTgiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIiIGZpbGw9IiNCQkIiIHJ4PSIxIi8+CjwhLS0gRGV0YWlsIHRhYmxlIChmaWx0ZXJlZCAtIHRhcmdldCkgLS0+CjxyZWN0IHg9IjI5NSIgeT0iMTM1IiB3aWR0aD0iMjgwIiBoZWlnaHQ9Ijg1IiBmaWxsPSIjRThFQ0Y0IiBzdHJva2U9IiM0RTc5QTciIHN0cm9rZS13aWR0aD0iMiIgcng9IjMiLz4KPHRleHQgeD0iNDM1IiB5PSIxNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzRFNzlBNyIgZm9udC13ZWlnaHQ9ImJvbGQiPkRldGFpbCBUYWJsZe+8iOODleOCo+ODq+OCv+ODvOWvvuixoe+8ieKckzwvdGV4dD4KPHJlY3QgeD0iMzA1IiB5PSIxNjAiIHdpZHRoPSIyNjAiIGhlaWdodD0iMTQiIGZpbGw9IiM0RTc5QTciIHJ4PSIxIi8+Cjx0ZXh0IHg9IjQzNSIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0id2hpdGUiPk9yZGVyIElEIHwgUHJvZHVjdCB8IFNhbGVzIHwgUHJvZml0PC90ZXh0Pgo8dGV4dCB4PSI0MzUiIHk9IjE4OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM2NjYiPumBuOaKnuOBleOCjOOBn+WcsOWfn+OBruODh+ODvOOCv+OBruOBv+ihqOekujwvdGV4dD4KPCEtLSBBY3Rpb24gY29uZmlnIG5vdGUgLS0+CjxyZWN0IHg9IjI1IiB5PSIyMzAiIHdpZHRoPSI1NTUiIGhlaWdodD0iNjAiIGZpbGw9IiNGRkY4RTgiIHN0cm9rZT0iI0YwRDA4MCIgcng9IjMiLz4KPHRleHQgeD0iNTAiIHk9IjI1MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj7oqK3lrpo6IOODgOODg+OCt+ODpeODnOODvOODiSDihpIg44Ki44Kv44K344On44OzIOKGkiDjg5XjgqPjg6vjgr/jg7w8L3RleHQ+Cjx0ZXh0IHg9IjUwIiB5PSIyNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+44K944O844K544K344O844OIOiBNYXAgfCDjgr/jg7zjgrLjg4Pjg4jjgrfjg7zjg4g6IERldGFpbCBUYWJsZSDjga7jgb/vvIjku5bjga7jgrfjg7zjg4jjga/pmaTlpJbvvIk8L3RleHQ+Cjwvc3ZnPg=="
+    "image": ""
   },
   {
     "id": 56,
-    "question": "次のデータセットがあります。すべての地域の総計を計算するには、どの詳細レベル(LOD)表現を使用すべきですか?",
+    "question": "データアナリストが、カテゴリ別の売上ビューで、各カテゴリ内の顧客数をカウントしたいと考えています。ビューにはカテゴリのみが表示されています。INCLUDE LOD表現を使用して正しく計算するにはどれですか？",
     "options": [
-      "A. {FIXED [Region] : SUM([Sales])}",
-      "B. {FIXED : SUM([Sales])}",
-      "C. {INCLUDE [Region] : SUM([Sales])}",
-      "D. {EXCLUDE [Region] : SUM([Sales])}"
+      "A. {INCLUDE [Customer ID] : COUNTD([Customer ID])}",
+      "B. {INCLUDE [Customer ID] : SUM([Sales])}",
+      "C. {FIXED [Category] : COUNTD([Customer ID])}",
+      "D. COUNTD([Customer ID])"
     ],
-    "answer": "B",
-    "explanation": "A. {FIXED [Region] : SUM([Sales])} - この式は各地域（Region）ごとの売上合計を計算するFIXED LOD表現です。結果は地域ごとに異なる値（East=$45,000、West=$62,000等）になるため、「すべての地域の総計」にはなりません。FIXEDの後にディメンションを指定すると、そのディメンションの粒度で集計されます。\nB. {FIXED : SUM([Sales])} - 正解です。FIXED LOD表現でコロンの左側にディメンションを指定しない場合、データセット全体を1つのグループとして集計します。この式はビュー内のディメンション（地域、カテゴリ等）に関係なく、すべてのデータの売上総計（$200,000）を返します。各行に同じ総計値が表示されるため、構成比の計算（SUM([Sales]) / {FIXED : SUM([Sales])}）などに活用されます。\nC. {INCLUDE [Region] : SUM([Sales])} - INCLUDE LOD表現は、ビューの詳細レベルにディメンションを追加して計算します。ビューにRegionが含まれていない場合は地域別の計算を追加しますが、全体の総計を返す式ではありません。結果はビューの詳細レベルに依存して集計されます。\nD. {EXCLUDE [Region] : SUM([Sales])} - EXCLUDE LOD表現は、ビューの詳細レベルから指定したディメンションを除外して計算します。ビューにRegionが含まれている場合、Regionを無視した集計を返しますが、他のディメンションが存在する場合はそのレベルで集計されます。ディメンションなしのFIXED式とは異なり、ビューのコンテキストに依存します。",
+    "answer": "D",
+    "explanation": "A. {INCLUDE [Customer ID] : COUNTD([Customer ID])} - LOD表現内でCOUNTDと同じディメンションを使うのは不適切です。INCLUDE内の集計関数は指定したディメンションを追加した粒度で計算されます。\nB. {INCLUDE [Customer ID] : SUM([Sales])} - 顧客ごとの売上合計を計算しますが、顧客数のカウントではありません。\nC. {FIXED [Category] : COUNTD([Customer ID])} - これも正しい結果を返しますが、FIXEDはビューのフィルターの影響を受けません（コンテキストフィルターを除く）。要件によってはDの方が適切です。\nD. COUNTD([Customer ID]) - 正解です。ビューにカテゴリが配置されている場合、COUNTD関数は自動的にカテゴリごとの一意の顧客数を計算します。LOD表現は不要で、標準の集計関数で十分です。",
     "category": "LOD表現",
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMTkwIiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjE5MCI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMTkwIiBmaWxsPSIjRjVGNUY1IiByeD0iNiIvPgo8dGV4dCB4PSIxNTAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiIGZvbnQtd2VpZ2h0PSJib2xkIj7jg4fjg7zjgr/jgrvjg4Pjg4ggLSDlnLDln5/liKXlo7LkuIo8L3RleHQ+CjxyZWN0IHg9IjMwIiB5PSIzNSIgd2lkdGg9IjI0MCIgaGVpZ2h0PSIxNDUiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNEREQiIHJ4PSI0Ii8+CjxyZWN0IHg9IjMwIiB5PSIzNSIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIyNCIgZmlsbD0iIzFCM0E1QyIvPgo8cmVjdCB4PSIxNTAiIHk9IjM1IiB3aWR0aD0iMTIwIiBoZWlnaHQ9IjI0IiBmaWxsPSIjMUIzQTVDIi8+Cjx0ZXh0IHg9IjkwIiB5PSI1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjExIiBmaWxsPSJ3aGl0ZSIgZm9udC13ZWlnaHQ9ImJvbGQiPlJlZ2lvbjwvdGV4dD4KPHRleHQgeD0iMjEwIiB5PSI1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjExIiBmaWxsPSJ3aGl0ZSIgZm9udC13ZWlnaHQ9ImJvbGQiPlNhbGVzPC90ZXh0Pgo8dGV4dCB4PSI5MCIgeT0iNzYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzMzMyI+RWFzdDwvdGV4dD48dGV4dCB4PSIyMTAiIHk9Ijc2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMzMzMiPiQ0NSwwMDA8L3RleHQ+Cjx0ZXh0IHg9IjkwIiB5PSIxMDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzMzMyI+V2VzdDwvdGV4dD48dGV4dCB4PSIyMTAiIHk9IjEwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjExIiBmaWxsPSIjMzMzIj4kNjIsMDAwPC90ZXh0Pgo8dGV4dCB4PSI5MCIgeT0iMTI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMzMzMiPlNvdXRoPC90ZXh0Pjx0ZXh0IHg9IjIxMCIgeT0iMTI0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMzMzMiPiQzOCwwMDA8L3RleHQ+Cjx0ZXh0IHg9IjkwIiB5PSIxNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzMzMyI+Tm9ydGg8L3RleHQ+PHRleHQgeD0iMjEwIiB5PSIxNDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzMzMyI+JDU1LDAwMDwvdGV4dD4KPGxpbmUgeDE9IjMwIiB5MT0iMTU3IiB4Mj0iMjcwIiB5Mj0iMTU3IiBzdHJva2U9IiM0RTc5QTciIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSI5MCIgeT0iMTc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiNFMTU3NTkiIGZvbnQtd2VpZ2h0PSJib2xkIj7nt4/lkIjoqIg8L3RleHQ+Cjx0ZXh0IHg9IjIxMCIgeT0iMTc0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiNFMTU3NTkiIGZvbnQtd2VpZ2h0PSJib2xkIj4kMjAwLDAwMDwvdGV4dD4KPC9zdmc+"
+    "image": ""
   },
   {
     "id": 57,
@@ -832,17 +832,17 @@ const allQuestions = [
   },
   {
     "id": 58,
-    "question": "さまざまな日付からの累積売上を示す次のチャートがあります。次のチャートに示すように月を表示させたいと考えています。何をすべきですか?",
+    "question": "データアナリストが、月別売上の折れ線グラフを作成しています。日付フィールドを「MONTH(Order Date)」として列に配置していますが、2020年と2021年の同じ月のデータが別々の点として表示されず、すべての1月データが1つにまとめられてしまいます。年ごとに分けて表示するにはどうすべきですか？",
     "options": [
-      "A. 日付を [正確な日付] に変換する",
-      "B. 日付を [連続] に変換する",
-      "C. 日付の [欠落した値を表示] を選択する",
-      "D. 日付を [属性] に変換する"
+      "A. 日付フィールドを連続に変更する",
+      "B. 日付フィールドを「YEAR(Order Date)」に変更する",
+      "C. 「色」マークカードに年を追加する",
+      "D. AとCの両方を組み合わせる"
     ],
-    "answer": "A",
-    "explanation": "A. 日付を [正確な日付] に変換する - 正解です。日付を [正確な日付] に変換すると、Tableauは日付を個別の（不連続な）タイムスタンプとして扱います。これにより、データが存在する特定の日付に基づいてチャートがプロットされます。\nB. 日付を [連続] に変換する - 日付を [連続] に変換すると、日付はカテゴリ（不連続）ではなく量的（連続）な軸として扱われ、タイムライン全体が表示されます。これは、データのない月（ギャップ）を含む完全な時間軸を表示する場合に使用されます。\nC. 日付の [欠落した値を表示] を選択する - [欠落した値を表示] は、不連続な（青い）日付ピルを使用しているときに、データが存在しない月（例：「3月」）を軸に補完して表示する機能です。\nD. 日付を [属性] に変換する - [属性] (ATTR) は、集計関数の一種であり、詳細レベル内の値がすべて同じ場合にその値を返し、異なる場合はアスタリスク(*)を返します。日付の表示形式を変更するものではありません。",
+    "answer": "C",
+    "explanation": "A. 日付フィールドを連続に変更する - 連続に変更すると時間軸が連続的になりますが、年ごとの分離には直接対応しません。\nB. 日付フィールドを「YEAR(Order Date)」に変更する - YEARに変更すると月別の表示がなくなり、年別の集計になってしまいます。\nC. 「色」マークカードに年を追加する - 正解です。YEAR(Order Date)をマークカードの「色」にドラッグすると、各月のデータが年ごとに色分けされた個別の線として表示されます。\nD. AとCの両方を組み合わせる - Cだけで十分であり、Aの連続変更は必須ではありません。",
     "category": "ビジュアライゼーション",
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MDAgMjgwIiB3aWR0aD0iNzAwIiBoZWlnaHQ9IjI4MCI+CjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iMjgwIiBmaWxsPSIjRjVGNUY1IiByeD0iNiIvPgo8dGV4dCB4PSIzNTAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMzMzMiIGZvbnQtd2VpZ2h0PSJib2xkIj7ntK/oqIjlo7LkuIogLSDkuI3pgKPntprml6Xku5gg4oaSIOmAo+e2muaXpeS7mOOBq+WkieabtDwvdGV4dD4KPCEtLSBCZWZvcmU6IGRpc2NyZXRlIC0tPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMCwzNSkiPgo8dGV4dCB4PSIxNjUiIHk9IjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiNFMTU3NTkiIGZvbnQtd2VpZ2h0PSJib2xkIj5CZWZvcmU6IOS4jemAo+e2mu+8iOmdkuODlOODq++8iTwvdGV4dD4KPHJlY3QgeD0iMjAiIHk9IjE4IiB3aWR0aD0iMjkwIiBoZWlnaHQ9IjIxMCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI0RERCIgcng9IjMiLz4KPGxpbmUgeDE9IjQ1IiB5MT0iMjUiIHgyPSI0NSIgeTI9IjIxMCIgc3Ryb2tlPSIjQ0NDIi8+CjxsaW5lIHgxPSI0NSIgeTE9IjIxMCIgeDI9IjMwMCIgeTI9IjIxMCIgc3Ryb2tlPSIjQ0NDIi8+Cjxwb2x5bGluZSBwb2ludHM9Ijc1LDE4MCAxMTUsMTUwIDE1NSwxMjAgMTk1LDg1IDIzNSw1NSAyNzUsMzUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRFNzlBNyIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KPGNpcmNsZSBjeD0iNzUiIGN5PSIxODAiIHI9IjMuNSIgZmlsbD0iIzRFNzlBNyIvPgo8Y2lyY2xlIGN4PSIxMTUiIGN5PSIxNTAiIHI9IjMuNSIgZmlsbD0iIzRFNzlBNyIvPgo8Y2lyY2xlIGN4PSIxNTUiIGN5PSIxMjAiIHI9IjMuNSIgZmlsbD0iIzRFNzlBNyIvPgo8Y2lyY2xlIGN4PSIxOTUiIGN5PSI4NSIgcj0iMy41IiBmaWxsPSIjNEU3OUE3Ii8+CjxjaXJjbGUgY3g9IjIzNSIgY3k9IjU1IiByPSIzLjUiIGZpbGw9IiM0RTc5QTciLz4KPGNpcmNsZSBjeD0iMjc1IiBjeT0iMzUiIHI9IjMuNSIgZmlsbD0iIzRFNzlBNyIvPgo8dGV4dCB4PSI3NSIgeT0iMjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzg4OCI+SmFuPC90ZXh0Pgo8dGV4dCB4PSIxMTUiIHk9IjIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM4ODgiPk1hcjwvdGV4dD4KPHRleHQgeD0iMTU1IiB5PSIyMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSIjODg4Ij5NYXk8L3RleHQ+Cjx0ZXh0IHg9IjE5NSIgeT0iMjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzg4OCI+SnVsPC90ZXh0Pgo8dGV4dCB4PSIyMzUiIHk9IjIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM4ODgiPk9jdDwvdGV4dD4KPHRleHQgeD0iMjc1IiB5PSIyMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSIjODg4Ij5EZWM8L3RleHQ+Cjx0ZXh0IHg9IjE2NSIgeT0iMjM4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzk5OSI+4oC7IEZlYiwgQXBy562J44Gu5qyg5pCN5pyI44GM6Kmw44KB44KJ44KM44Gm44GE44KLPC90ZXh0Pgo8L2c+Cjx0ZXh0IHg9IjM1MCIgeT0iMTY1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiM0RTc5QTciPuKGkjwvdGV4dD4KPCEtLSBBZnRlcjogY29udGludW91cyAtLT4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzY1LDM1KSI+Cjx0ZXh0IHg9IjE2NSIgeT0iMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzU5QTE0RiIgZm9udC13ZWlnaHQ9ImJvbGQiPkFmdGVyOiDpgKPntprvvIjnt5Hjg5Tjg6vvvIk8L3RleHQ+CjxyZWN0IHg9IjIwIiB5PSIxOCIgd2lkdGg9IjI5MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNEREQiIHJ4PSIzIi8+CjxsaW5lIHgxPSI0NSIgeTE9IjI1IiB4Mj0iNDUiIHkyPSIyMTAiIHN0cm9rZT0iI0NDQyIvPgo8bGluZSB4MT0iNDUiIHkxPSIyMTAiIHgyPSIzMDAiIHkyPSIyMTAiIHN0cm9rZT0iI0NDQyIvPgo8cG9seWxpbmUgcG9pbnRzPSI2MCwxODAgODAsMTgwIDEwMCwxNTAgMTIwLDE1MCAxNDAsMTIwIDE2MCwxMjAgMTgwLDg1IDIwMCw4NSAyNDAsODUgMjYwLDU1IDI4MCwzNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNTlBMTRGIiBzdHJva2Utd2lkdGg9IjIuNSIvPgo8Y2lyY2xlIGN4PSI2MCIgY3k9IjE4MCIgcj0iMy41IiBmaWxsPSIjNTlBMTRGIi8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjE1MCIgcj0iMy41IiBmaWxsPSIjNTlBMTRGIi8+CjxjaXJjbGUgY3g9IjE0MCIgY3k9IjEyMCIgcj0iMy41IiBmaWxsPSIjNTlBMTRGIi8+CjxjaXJjbGUgY3g9IjE4MCIgY3k9Ijg1IiByPSIzLjUiIGZpbGw9IiM1OUExNEYiLz4KPGNpcmNsZSBjeD0iMjYwIiBjeT0iNTUiIHI9IjMuNSIgZmlsbD0iIzU5QTE0RiIvPgo8Y2lyY2xlIGN4PSIyODAiIGN5PSIzNSIgcj0iMy41IiBmaWxsPSIjNTlBMTRGIi8+Cjx0ZXh0IHg9IjYwIiB5PSIyMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSIjODg4Ij5KYW48L3RleHQ+Cjx0ZXh0IHg9IjgwIiB5PSIyMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSIjODg4Ij5GZWI8L3RleHQ+Cjx0ZXh0IHg9IjEwMCIgeT0iMjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzg4OCI+TWFyPC90ZXh0Pgo8dGV4dCB4PSIxNDAiIHk9IjIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM4ODgiPk1heTwvdGV4dD4KPHRleHQgeD0iMTgwIiB5PSIyMjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSIjODg4Ij5KdWw8L3RleHQ+Cjx0ZXh0IHg9IjI2MCIgeT0iMjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOCIgZmlsbD0iIzg4OCI+T2N0PC90ZXh0Pgo8dGV4dCB4PSIyODAiIHk9IjIyMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjgiIGZpbGw9IiM4ODgiPkRlYzwvdGV4dD4KPHRleHQgeD0iMTY1IiB5PSIyMzgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI5IiBmaWxsPSIjOTk5Ij7igLsg5qyg5pCN5pyI44GM44Ku44Oj44OD44OX44Go44GX44Gm6KGo56S644GV44KM44KLPC90ZXh0Pgo8L2c+Cjwvc3ZnPg=="
+    "image": ""
   },
   {
     "id": 59,
@@ -873,15 +873,15 @@ const allQuestions = [
   },
   {
     "id": 61,
-    "question": "新しい項目を作成せずに、ディメンションの値を変更する必要があります。何をすべきですか?",
+    "question": "データアナリストが、データペインで都道府県フィールドの複数の値を「東日本」「西日本」のようにカテゴリ分けしたいと考えています。グループとセットの違いとして正しいものはどれですか？",
     "options": [
-      "A. 項目名を変更する",
-      "B. エイリアスを作成する",
-      "C. グループを作成する",
-      "D. 項目を変換する"
+      "A. グループは複数の値をまとめて新しいカテゴリを作成し、セットはIn/Outの2つに分類する",
+      "B. セットは複数の値をまとめて新しいカテゴリを作成し、グループはIn/Outの2つに分類する",
+      "C. グループもセットも全く同じ機能である",
+      "D. グループは計算フィールドでのみ作成でき、セットはUIからのみ作成できる"
     ],
-    "answer": "B",
-    "explanation": "A. 項目名を変更する - 項目名を変更することは、ディメンションの個々の値（メンバー）ではなく、項目（列）の名前自体を変更する操作です。\nB. エイリアスを作成する - 正解です。エイリアスは、ディメンションの特定のメンバー（値）の表示名を、基になるデータを変更したり新しい項目を作成したりすることなく変更する機能です。\nC. グループを作成する - グループを作成すると、複数のディメンションメンバーを1つのカテゴリにまとめることができますが、これによりデータペインに新しい「グループ」項目が作成されます。\nD. 項目を変換する - 「項目を変換する」はTableauの特定の機能名ではありません。データソースペインでのピボットや分割などの操作を指す可能性がありますが、これらはエイリアスとは異なる操作です。",
+    "answer": "A",
+    "explanation": "A. グループは複数の値をまとめて新しいカテゴリを作成し、セットはIn/Outの2つに分類する - 正解です。グループはディメンションの値を複数のカテゴリにまとめます（例：東京・神奈川→関東）。セットは条件に基づいてメンバーを「内（In）」と「外（Out）」の2グループに分類します。\nB. セットは複数の値をまとめて新しいカテゴリを作成し、グループはIn/Outの2つに分類する - グループとセットの説明が逆です。\nC. グループもセットも全く同じ機能である - 異なる機能です。グループは複数カテゴリ、セットは2値分類です。\nD. グループは計算フィールドでのみ作成でき、セットはUIからのみ作成できる - どちらもUIから作成可能です。",
     "category": "データ操作"
   },
   {
@@ -913,55 +913,54 @@ const allQuestions = [
   },
   {
     "id": 64,
-    "question": "1つのシートを持つ次のタイル表示のダッシュボードがあります。このシートをSheet2に置き換えたいと考えています。何をすべきですか?",
+    "question": "データアナリストが、ダッシュボード上で3つのチャートを配置しています。1つ目と2つ目は横並び、3つ目はその下に全幅で配置したいと考えています。正しいコンテナ構成はどれですか？",
     "options": [
-      "A. Sheet3を選択し、Sheet2の横にある [シートの置換] ボタンをクリックします。",
-      "B. Sheet2を右クリックし、[ダッシュボードに追加] を選択します。",
-      "C. Sheet3のコンテキストメニューから、[選択解除] を選択します。",
-      "D. Sheet2をダッシュボードにドラッグします。",
-      "E. Sheet3のコンテキストメニューから、[ダッシュボードアイテムの削除] を選択します。"
+      "A. 垂直コンテナの中に、水平コンテナ（チャート1+2）とチャート3を配置する",
+      "B. 水平コンテナの中に、すべてのチャートを配置する",
+      "C. 垂直コンテナの中に、すべてのチャートを配置する",
+      "D. 浮動レイアウトですべて配置する"
     ],
-    "answer": "D",
-    "explanation": "A. Sheet3を選択し、Sheet2の横にある [シートの置換] ボタンをクリックします。 - ダッシュボード上のSheet3オブジェクトを選択すると、シートリスト（左側）のSheet2の横に [シートの置換] アイコンが表示されます。これをクリックしてもシートを置き換えることは可能ですが、Dのドラッグアンドドロップがより一般的で直接的な操作です。\nB. Sheet2を右クリックし、[ダッシュボードに追加] を選択します。 - シートリスト（左側）のSheet2を右クリックしても、[ダッシュボードに追加] というメニューオプションは存在しません。\nC. Sheet3のコンテキストメニューから、[選択解除] を選択します。 - [選択解除] は、ダッシュボード上のオブジェクトの選択を解除する操作であり、シートの置き換えとは関係ありません。\nD. Sheet2をダッシュボードにドラッグします。 - 正解です。タイル表示のダッシュボードでは、シートリストから新しいシート（Sheet2）をドラッグし、ダッシュボード上の既存のシート（Sheet3）の上にドロップすると、そのシートがSheet2に置き換わります。\nE. Sheet3のコンテキストメニューから、[ダッシュボードアイテムの削除] を選択します。 - この操作は、Sheet3をダッシュボードから削除するだけです。Sheet2による置き換えは行われず、そのスペースは空になるか、他のタイルがリサイズされます。",
+    "answer": "A",
+    "explanation": "A. 垂直コンテナの中に、水平コンテナ（チャート1+2）とチャート3を配置する - 正解です。外側の垂直コンテナが上下の配置を制御し、内側の水平コンテナがチャート1と2の横並びを実現します。チャート3は垂直コンテナの下段に配置され、全幅で表示されます。\nB. 水平コンテナの中に、すべてのチャートを配置する - 水平コンテナは横並び配置のため、3つ目を下に配置できません。\nC. 垂直コンテナの中に、すべてのチャートを配置する - 垂直コンテナだけでは1と2が横並びになりません。\nD. 浮動レイアウトですべて配置する - 浮動は自由配置が可能ですが、リサイズ時の自動調整ができず、タイルコンテナの方が推奨されます。",
     "category": "ダッシュボード"
   },
   {
     "id": 65,
-    "question": "同僚が、以下のファイルを含むフォルダへのアクセスを提供します:\nSales.csv\nBook1.twb\nSales.hyper\nExport.mdb\nどのファイルが抽出ファイルを含んでいますか?",
+    "question": "データアナリストが、データソースの接続情報とフィールドのカスタマイズ（名前の変更、計算フィールド、デフォルト書式設定など）を保存して他のチームメンバーと共有したいと考えています。データ自体は含めません。保存すべきファイル形式はどれですか？",
     "options": [
-      "A. Export.mdb",
-      "B. Book1.twb",
-      "C. Sales.hyper",
-      "D. Sales.csv"
+      "A. .twb（Tableauワークブック）",
+      "B. .tds（Tableauデータソース）",
+      "C. .hyper（Tableau抽出）",
+      "D. .twbx（パッケージドワークブック）"
     ],
-    "answer": "C",
-    "explanation": "A. Export.mdb - これはMicrosoft Accessデータベースファイル（.mdb）の拡張子です。これはTableauが接続できるデータソースの一つですが、Tableau抽出ファイルではありません。\nB. Book1.twb - これはTableauワークブックファイル（.twb）です。ワークシートやダッシュボードの構成（設計図）を保存するファイルであり、データそのものは含まれません。\nC. Sales.hyper - 正解です。.hyperは、Tableauの高性能なデータ抽出ファイル形式の拡張子です。これはデータソースのデータのスナップショット（コピー）を保存したファイルです。\nD. Sales.csv - これはカンマ区切り値ファイル（.csv）の拡張子です。これは一般的なテキストベースのデータソースファイルであり、Tableau抽出ファイルではありません。",
+    "answer": "B",
+    "explanation": "A. .twb（Tableauワークブック） - .twbファイルはワークブック全体（シート、ダッシュボード構成）を保存しますが、データソースのカスタマイズのみを共有する目的には大きすぎます。\nB. .tds（Tableauデータソース） - 正解です。.tdsファイルはデータソースの接続情報、フィールドのカスタマイズ（名前変更、計算フィールド、デフォルト書式等）をXML形式で保存します。データ自体は含まれず、軽量で共有に適しています。\nC. .hyper（Tableau抽出） - .hyperファイルはデータそのものを含む抽出ファイルであり、接続設定やカスタマイズの保存ファイルではありません。\nD. .twbx（パッケージドワークブック） - .twbxはワークブックとデータをパッケージ化したファイルです。データソース設定のみの共有には不適切です。",
     "category": "ファイル形式"
   },
   {
     "id": 66,
-    "question": "データアナリストが、軸に沿ったメジャー値の分布とばらつきを視覚化するために使用すべきものは何ですか?",
+    "question": "データアナリストが、顧客の購入金額の分布を確認するためにヒストグラムを作成したいと考えています。ヒストグラムを作成するために最初に必要な手順はどれですか？",
     "options": [
-      "A. 散布図",
-      "B. ブレットグラフ",
-      "C. ヒストグラム",
-      "D. 箱ひげ図"
+      "A. メジャーフィールドからビンを作成する",
+      "B. ディメンションフィールドをグループ化する",
+      "C. 計算フィールドでIF文を使って分類する",
+      "D. 棒グラフを作成してからビンを追加する"
     ],
-    "answer": "D",
-    "explanation": "A. 散布図 - 散布図は、通常2つの異なるメジャー（量的変数）間の関係性や相関を視覚化するために使用されます。単一メジャーの分布やばらつきを示すのには適していません。\nB. ブレットグラフ - ブレットグラフは、メジャーの値（例：実績）を目標値やベンチマークと比較するために設計されたグラフです。分布やばらつきの分析には使用されません。\nC. ヒストグラム - ヒストグラムは、メジャーの値がどの範囲（ビン）にどれだけの頻度で出現するかを示す、データの「分布」を視覚化するのに適しています。しかし、「ばらつき」（四分位数など）を明確に示すには箱ひげ図の方が適しています。\nD. 箱ひげ図 - 正解です。箱ひげ図（ボックスプロット）は、データの「分布」と「ばらつき」の両方を視覚化するために特別に設計されています。中央値、四分位数範囲（箱）、最小値と最大値（ひげ）、および外れ値を効率的に表示します。",
+    "answer": "A",
+    "explanation": "A. メジャーフィールドからビンを作成する - 正解です。ヒストグラムを作成するには、まず連続値のメジャー（例：購入金額）を右クリック→「作成」→「ビン」でビンを作成します。ビンサイズを指定すると、データが均等な範囲のグループに分割されます。\nB. ディメンションフィールドをグループ化する - グループ化は離散値の手動分類であり、連続値の自動区間分割（ビン）とは異なります。\nC. 計算フィールドでIF文を使って分類する - IF文での手動分類も可能ですが、ビン機能の方がはるかに簡単です。\nD. 棒グラフを作成してからビンを追加する - 手順が逆です。まずビンを作成し、それを使ってヒストグラムを構築します。",
     "category": "ビジュアライゼーション"
   },
   {
     "id": 67,
-    "question": "データセットに、データアナリストが不要なセミコロンを含む 'Name' という名前の文字列項目を持っています。アナリストが 'Name' 項目からセミコロンを削除するために使用すべき関数はどれですか?",
+    "question": "データアナリストが、文字列フィールドの値が「 Tokyo 」のように前後にスペースを含んでいることに気づきました。先頭と末尾の両方のスペースを一度に削除するために使用すべき関数はどれですか？",
     "options": [
-      "A. SPLIT",
-      "B. REPLACE",
-      "C. CONTAINS",
-      "D. FIND"
+      "A. LTRIM([City])",
+      "B. RTRIM([City])",
+      "C. TRIM([City])",
+      "D. REPLACE([City], ' ', '')"
     ],
-    "answer": "B",
-    "explanation": "A. SPLIT - SPLIT関数は、指定された区切り文字（この場合はセミコロン）に基づいて文字列を複数の部分に分割するために使用されます。文字列からセミコロンを削除（置換）するのとは異なります。\nB. REPLACE - 正解です。REPLACE関数は、文字列内にある特定の部分文字列を、別の文字列に置き換えるために使用されます。セミコロンを削除するには、REPLACE([Name], \";\", \"\") のように、セミコロン（\";\"）を空の文字列（\"\"）に置き換えることで実現できます。\nC. CONTAINS - CONTAINS関数は、文字列内に特定の部分文字列が含まれているかどうかを判定し、True（真）またはFalse（偽）のブール値を返す関数です。文字列を削除・変更する機能はありません。\nD. FIND - FIND関数は、文字列内で特定の部分文字列が最初に出現する位置（インデックス）を返す関数です。文字列を削除・変更する機能はありません。",
+    "answer": "C",
+    "explanation": "A. LTRIM([City]) - LTRIM関数は先頭（左側）のスペースのみを削除します。末尾のスペースは残ります。\nB. RTRIM([City]) - RTRIM関数は末尾（右側）のスペースのみを削除します。先頭のスペースは残ります。\nC. TRIM([City]) - 正解です。TRIM関数は文字列の先頭と末尾の両方のスペースを削除します。文字列中間のスペースには影響しません。\nD. REPLACE([City], ' ', '') - REPLACE関数はすべてのスペースを削除してしまうため、「New York」が「NewYork」になるなど、意図しない結果になります。",
     "category": "計算・関数"
   },
   {
@@ -984,20 +983,16 @@ const allQuestions = [
   },
   {
     "id": 69,
-    "question": "Tableau Prepを使用してデータベースサーバーに接続します。データベースサーバーにはRole1という名前のデータ役割があります。Role1データ役割をMaterial項目に適用する必要があります。どの2つのアクションを実行する必要がありますか?(2つ選択)",
+    "question": "データアナリストが、Tableau Prep Builderでデータクレンジングを完了しました。結果を出力する際、同僚がTableau Desktopで直接使用できるファイル形式はどれですか？",
     "options": [
-      "A. Materialの [その他のアクション] メニューから、[値の表示] セクションで [有効] を選択します。",
-      "B. Material項目のデータ型で、[カスタム] を選択し、次に [Role1] を選択します。",
-      "C. Materialの [その他のアクション] メニューから、[値のグループ化] を選択し、[スペル] を選択します。",
-      "D. Materialの [その他のアクション] メニューから、選択した値をフィルターします。"
+      "A. .csv（カンマ区切りファイル）",
+      "B. .hyper（Tableau抽出ファイル）",
+      "C. .xlsx（Excelファイル）",
+      "D. AとBの両方"
     ],
-    "answer": "",
-    "correctAnswers": [
-      "B",
-      "C"
-    ],
+    "answer": "D",
     "multiSelect": true,
-    "explanation": "A. Materialの [その他のアクション] メニューから、[値の表示] セクションで [有効] を選択します。 - これは、データ役割に対して有効な値または無効な値を表示（ハイライト）する機能であり、データ役割を適用したり、無効な値を修正したりするアクションそのものではありません。\nB. Material項目のデータ型で、[カスタム] を選択し、次に [Role1] を選択します。 - 正解です。Tableau Prepでデータ役割を適用する最初のステップは、プロファイルペインで項目のデータ型（例：文字列）をクリックし、それを目的のデータ役割（この場合はカスタムのRole1）に変更することです。\nC. Materialの [その他のアクション] メニューから、[値のグループ化] を選択し、[スペル] を選択します。 - 正解です。データ役割（B）を適用すると、その役割の標準リストに一致しない値が「無効」として識別されます。[値のグループ化] 機能（特に「スペル」などの自動検出オプション）は、これらの無効な値を、Role1で定義された有効な値に修正・マッピングするために使用されます。\nD. Materialの [その他のアクション] メニューから、選択した値をフィルターします。 - フィルターは、データをフローから除外する（削除する）操作です。これは、無効なデータを有効な値に修正して標準化する「データ役割の適用」の目的とは異なります。",
+    "explanation": "A. .csv（カンマ区切りファイル） - Tableau Prepは.csvファイルとして出力可能で、Tableau Desktopで接続できます。\nB. .hyper（Tableau抽出ファイル） - Tableau Prepは.hyperファイルとして出力可能で、Tableau Desktopで直接開けます。パフォーマンスも優れています。\nC. .xlsx（Excelファイル） - Tableau Prepの標準出力形式にExcelファイルは含まれません。\nD. AとBの両方 - 正解です。Tableau Prepは「ファイルに出力」で.csvと.hyperの両方を出力でき、どちらもTableau Desktopで使用可能です。",
     "category": "Tableau Prep"
   },
   {
@@ -1041,15 +1036,15 @@ const allQuestions = [
   },
   {
     "id": 73,
-    "question": "図書館の書籍に関するデータを含む、次の2つのテーブルがあります。両方のテーブルは不完全であり、テーブルから欠落している書籍があります。テーブルを結合する必要があります。この解決策では、すべてのデータが保持されるようにする必要があります。どのタイプの結合を使用すべきですか?",
+    "question": "Tableau Desktopでデータモデルを構築する際、2つのテーブル間にリレーションシップを作成しました。リレーションシップに関する記述として正しいものはどれですか？",
     "options": [
-      "A. 完全外部結合",
-      "B. 右結合",
-      "C. 左結合",
-      "D. 内部結合"
+      "A. リレーションシップでは内部結合・左結合などの結合タイプを明示的に指定する必要がある",
+      "B. リレーションシップは常にすべてのテーブルのデータを事前に結合する",
+      "C. リレーションシップはクエリ実行時に必要な結合を自動的に判断して実行する",
+      "D. リレーションシップでは1つのテーブルからしかフィールドを使用できない"
     ],
-    "answer": "A",
-    "explanation": "A. 完全外部結合 - 正解です。完全外部結合は、両方のテーブルのすべての行（一致する行も、どちらか一方にしか存在しない行も）を含みます。「両方のテーブルが不完全」であり、「すべてのデータが保持される」必要があるため、これが適切な結合タイプです。\nB. 右結合 - 右結合は、右側（2番目）のテーブルのすべての行と、左側（1番目）のテーブルの一致する行のみを含みます。左側のテーブルにしか存在しない書籍データは失われてしまいます。\nC. 左結合 - 左結合は、左側（1番目）のテーブルのすべての行と、右側（2番目）のテーブルの一致する行のみを含みます。右側のテーブルにしか存在しない書籍データは失われてしまいます。\nD. 内部結合 - 内部結合は、両方のテーブルに共通して存在する（一致する）行のみを含みます。どちらか一方のテーブルにしか存在しない書籍データはすべて失われてしまいます。",
+    "answer": "C",
+    "explanation": "A. リレーションシップでは内部結合・左結合などの結合タイプを明示的に指定する必要がある - 誤りです。リレーションシップでは結合タイプの指定は不要で、Tableauがクエリに基づいて最適な結合を自動選択します。\nB. リレーションシップは常にすべてのテーブルのデータを事前に結合する - 誤りです。リレーションシップは遅延評価（Lazy Evaluation）を行い、ビューで必要なデータのみを取得します。\nC. リレーションシップはクエリ実行時に必要な結合を自動的に判断して実行する - 正解です。リレーションシップはテーブル間の論理的関係を定義するだけで、実際の結合はビューの構成に基づいて実行時に自動決定されます。\nD. リレーションシップでは1つのテーブルからしかフィールドを使用できない - 誤りです。関連するすべてのテーブルのフィールドをビューで自由に使用できます。",
     "category": "データ接続"
   },
   {
@@ -1086,61 +1081,56 @@ const allQuestions = [
   },
   {
     "id": 76,
-    "question": "データアナリストが、いくつかのビューをサブスクライブしています。アナリストは、それらのビューのサブスクライブを解除する必要があります。アナリストは何を使用すべきですか?",
+    "question": "Tableau Server上で、あるユーザーがパブリッシュ済みのワークブックを閲覧し、フィルターを操作できるが、ワークブック自体の編集はできないようにしたいと考えています。割り当てるべきサイトロールはどれですか？",
     "options": [
-      "A. Tableau Desktopの [データソース] ページ",
-      "B. [自分と共有] ページ",
-      "C. Tableau Prepの [通知] エリア",
-      "D. Tableau Server / Cloudの [マイコンテンツ] エリア"
+      "A. Creator",
+      "B. Explorer",
+      "C. Viewer",
+      "D. Unlicensed"
     ],
-    "answer": "D",
-    "explanation": "A. Tableau Desktopの [データソース] ページ - Tableau Desktopはワークブックの作成・編集用アプリケーションであり、[データソース] ページはデータ接続を管理する場所です。Tableau Server/Cloud上のサブスクリプション管理は行えません。\nB. [自分と共有] ページ - [自分と共有] ページは、他のユーザーがあなたと共有したコンテンツを表示する場所であり、自分が登録したサブスクリプションを管理する場所ではありません。\nC. Tableau Prepの [通知] エリア - Tableau Prepはデータ準備（ETL）ツールであり、ビューのサブスクリプション管理機能はありません。\nD. Tableau Server / Cloudの [マイコンテンツ] エリア - 正解です。Tableau ServerまたはTableau CloudのWebページにサインインし、自分のアカウント設定や [マイコンテンツ] エリアにアクセスすると、現在自分がサブスクライブしているコンテンツのリストがあり、そこからサブスクリプションを解除できます。",
+    "answer": "C",
+    "explanation": "A. Creator - Creatorはワークブックの作成・編集・パブリッシュ、データソースの管理、Prepフローの実行など最も広い権限を持ちます。閲覧のみの要件には過剰です。\nB. Explorer - Explorerはワークブックの閲覧に加え、Web編集も可能です。閲覧のみの要件にはExplorerの権限は過剰です。\nC. Viewer - 正解です。Viewerロールはパブリッシュされたビューの閲覧、フィルター操作、データのダウンロード、サブスクリプション・アラートの設定が可能ですが、ワークブックの編集はできません。\nD. Unlicensed - Unlicensedユーザーはサーバーにログインできず、一切のコンテンツにアクセスできません。",
     "category": "Tableau Server/Cloud"
   },
   {
     "id": 77,
-    "question": "Microsoft Wordで年次報告書を作成しています。Tableau Desktopで、ワークシートにチャートを作成しました。年次報告書に追加できるチャートの画像を作成したいと考えています。画像を作成する2つの方法は何ですか?(2つ選択)",
+    "question": "データアナリストが、Tableau Desktopで作成したビューの基になるデータをExcelファイルとしてエクスポートしたいと考えています。使用すべき操作はどれですか？",
     "options": [
-      "A. [ワークシート] メニューから、[エクスポート] オプションを使用します。",
-      "B. [ワークシート] メニューから、[コピー] オプションを使用します。",
-      "C. [ファイル] メニューから、[バージョンとしてエクスポート] オプションを使用します。",
-      "D. [ダッシュボード] メニューから、[イメージをエクスポート] オプションを使用します。",
-      "E. [ダッシュボード] メニューから、[イメージをコピー] オプションを使用します。"
+      "A. 「ワークシート」メニュー→「エクスポート」→「クロス集計としてExcelへ」",
+      "B. 「ファイル」メニュー→「名前を付けて保存」→ .xlsx形式を選択",
+      "C. 「データ」メニュー→「データのエクスポート」",
+      "D. 「ワークシート」メニュー→「コピー」→「データ」"
     ],
-    "answer": "",
-    "correctAnswers": [
-      "A",
-      "B"
-    ],
+    "answer": "A",
     "multiSelect": true,
-    "explanation": "A. [ワークシート] メニューから、[エクスポート] オプションを使用します。 - 正解です。[ワークシート] > [エクスポート] > [イメージ] を選択すると、チャートを画像ファイル（.pngなど）として保存できます。その後、そのファイルをWord文書に挿入できます。\nB. [ワークシート] メニューから、[コピー] オプションを使用します。 - 正解です。[ワークシート] > [コピー] > [イメージ] を選択すると、チャートが画像としてクリップボードにコピーされ、Word文書に直接貼り付けることができます。\nC. [ファイル] メニューから、[バージョンとしてエクスポート] オプションを使用します。 - [ファイル] メニューの [バージョンとしてエクスポート] オプションは、ワークブックを以前のTableauバージョン形式で保存するための機能であり、チャートを画像として作成するものではありません。\nD. [ダッシュボード] メニューから、[イメージをエクスポート] オプションを使用します。 - [ダッシュボード] メニューの [イメージをエクスポート] オプションは、ダッシュボード全体をエクスポートする際に使用します。問題は「ワークシート」で作成されたチャートについて尋ねているため、これは適切なメニューではありません。\nE. [ダッシュボード] メニューから、[イメージをコピー] オプションを使用します。 - [ダッシュボード] メニューの [イメージをコピー] オプションは、ダッシュボード全体をコピーする際に使用します。問題は「ワークシート」について尋ねているため、これは適切なメニューではありません。",
+    "explanation": "A. 「ワークシート」メニュー→「エクスポート」→「クロス集計としてExcelへ」 - 正解です。この操作でビューに表示されているデータがExcelのクロス集計形式（表形式）でエクスポートされます。\nB. 「ファイル」メニュー→「名前を付けて保存」→ .xlsx形式を選択 - Tableau Desktopの「名前を付けて保存」はTableauワークブック形式(.twb/.twbx)の保存であり、Excel形式での保存はできません。\nC. 「データ」メニュー→「データのエクスポート」 - 「データ」メニューにはデータソースの管理機能がありますが、ビューデータのExcelエクスポートは「ワークシート」メニューから行います。\nD. 「ワークシート」メニュー→「コピー」→「データ」 - 「コピー」→「データ」はクリップボードへのコピーであり、ファイルとしての保存ではありません。",
     "category": "エクスポート"
   },
   {
     "id": 78,
-    "question": "次のデータセットがあります。Calculation項目に示されているように、前年の同じ四半期と比較した売上のパーセント差異を計算する式はどれですか?",
+    "question": "データアナリストが、カテゴリ別の売上棒グラフで、各棒の上に「全カテゴリの合計に対する割合」をラベル表示したいと考えています。テーブル計算を使用する場合、適切な関数はどれですか？",
     "options": [
-      "A. (SUM ([Sales]) - LOOKUP (SUM ( [Sales]), -4))",
-      "B. (SUM ([Sales]) - LOOKUP (SUM ([Sales]), -4) ) / (LOOKUP (SUM ([Sales]), -4) )",
-      "C. (SUM([Sales]) / (LOOKUP (SUM ([Sales]), -4))",
-      "D. (ZN (SUM ([Sales]) ) - LOOKUP (ZN (SUM ([Sales]) ), -4) )"
+      "A. SUM([Sales]) / TOTAL(SUM([Sales]))",
+      "B. SUM([Sales]) / WINDOW_SUM(SUM([Sales]), FIRST(), LAST())",
+      "C. RUNNING_SUM(SUM([Sales])) / SUM([Sales])",
+      "D. AとBの両方が同じ結果を返す"
     ],
-    "answer": "B",
-    "explanation": "A. (SUM ([Sales]) - LOOKUP (SUM ( [Sales]), -4)) - この式は、現在の売上 (SUM([Sales])) と前年同期（-4四半期前）の売上 (LOOKUP) との「絶対差」を計算しますが、要件である「パーセント差異」（増減率）は計算しません。\nB. (SUM ([Sales]) - LOOKUP (SUM ([Sales]), -4) ) / (LOOKUP (SUM ([Sales]), -4) ) - 正解です。これは (現在値 - 過去値) / 過去値 というパーセント差異（増減率）の標準的な計算式です。LOOKUP(..., -4) は、データが四半期ごとであるため、前年の同じ四半期の値を正しく参照します。\nC. (SUM([Sales]) / (LOOKUP (SUM ([Sales]), -4)) - この式は、現在値が過去値の何倍か（比率）を計算しますが、「パーセント差異」（例：5%増）は計算しません。\nD. (ZN (SUM ([Sales]) ) - LOOKUP (ZN (SUM ([Sales]) ), -4) ) - ZN関数はNULLを0に変換するのに役立ちますが、この式は選択肢Aと同様に「絶対差」を計算するだけであり、分母 (LOOKUP(...)) で割る計算が含まれていないため、「パーセント差異」にはなりません。",
+    "answer": "D",
+    "explanation": "A. SUM([Sales]) / TOTAL(SUM([Sales])) - TOTAL関数はパーティション全体の合計を返すため、各カテゴリの売上を全体合計で割った割合が計算されます。\nB. SUM([Sales]) / WINDOW_SUM(SUM([Sales]), FIRST(), LAST()) - WINDOW_SUM関数でFIRST()からLAST()までの範囲を指定すると、パーティション全体の合計が返されます。Aと同じ結果になります。\nC. RUNNING_SUM(SUM([Sales])) / SUM([Sales]) - 累計を現在値で割る計算であり、合計に対する割合ではありません。\nD. AとBの両方が同じ結果を返す - 正解です。TOTALとWINDOW_SUM(FIRST(), LAST())はどちらもパーティション全体の合計を返すため、同じ割合計算の結果になります。",
     "category": "表計算",
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MDAgMjAwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjIwMCI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjVGNUY1IiByeD0iNiIvPgo8dGV4dCB4PSIyNTAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiMzMzMiIGZvbnQtd2VpZ2h0PSJib2xkIj7lm5vljYrmnJ/liKXlo7LkuIogLSDliY3lubTlkIzmnJ/mr5Tjg5Hjg7zjgrvjg7Pjg4jlt648L3RleHQ+CjxyZWN0IHg9IjIwIiB5PSIzNSIgd2lkdGg9IjQ2MCIgaGVpZ2h0PSIxNTAiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNEREQiIHJ4PSI0Ii8+CjxyZWN0IHg9IjIwIiB5PSIzNSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIyNCIgZmlsbD0iIzFCM0E1QyIvPgo8cmVjdCB4PSIxMjAiIHk9IjM1IiB3aWR0aD0iOTAiIGhlaWdodD0iMjQiIGZpbGw9IiMxQjNBNUMiLz4KPHJlY3QgeD0iMjEwIiB5PSIzNSIgd2lkdGg9IjkwIiBoZWlnaHQ9IjI0IiBmaWxsPSIjMUIzQTVDIi8+CjxyZWN0IHg9IjMwMCIgeT0iMzUiIHdpZHRoPSI5MCIgaGVpZ2h0PSIyNCIgZmlsbD0iIzFCM0E1QyIvPgo8cmVjdCB4PSIzOTAiIHk9IjM1IiB3aWR0aD0iOTAiIGhlaWdodD0iMjQiIGZpbGw9IiMxQjNBNUMiLz4KPHRleHQgeD0iNzAiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IndoaXRlIiBmb250LXdlaWdodD0iYm9sZCI+UXVhcnRlcjwvdGV4dD4KPHRleHQgeD0iMTY1IiB5PSI1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgZm9udC13ZWlnaHQ9ImJvbGQiPlllYXI8L3RleHQ+Cjx0ZXh0IHg9IjI1NSIgeT0iNTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0id2hpdGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5TYWxlczwvdGV4dD4KPHRleHQgeD0iMzQ1IiB5PSI1MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZpbGw9IndoaXRlIiBmb250LXdlaWdodD0iYm9sZCI+UHJldiBZZWFyPC90ZXh0Pgo8dGV4dCB4PSI0MzUiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0id2hpdGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5DYWxjdWxhdGlvbjwvdGV4dD4KPCEtLSBEYXRhIHJvd3MgLS0+Cjx0ZXh0IHg9IjcwIiB5PSI3NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj5RMTwvdGV4dD4KPHRleHQgeD0iMTY1IiB5PSI3NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj4yMDIyPC90ZXh0Pgo8dGV4dCB4PSIyNTUiIHk9Ijc2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzMzMiPiQxMCwwMDA8L3RleHQ+Cjx0ZXh0IHg9IjM0NSIgeT0iNzYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzk5OSI+LTwvdGV4dD4KPHRleHQgeD0iNDM1IiB5PSI3NiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjOTk5Ij4tPC90ZXh0PgoKPHRleHQgeD0iNzAiIHk9Ijk4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzMzMiPlEyPC90ZXh0Pgo8dGV4dCB4PSIxNjUiIHk9Ijk4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzMzMiPjIwMjI8L3RleHQ+Cjx0ZXh0IHg9IjI1NSIgeT0iOTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+JDEyLDAwMDwvdGV4dD4KPHRleHQgeD0iMzQ1IiB5PSI5OCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjOTk5Ij4tPC90ZXh0Pgo8dGV4dCB4PSI0MzUiIHk9Ijk4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM5OTkiPi08L3RleHQ+Cgo8dGV4dCB4PSI3MCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzMzMiPlExPC90ZXh0Pgo8dGV4dCB4PSIxNjUiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj4yMDIzPC90ZXh0Pgo8dGV4dCB4PSIyNTUiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj4kMTEsNTAwPC90ZXh0Pgo8dGV4dCB4PSIzNDUiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjODg4Ij4kMTAsMDAwPC90ZXh0Pgo8dGV4dCB4PSI0MzUiIHk9IjEyMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjNTlBMTRGIiBmb250LXdlaWdodD0iYm9sZCI+KzE1JTwvdGV4dD4KCjx0ZXh0IHg9IjcwIiB5PSIxNDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+UTI8L3RleHQ+Cjx0ZXh0IHg9IjE2NSIgeT0iMTQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzMzMiPjIwMjM8L3RleHQ+Cjx0ZXh0IHg9IjI1NSIgeT0iMTQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMzMzMiPiQxMywyMDA8L3RleHQ+Cjx0ZXh0IHg9IjM0NSIgeT0iMTQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM4ODgiPiQxMiwwMDA8L3RleHQ+Cjx0ZXh0IHg9IjQzNSIgeT0iMTQyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiM1OUExNEYiIGZvbnQtd2VpZ2h0PSJib2xkIj4rMTAlPC90ZXh0PgoKPHRleHQgeD0iNzAiIHk9IjE2NCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSIjMzMzIj5RMTwvdGV4dD4KPHRleHQgeD0iMTY1IiB5PSIxNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+MjAyNDwvdGV4dD4KPHRleHQgeD0iMjU1IiB5PSIxNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzMzMyI+JDEwLDgwMDwvdGV4dD4KPHRleHQgeD0iMzQ1IiB5PSIxNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzg4OCI+JDExLDUwMDwvdGV4dD4KPHRleHQgeD0iNDM1IiB5PSIxNjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iI0UxNTc1OSIgZm9udC13ZWlnaHQ9ImJvbGQiPi02LjElPC90ZXh0PgoKPHRleHQgeD0iMjUwIiB5PSIxOTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI5IiBmaWxsPSIjODg4Ij5DYWxjdWxhdGlvbiA9IChTYWxlcyAtIFByZXYgWWVhciBTYWxlcykgLyBQcmV2IFllYXIgU2FsZXMgw5cgMTAwPC90ZXh0Pgo8L3N2Zz4="
+    "image": ""
   },
   {
     "id": 79,
-    "question": "データアナリストは、どのような場合にTableauでツリーマップを使用すべきですか?",
+    "question": "データアナリストが、プロジェクトの各タスクの開始日と所要日数を視覚化し、タイムライン形式で表示したいと考えています。使用すべきチャートタイプはどれですか？",
     "options": [
-      "A. 時間経過に伴うメジャーの分布を分析するため",
-      "B. マップ内の異なる地域間でのメジャーの変化を視覚化するため",
-      "C. ネストされたカテゴリを持つ階層データを表示するため",
-      "D. 2つの連続変数間の相関関係を示すため"
+      "A. ガントチャート",
+      "B. ウォーターフォールチャート",
+      "C. エリアチャート",
+      "D. ブレットグラフ"
     ],
-    "answer": "C",
-    "explanation": "A. 時間経過に伴うメジャーの分布を分析するため - 時間経過（時系列）のデータを分析する場合、通常は線グラフやエリアチャートが使用されます。ツリーマップは時系列データの表示には適していません。\nB. マップ内の異なる地域間でのメジャーの変化を視覚化するため - 地理空間データをマップ上に表示し、地域ごとのメジャーを視覚化するには、塗りつぶしマップやシンボルマップが適しています。ツリーマップは地理的分析の標準的なチャートではありません。\nC. ネストされたカテゴリを持つ階層データを表示するため - 正解です。ツリーマップは、階層データ（例：カテゴリ > サブカテゴリ > 製品）を、ネストされた（入れ子になった）四角形として表示するのに最適です。各四角形のサイズと色でメジャーを表現できます。\nD. 2つの連続変数間の相関関係を示すため - 2つの連続（量的）変数間の関係性や相関を調査するには、散布図が最も適したチャートタイプです。ツリーマップはその目的には使用されません。",
+    "answer": "A",
+    "explanation": "A. ガントチャート - 正解です。ガントチャートは各タスクの開始日を基準に所要日数（期間）を水平バーで表示します。列に日付、行にタスク名、サイズに期間を配置し、マークタイプを「ガント」に設定します。\nB. ウォーターフォールチャート - ウォーターフォールチャートは値の累積的な増減を示すチャートであり、タスクのタイムライン表示には適していません。\nC. エリアチャート - エリアチャートは時間経過に伴うメジャーの変化を面積で表現しますが、個別タスクの期間表示には不向きです。\nD. ブレットグラフ - ブレットグラフは実績値と目標値の比較に使用され、タスクのスケジュール管理には適していません。",
     "category": "ビジュアライゼーション"
   },
   {
@@ -1165,17 +1155,17 @@ const allQuestions = [
   },
   {
     "id": 81,
-    "question": "時間経過に伴う利益と割引を示す次のチャートがあります。次のチャートに示すように、線を組み合わせる必要があります。何をすべきですか?",
+    "question": "データアナリストが、二重軸チャートを作成しましたが、2つの軸のスケールが異なるため、データの比較が困難です。2つの軸を同じスケールに合わせるために必要な操作はどれですか？",
     "options": [
-      "A. [Discount] を [マーク] カードの [色] にドラッグします",
-      "B. [Discount] を [不連続] に変換します",
-      "C. [Discount] を [二重軸] に設定します",
-      "D. [Discount] を [列] シェルフにドラッグします"
+      "A. 2番目の軸を右クリックして「軸の同期」を選択する",
+      "B. 両方の軸の範囲を手動で同じ値に設定する",
+      "C. マークタイプを両方とも「線」に変更する",
+      "D. メジャーを正規化する計算フィールドを作成する"
     ],
-    "answer": "C",
-    "explanation": "A. [Discount] を [マーク] カードの [色] にドラッグします - この操作は、既存のマーク（線）を [Discount] の値に基づいて色分けしますが、[Profit] と [Discount] という2つの異なるメジャーの線を1つのチャートに重ね合わせることはできません。\nB. [Discount] を [不連続] に変換します - メジャーを [不連続] に変換すると、連続的な軸ではなく、カテゴリカルなヘッダーが作成されます。これは、2つの線グラフを重ね合わせる方法ではありません。\nC. [Discount] を [二重軸] に設定します - 正解です。[行] シェルフに [Profit] と [Discount] の両方を配置し、一方のメジャーで [二重軸] を選択すると、2つの線が同じチャートエリアに（通常は左右に異なる軸スケールで）重ねて表示されます。\nD. [Discount] を [列] シェルフにドラッグします - [Discount] を [列] シェルフにドラッグすると、[Discount] の値がX軸（時間軸）に影響を与えてしまい、意図した2つの線の重ね合わせにはなりません。",
+    "answer": "A",
+    "explanation": "A. 2番目の軸を右クリックして「軸の同期」を選択する - 正解です。二重軸チャートで2番目の軸を右クリックし「軸の同期」を選択すると、両軸が同じスケール・範囲に自動調整されます。\nB. 両方の軸の範囲を手動で同じ値に設定する - 手動設定も可能ですが、データが変化するたびに再設定が必要で非効率です。\nC. マークタイプを両方とも「線」に変更する - マークタイプの変更は軸のスケールに影響しません。\nD. メジャーを正規化する計算フィールドを作成する - 正規化は有効な手法ですが、「軸の同期」の方がはるかに簡単です。",
     "category": "ビジュアライゼーション",
-    "image": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MDAgMzAwIiB3aWR0aD0iNzAwIiBoZWlnaHQ9IjMwMCI+CjxyZWN0IHdpZHRoPSI3MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjVGNUY1IiByeD0iNiIvPgo8dGV4dCB4PSIzNTAiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMzMzMiIGZvbnQtd2VpZ2h0PSJib2xkIj7liKnnm4rjgajlibLlvJXjga7ntYzmmYLlpInljJYgLSDkuozph43ou7jjgafntZDlkIjjgZnjgovliY08L3RleHQ+CjwhLS0gTGVmdCBjaGFydDogUHJvZml0IGJhcnMgLS0+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwLDQwKSI+Cjx0ZXh0IHg9IjEzMCIgeT0iMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjExIiBmaWxsPSIjNTU1Ij7liKnnm4ogKFByb2ZpdCk8L3RleHQ+CjxsaW5lIHgxPSIzMCIgeTE9IjEwIiB4Mj0iMzAiIHkyPSIyMTAiIHN0cm9rZT0iIzk5OSIgc3Ryb2tlLXdpZHRoPSIxIi8+CjxsaW5lIHgxPSIzMCIgeTE9IjIxMCIgeDI9IjI4MCIgeTI9IjIxMCIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjEiLz4KPHRleHQgeD0iMjUiIHk9IjIwIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+NDBLPC90ZXh0Pgo8dGV4dCB4PSIyNSIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+MjBLPC90ZXh0Pgo8dGV4dCB4PSIyNSIgeT0iMjEzIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+MDwvdGV4dD4KPHJlY3QgeD0iNTAiIHk9IjkwIiB3aWR0aD0iMzAiIGhlaWdodD0iMTIwIiBmaWxsPSIjNEU3OUE3IiByeD0iMiIvPgo8cmVjdCB4PSIxMDAiIHk9IjYwIiB3aWR0aD0iMzAiIGhlaWdodD0iMTUwIiBmaWxsPSIjNEU3OUE3IiByeD0iMiIvPgo8cmVjdCB4PSIxNTAiIHk9IjExMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzRFNzlBNyIgcng9IjIiLz4KPHJlY3QgeD0iMjAwIiB5PSI0MCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjE3MCIgZmlsbD0iIzRFNzlBNyIgcng9IjIiLz4KPHRleHQgeD0iNjUiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZpbGw9IiM4ODgiPlExPC90ZXh0Pgo8dGV4dCB4PSIxMTUiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZpbGw9IiM4ODgiPlEyPC90ZXh0Pgo8dGV4dCB4PSIxNjUiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZpbGw9IiM4ODgiPlEzPC90ZXh0Pgo8dGV4dCB4PSIyMTUiIHk9IjIyNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjkiIGZpbGw9IiM4ODgiPlE0PC90ZXh0Pgo8L2c+CjwhLS0gUmlnaHQgY2hhcnQ6IERpc2NvdW50IGxpbmUgLS0+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3MCw0MCkiPgo8dGV4dCB4PSIxMzAiIHk9IjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMSIgZmlsbD0iIzU1NSI+5Ymy5byVIChEaXNjb3VudCk8L3RleHQ+CjxsaW5lIHgxPSIzMCIgeTE9IjEwIiB4Mj0iMzAiIHkyPSIyMTAiIHN0cm9rZT0iIzk5OSIgc3Ryb2tlLXdpZHRoPSIxIi8+CjxsaW5lIHgxPSIzMCIgeTE9IjIxMCIgeDI9IjI4MCIgeTI9IjIxMCIgc3Ryb2tlPSIjOTk5IiBzdHJva2Utd2lkdGg9IjEiLz4KPHRleHQgeD0iMjUiIHk9IjIwIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+MC40PC90ZXh0Pgo8dGV4dCB4PSIyNSIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+MC4yPC90ZXh0Pgo8dGV4dCB4PSIyNSIgeT0iMjEzIiB0ZXh0LWFuY2hvcj0iZW5kIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+MDwvdGV4dD4KPHBvbHlsaW5lIHBvaW50cz0iNjUsMTUwIDExNSwxMDAgMTY1LDE3MCAyMTUsODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0UxNTc1OSIgc3Ryb2tlLXdpZHRoPSIyLjUiLz4KPGNpcmNsZSBjeD0iNjUiIGN5PSIxNTAiIHI9IjQiIGZpbGw9IiNFMTU3NTkiLz4KPGNpcmNsZSBjeD0iMTE1IiBjeT0iMTAwIiByPSI0IiBmaWxsPSIjRTE1NzU5Ii8+CjxjaXJjbGUgY3g9IjE2NSIgY3k9IjE3MCIgcj0iNCIgZmlsbD0iI0UxNTc1OSIvPgo8Y2lyY2xlIGN4PSIyMTUiIGN5PSI4MCIgcj0iNCIgZmlsbD0iI0UxNTc1OSIvPgo8dGV4dCB4PSI2NSIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+UTE8L3RleHQ+Cjx0ZXh0IHg9IjExNSIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+UTI8L3RleHQ+Cjx0ZXh0IHg9IjE2NSIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+UTM8L3RleHQ+Cjx0ZXh0IHg9IjIxNSIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iOSIgZmlsbD0iIzg4OCI+UTQ8L3RleHQ+CjwvZz4KPHRleHQgeD0iMzQ1IiB5PSIxNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyOCIgZmlsbD0iI0NDQyI+4oaSPC90ZXh0Pgo8L3N2Zz4="
+    "image": ""
   },
   {
     "id": 82,
@@ -1251,7 +1241,7 @@ const allQuestions = [
   },
   {
     "id": 87,
-    "question": "Tableau Desktopで複数の異なるデータソースを結合して分析を行う際に、共通するキー項目がないデータソース同士を関連付けるための機能として、最も適切なものはどれですか?",
+    "question": "Tableau Desktopで、異なるデータベースやファイルにある2つのデータソースを組み合わせて分析を行いたいと考えています。2つのデータソースは同じワークブック内にあり、共通するディメンション（例：地域名）が存在しますが、データソース自体を物理的に結合したくない場合に使用すべき機能はどれですか？",
     "options": [
       "A. データブレンド",
       "B. ジョイン",
@@ -1259,7 +1249,7 @@ const allQuestions = [
       "D. グループ"
     ],
     "answer": "A",
-    "explanation": "A. データブレンド - 正解です。データブレンドは、共通のキー項目がない、または関連性の低い複数のデータソースを、ビュー内のディメンションを介して関連付ける機能です。プライマリデータソースとセカンダリデータソースを連携させ、異なる粒度のデータを組み合わせて分析できます。\nB. ジョイン - ジョインは、共通のキー項目を持つ複数のテーブルを結合し、単一のテーブルとして扱う機能です。異なるデータソース間で共通のキー項目が存在しない場合には使用できません。\nC. ユニオン - ユニオンは、同じ構造（同じ列とデータ型）を持つ複数のテーブルやデータソースを縦に結合し、一つのテーブルとして扱う機能です。異なる構造のデータソースを結合することはできません。\nD. グループ - グループは、ビュー内のディメンションのメンバーを手動または条件に基づいてまとめる機能であり、異なるデータソースを関連付ける目的では使用しません。",
+    "explanation": "A. データブレンド - 正解です。データブレンドは、異なるデータソースをワークブック内でビューレベルで関連付ける機能です。共通するディメンション（リンクフィールド）を使って、プライマリデータソースとセカンダリデータソースのデータを1つのビューで表示できます。データソースを物理的に結合せずに済むため、異なるデータベース間の分析に適しています。\nB. ジョイン - ジョインは同一データソース内のテーブルを物理的に結合する操作です。異なるデータソース間では使用できません。\nC. ユニオン - ユニオンは同じ構造のテーブルを縦方向に結合する操作であり、異なるデータソース間の関連付けには使用しません。\nD. グループ - グループはディメンションの値をまとめる機能であり、データソースの結合とは無関係です。",
     "category": "データ接続"
   },
   {
@@ -1572,13 +1562,13 @@ const allQuestions = [
     "id": 110,
     "question": "データアナリストが、郵便番号（数値）のフィールドを使用して地域ごとの分析を行いたいと考えています。しかし、Tableauが郵便番号をメジャーとして認識し、SUMで集計してしまいます。この問題を解決するために行うべき操作はどれですか?",
     "options": [
-      "A. 郵便番号フィールドをメジャーからディメンションに変換する",
+      "A. 郵便番号フィールドのデータ型を「文字列」に変更し、地理的役割を「郵便番号」に設定する",
       "B. STR()関数で文字列に変換する計算フィールドを作成する",
       "C. 郵便番号フィールドをフィルターシェルフに配置する",
       "D. AとBの両方が有効"
     ],
-    "answer": "D",
-    "explanation": "A. 郵便番号フィールドのデータ型を「文字列」に変更する - 正解です。数値型の郵便番号はメジャーとして扱われ、合計や平均などの集計が行われてしまいます。文字列に変更するとディメンションとして認識され、地域ごとのグループ化に使用できます。さらに地理的役割を「郵便番号」に設定するとマップ表示も可能です。\nB. STR()関数で文字列に変換する - STR関数で計算フィールドを作成して文字列に変換する方法も有効です。ただし、データ型の直接変更の方がシンプルです。\nC. 郵便番号フィールドをフィルターに使用する - フィルターはデータの絞り込みであり、フィールドの分析に適した形への変換ではありません。メジャーのままフィルターに追加しても根本的な問題は解決しません。\nD. AとBの両方が有効 - 正解です。Aのデータ型変更とBのSTR関数変換の両方が有効な方法です。いずれも郵便番号を文字列としてディメンションに変換し、地域分析に使用可能にします。",
+    "answer": "A",
+    "explanation": "A. 郵便番号フィールドのデータ型を「文字列」に変更し、地理的役割を「郵便番号」に設定する - 正解です。数値型の郵便番号はメジャーとして扱われ、SUMで集計されてしまいます。データ型を「文字列」に変更するとディメンションとして認識され、さらに地理的役割を「郵便番号」に設定するとマップ表示も可能になります。最も直接的で推奨される方法です。\nB. STR()関数で文字列に変換する計算フィールドを作成する - STR関数で計算フィールドを作成して文字列に変換する方法も有効ですが、Aの方がシンプルです。\nC. 郵便番号フィールドをフィルターシェルフに配置する - フィルターはデータの絞り込みであり、フィールドのデータ型問題を解決するものではありません。\nD. AとBの両方が有効 - 技術的にはAもBも有効ですが、Aが最も推奨される方法であり、本問の正解はAです。",
     "category": "データ操作"
   },
   {
@@ -1630,7 +1620,7 @@ const allQuestions = [
       "D. BUFFER([Latitude], [Longitude], 5, 'km')"
     ],
     "answer": "B",
-    "explanation": "A. DISTANCE([Latitude]...) - DISTANCE関数は2地点間の距離を計算する空間関数であり、2つのレイヤーを重ねて表示する機能ではありません。\nB. MAKEPOINT([Latitude], [Longitude]) - MAKEPOINT関数は緯度/経度からポイントオブジェクトを生成する空間関数です。店舗の位置データをマップに配置するのに有用ですが、2つのレイヤーを重ねる方法としてはデュアル軸マップが必要です。\nC. MAKELINE([Latitude]...) - MAKELINE関数は2点間の線を生成する空間関数であり、ポイントとポリゴンを重ねて表示する用途には適していません。\nD. BUFFER([Latitude]...) - BUFFER関数はポイントの周囲にバッファ領域（円）を生成する空間関数です。店舗と地区の同時表示にはデュアル軸マップが適切です。\n\n※この問題の正解はBですが、実際にはMAKEPOINT関数でポイントデータを作成し、デュアル軸マップで地区のポリゴンデータと重ねて表示するのが完全な手順です。",
+    "explanation": "A. DISTANCE([Latitude], [Longitude]) - DISTANCE関数は2地点間の距離を計算する空間関数であり、ポイントジオメトリの生成には使用しません。また引数の形式が正しくありません。\nB. MAKEPOINT([Latitude], [Longitude]) - 正解です。MAKEPOINT関数は緯度と経度の2つの数値フィールドからポイント（地理的ジオメトリ）を生成します。生成されたポイントフィールドを使って、シェープファイルの地区ポリゴンと空間結合（Spatial Join）を実行できます。\nC. MAKELINE([Latitude], [Longitude]) - MAKELINE関数は2つのポイント間の線を生成する空間関数です。引数にはポイントオブジェクトが必要であり、緯度と経度を直接渡すことはできません。\nD. BUFFER([Latitude], [Longitude], 5, 'km') - BUFFER関数はポイントの周囲にバッファ領域（円形ポリゴン）を生成しますが、引数にはポイントオブジェクトが必要です。まずMAKEPOINTでポイントを作成する必要があります。",
     "category": "マップ"
   },
   {
@@ -1656,7 +1646,7 @@ const allQuestions = [
       "D. RANK_UNIQUE(SUM([Sales]))"
     ],
     "answer": "B",
-    "explanation": "A. RANK(SUM([Sales])) - 正解です。RANK関数は同じ値を持つ項目に同じ順位を割り当て、次の順位をスキップします（標準的な競技ランキング方式）。例：売上100, 100, 80 → RANK = 1, 1, 3。問題文の「スキップされる」という要件に完全に一致します。\nB. RANK_DENSE(SUM([Sales])) - RANK_DENSEは同じ値に同じ順位を割り当てますが、次の順位をスキップしません。例：100, 100, 80 → 1, 1, 2。「スキップされる」という要件を満たしません。\nC. INDEX() - INDEX関数はパーティション内の行位置を返しますが、値の大小に基づく順位付けは行いません。常に1, 2, 3...と連続番号を返します。\nD. RANK_UNIQUE(SUM([Sales])) - RANK_UNIQUEは同じ値でも異なる順位を割り当てます。例：100, 100, 80 → 1, 2, 3。「同じ売上に同じ順位」という要件を満たしません。",
+    "explanation": "A. RANK(SUM([Sales])) - RANK関数は同じ値に同じ順位を割り当てますが、次の順位をスキップします（例：1, 1, 3）。問題の「次の順位は飛ばさない」という要件を満たしません。\nB. RANK_DENSE(SUM([Sales])) - 正解です。RANK_DENSEは同じ値に同じ順位を割り当て、次の順位をスキップしません（例：1, 1, 2）。問題文の「1位、2位、2位、3位」というパターンに完全に一致します。\nC. INDEX() - INDEX関数はパーティション内の行位置を返しますが、値の大小に基づく順位付けは行いません。\nD. RANK_UNIQUE(SUM([Sales])) - RANK_UNIQUEは同じ値でも異なる順位を割り当てます（例：1, 2, 3）。「同じ売上に同じ順位」という要件を満たしません。",
     "category": "表計算"
   },
   {
@@ -1695,7 +1685,7 @@ const allQuestions = [
       "D. AとCの両方が有効"
     ],
     "answer": "D",
-    "explanation": "A. フィルターを右クリック→「ワークシートに適用」→「すべてのワークシート」 - 正解です。フィルターカード上のフィルターを右クリック→「ワークシートに適用」→「関連するすべてのデータソースを使用するワークシート」を選択すると、同じデータソースを使用するすべてのシートにフィルターが適用されます。\nB. フィルターをコンテキストフィルターに変更する - コンテキストフィルターはフィルターの処理順序を制御する機能であり、複数シートへのフィルター共有とは異なります。\nC. データソースフィルターとして設定する - データソースフィルターもすべてのシートに影響しますが、インタラクティブなフィルターコントロールの共有とは用途が異なります。\nD. AとCの両方が有効 - Cのデータソースフィルターも全シートに影響を与えますが、Aの「ワークシートに適用」が問題の意図に最も直接的に対応しています。",
+    "explanation": "A. フィルターを右クリック→「ワークシートに適用」→「このデータソースを使用するすべてのワークシート」 - 有効な方法です。フィルターカード上で右クリックし「ワークシートに適用」→「関連するすべてのデータソースを使用するワークシート」を選択すると、同じデータソースのすべてのシートにフィルターが適用されます。\nB. フィルターをコンテキストフィルターに追加する - コンテキストフィルターはフィルターの処理順序を制御する機能であり、複数シートへのフィルター共有とは異なります。\nC. データソースフィルターとして設定する - 有効な方法です。データソースフィルターはデータソースレベルで適用され、すべてのシートに影響します。\nD. AとCの両方が有効 - 正解です。Aの「ワークシートに適用」もCの「データソースフィルター」も、複数のシートにフィルターを適用する有効な方法です。目的に応じて使い分けます。",
     "category": "フィルター"
   },
   {
@@ -1721,7 +1711,7 @@ const allQuestions = [
       "D. 100"
     ],
     "answer": "C",
-    "explanation": "A. 2 - ビンサイズ2では2歳刻み（0-1, 2-3, 4-5...）のグループになり、10歳刻みという要件を満たしません。グループ数が多すぎて可視化に不向きです。\nB. 5 - ビンサイズ5では5歳刻み（0-4, 5-9, 10-14...）のグループになり、10歳刻みの要件を満たしません。\nC. 10 - 正解です。ビンサイズ10を設定すると、0-9, 10-19, 20-29, 30-39...という10歳刻みのグループが自動作成されます。年齢フィールドを右クリック→「作成」→「ビン」→ビンサイズ10で作成し、このビンフィールドでヒストグラムを構築できます。\nD. 100 - ビンサイズ100ではほぼ全データが1つのグループに入ってしまい、分布の分析ができません。",
+    "explanation": "A. 1 - ビンサイズ1では1歳刻みのグループになり、10歳刻みという要件を満たしません。ヒストグラムのビンが多すぎて可読性が下がります。\nB. 5 - ビンサイズ5では5歳刻み（0-4, 5-9, 10-14...）のグループになり、10歳刻みの要件を満たしません。\nC. 10 - 正解です。ビンサイズ10を設定すると、0-9, 10-19, 20-29, 30-39...という10歳刻みのグループが自動作成されます。フィールドを右クリック→「作成」→「ビン」→サイズ10で作成します。\nD. 100 - ビンサイズ100ではほぼ全データが1つのグループに入り、分布の分析ができません。",
     "category": "ビジュアライゼーション"
   },
   {
@@ -1812,7 +1802,7 @@ const allQuestions = [
       "D. AとBの両方が同じ結果を返す"
     ],
     "answer": "D",
-    "explanation": "A. {FIXED [Category] : SUM([Sales])} - 正解です。FIXEDでカテゴリのみを指定すると、各カテゴリの売上合計がビューの詳細レベルに関係なく計算されます。サブカテゴリ別の各行にカテゴリ全体の合計が表示されます。\nB. {EXCLUDE [Sub-Category] : SUM([Sales])} - EXCLUDEでサブカテゴリを除外してもカテゴリレベルの合計が得られますが、ビューのフィルターの影響を受けます。FIXEDの方が安定した結果を提供します。\nC. {INCLUDE [Category] : SUM([Sales])} - INCLUDEはビューに既にカテゴリが含まれている場合、追加の効果はありません。サブカテゴリレベルの合計と同じ結果になる可能性があります。\nD. AとBの両方が同じ結果を返す - AとBは多くの場合に似た結果を返しますが、フィルターの影響が異なります。FIXEDはコンテキストフィルター以外の影響を受けず、EXCLUDEはディメンションフィルター等の影響を受けます。",
+    "explanation": "A. {FIXED [Category]: SUM([Sales])} - 有効な方法です。FIXEDでカテゴリのみを指定すると、ビューの詳細レベル（サブカテゴリ）に関係なく、各カテゴリの売上合計が計算されます。ただしFIXEDはコンテキストフィルター以外のフィルターの影響を受けません。\nB. {EXCLUDE [Sub-Category]: SUM([Sales])} - 有効な方法です。EXCLUDEでサブカテゴリを除外すると、ビューの詳細レベルからサブカテゴリが取り除かれ、カテゴリレベルの売上合計が返されます。ただしEXCLUDEはディメンションフィルター等の影響を受けます。\nC. {INCLUDE [Category]: SUM([Sales])} - ビューに既にカテゴリが含まれている場合、INCLUDEでカテゴリを追加しても効果はありません。サブカテゴリレベルの集計と同じ結果になります。\nD. AとBの両方が同じ結果を返す - 正解です。多くの場合、FIXED [Category]とEXCLUDE [Sub-Category]は同じカテゴリレベルの合計を返します。ただし、フィルターの影響範囲が異なる点に注意が必要です（FIXEDはフィルターを無視、EXCLUDEはフィルターの影響を受ける）。",
     "category": "LOD表現"
   },
   {
@@ -1828,7 +1818,7 @@ const allQuestions = [
       "A",
       "B"
     ],
-    "explanation": "A. ビューに少なくとも1つの日付ディメンションが含まれていること - 正解です。Tableauの予測機能は時系列データに基づくため、日付ディメンションが必須です。日付がないと「分析」メニューの「予測」がグレーアウトします。\nB. ビューに少なくとも1つのメジャーが含まれていること - メジャーも予測に必要ですが、日付ディメンションが最も基本的な前提条件です。\nC. データソースがライブ接続であること - 予測機能はデータの接続方式に依存しません。ライブ接続でも抽出でも使用可能です。\nD. ビューに少なくとも3つのディメンションが含まれていること - 予測に必要なのは日付ディメンション1つとメジャーであり、3つのディメンションは不要です。ディメンションが多すぎると予測の精度が低下する場合があります。",
+    "explanation": "A. ビューに少なくとも1つの日付ディメンションが必要 - 正解です。Tableauの予測機能は時系列データに基づくため、日付ディメンションが必須です。日付がないと「分析」メニューの「予測」がグレーアウトします。\nB. ビューに少なくとも1つのメジャーが必要 - 正解です。予測は数値データ（メジャー）の将来値を推定する機能であるため、メジャーが必須です。日付ディメンションとメジャーの両方がビューに含まれている必要があります。\nC. データソースがライブ接続である必要がある - 誤りです。予測機能はデータの接続方式に依存しません。ライブ接続でも抽出でも使用可能です。\nD. ビューに少なくとも3つのディメンションが必要 - 誤りです。予測に必要なのは日付ディメンション1つとメジャーです。ディメンションが多すぎると予測の精度が低下する場合があります。",
     "category": "分析"
   },
   {
@@ -1853,8 +1843,8 @@ const allQuestions = [
       "C. ダッシュボードで2つのマップシートを重ねる",
       "D. データブレンド"
     ],
-    "answer": "B",
-    "explanation": "A. 二重軸 - デュアル軸（二重軸）マップは2つのマークレイヤーを1つのマップ上に重ねる機能ですが、この問題では地図上のポイントと塗りつぶしを同時に表示する場合の正解はマークレイヤーです。Tableauバージョン2021.4以降はマークレイヤー機能が提供されています。\nB. マークレイヤー - 正解です。マークレイヤー（Map Layers）機能を使用すると、マップ上に複数の独立したレイヤーを追加でき、各レイヤーに異なるマークタイプ、データソース、フィルターを設定できます。ポイントデータと地区境界の同時表示に最適です。\nC. ダッシュボードで2つのマップシートを重ねる - 2つのマップを重ねて表示することは理論的に可能ですが、軸の連動や正確な位置合わせが困難です。\nD. データブレンド - データブレンドはデータソースの結合方法であり、マップ上のレイヤー表示方法ではありません。",
+    "answer": "A",
+    "explanation": "A. 二重軸 - 正解です。デュアル軸（二重軸）マップは緯度を複製してデュアル軸を設定し、各レイヤーに異なるマークタイプ（ポイント、塗りつぶし）を適用できます。Tableauの全バージョンで使用可能な標準的な方法です。\nB. マークレイヤー - マークレイヤー機能（Map Layers）はTableau 2024.2以降で利用可能です。複数のデータレイヤーを独立して管理できますが、比較的新しい機能であり、試験では二重軸マップが標準的な回答です。\nC. ダッシュボードで2つのマップシートを重ねる - 並置では軸の連動が困難で、同一マップ上の重ね合わせとしては不適切です。\nD. データブレンド - データブレンドはデータソースの結合方法であり、マップのレイヤー表示方法ではありません。",
     "category": "マップ"
   },
   {
@@ -1932,7 +1922,7 @@ const allQuestions = [
       "D. セットアクションは複数のデータソース間で動作する"
     ],
     "answer": "B",
-    "explanation": "A. セットアクションを使用する - 正解です。セットアクションにより、ユーザー操作に基づいてセットメンバーを動的変更し、「選択中（In）」と「それ以外（Out）」を色分け表示できます。\nB. セットアクションは「選択中」と「それ以外」の2色表示が可能 - 正解です。セットの「内/外」に異なる色を割り当てることで、明確な2色の色分けが実現できます。\nC. セットアクションはダッシュボードのアクションメニューから設定する - 正解です。「ダッシュボード」→「アクション」→「アクションの追加」→「セット値の変更」から設定します。\nD. セットアクションは複数のデータソース間で使用できる - 不正解です。セットアクションは単一のデータソース内でのみ機能します。セットはデータソースに紐づくため、異なるデータソース間でのセットの共有はできません。",
+    "explanation": "A. セットアクションはフィルターアクションより高速に動作する - 誤りです。セットアクションの主な利点は速度ではなく、「選択中」と「それ以外」のデータを同時に表示できることです。パフォーマンスはデータ量やビューの複雑さに依存します。\nB. セットアクションは「選択中」と「それ以外」のデータを同時に比較表示できる - 正解です。セットアクションの最大の利点は、フィルターアクションと異なり、選択されたメンバー（In）と選択されていないメンバー（Out）を異なる色やスタイルでビュー上に同時表示できることです。フィルターアクションはフィルター対象外のデータを非表示にしてしまいます。\nC. セットアクションはダッシュボード全体に自動適用される - 誤りです。セットアクションはダッシュボードのアクション設定で、ソースシートとターゲットシートを明示的に指定する必要があります。自動的にすべてのシートに適用されるわけではありません。\nD. セットアクションは複数のデータソース間で動作する - 誤りです。セットはデータソースに紐づくため、セットアクションは単一のデータソース内でのみ機能します。",
     "category": "ダッシュボード"
   },
   {
@@ -1965,13 +1955,13 @@ const allQuestions = [
     "id": 140,
     "question": "データアナリストが、ダッシュボード上のシートの周囲に余白を追加して間隔を広げたいと考えています。使用すべき設定はどれですか?",
     "options": [
-      "A. パディング（内側の余白）を増やす",
-      "B. 外側の余白を増やす",
+      "A. レイアウトタブの「内側のパディング」を増やす",
+      "B. レイアウトタブの「外側のパディング」を増やす",
       "C. ダッシュボードサイズを大きくする",
       "D. 空白オブジェクトを挿入する"
     ],
     "answer": "B",
-    "explanation": "A. パディング（内側の余白）を増やす - 正解です。オブジェクトのレイアウトプロパティで「パディング」を設定し、上下左右の余白をピクセル単位で指定できます。最も直接的で制御しやすい方法です。\nB. 外側の余白を増やす - Tableauのタイルレイアウトには「外側の余白（マージン）」の設定はありません。パディングが内部余白の制御に使用されます。\nC. ダッシュボードサイズを大きくする - ダッシュボード全体のサイズ変更はシート間の間隔を直接制御する方法ではありません。\nD. 空白オブジェクトを挿入する - 空白オブジェクトの挿入も間隔の追加に使えますが、パディングの方がシンプルで保守性が高いです。",
+    "explanation": "A. レイアウトタブの「内側のパディング」を増やす - 内側のパディングはオブジェクト内部の余白を増やします。シートの周囲の間隔を広げるには外側のパディングが適切です。\nB. レイアウトタブの「外側のパディング」を増やす - 正解です。Tableauのレイアウトタブで「外側のパディング」を設定すると、選択したオブジェクトの外側に余白が追加され、隣接するオブジェクトとの間隔が広がります。\nC. ダッシュボードサイズを大きくする - ダッシュボード全体のサイズ変更はシート間の間隔を直接制御する方法ではありません。\nD. 空白オブジェクトを挿入する - 空白オブジェクトの挿入も間隔追加に使えますが、外側パディングの方が直接的で保守性が高いです。",
     "category": "ダッシュボード"
   },
   {
@@ -2036,13 +2026,13 @@ const allQuestions = [
     "id": 145,
     "question": "データアナリストが、売上の推移を折れ線で、利益の推移を棒グラフで、同じチャート上に重ねて表示したいと考えています。この複合チャートの作成手順として正しいものはどれですか?",
     "options": [
-      "A. 売上と利益を行シェルフに配置 → 二重軸を選択 → 各メジャーのマークタイプを個別に設定",
+      "A. 売上と利益を行シェルフに配置 → 利益のピルを右クリックして「二重軸」を選択 → 各メジャーのマークタイプを個別に設定",
       "B. 売上をラベルに、利益を色に配置する",
-      "C. 売上と利益を同じ行シェルフに配置し、マークタイプを「自動」にする",
+      "C. メジャーネームとメジャーバリューを使用して自動的に重ねる",
       "D. ダッシュボードで折れ線グラフと棒グラフの2つのシートを重ねる"
     ],
     "answer": "A",
-    "explanation": "A. 売上と利益を行シェルフに配置 → メジャーネームで色分け → マークタイプを自動 - この構成では2つのメジャーが別々の行（ペイン）に表示され、同じチャート上で棒と線を重ねることはできません。\nB. 売上をラベルに、利益を色に配置 → マークタイプを棒 - この構成では利益が色の濃淡で表現されるだけで、折れ線グラフとの重ね合わせにはなりません。\nC. 売上と利益を同じ行シェルフに配置 → 二重軸設定 → 各軸のマークタイプを個別設定 - 正解です。デュアル軸（二重軸）を使用して、一方を棒グラフ、もう一方を折れ線グラフに設定します。「軸の同期」でスケールを揃えると、同じチャート上に重なって表示されます。\nD. ダッシュボードで折れ線グラフと棒グラフを重ねて配置 - ダッシュボードでの重ね合わせは浮動レイアウトで可能ですが、軸の連動や位置合わせが困難で、デュアル軸チャートが推奨されます。",
+    "explanation": "A. 売上と利益を行シェルフに配置 → 利益のピルを右クリックして「二重軸」を選択 → 各メジャーのマークタイプを個別に設定 - 正解です。行シェルフに2つのメジャーを配置すると初期状態では2段のチャートになりますが、2つ目のメジャーを右クリックして「二重軸」を選択すると同じチャート上に重なります。その後、各メジャーのマークカードで個別にマークタイプ（棒/線）を設定できます。\nB. 売上をラベルに、利益を色に配置する - 利益が色の濃淡で表現されるだけで、棒と折れ線の重ね合わせにはなりません。\nC. メジャーネームとメジャーバリューを使用して自動的に重ねる - メジャーネーム/バリューは1つのチャートに複数メジャーを表示できますが、各メジャーのマークタイプを個別設定できません。\nD. ダッシュボードで折れ線グラフと棒グラフの2つのシートを重ねる - 浮動配置で重ねることは可能ですが、軸の連動が困難で推奨されません。",
     "category": "ビジュアライゼーション"
   },
   {
@@ -2123,7 +2113,7 @@ const allQuestions = [
       "D. FIRST()=1, LAST()=2, INDEX()=1"
     ],
     "answer": "A",
-    "explanation": "A. FIRST()=0, LAST()=3, INDEX()=1 - FIRST()は最初の行で0を返し、INDEX()は1を返すので、パーティションの先頭行の値として正しいです。しかし、4つの製品がある場合LAST()は3（最後の行まで3行の距離）です。正解です。\nB. FIRST()=0, LAST()=0, INDEX()=4 - FIRST()=0かつLAST()=0は同じ行が先頭かつ末尾であることを意味し、パーティション内に1行しかない場合のみ成立します。4製品ある場合はあり得ません。\nC. FIRST()=-1, LAST()=2, INDEX()=2 - FIRST()=-1は「先頭行から1行離れた2番目の行」を意味します。INDEX()=2も2番目の行を示すため整合性はありますが、問題が「最初の製品Aの行」を問うている場合は不正解です。\nD. FIRST()=1, LAST()=-1, INDEX()=0 - FIRST()は0以下の値を返し、正の値は取りません。INDEX()は1から始まるため0にはなりません。この組み合わせはTableauではあり得ません。",
+    "explanation": "A. FIRST()=-1, LAST()=2, INDEX()=2 - 正解です。4つの製品（A,B,C,D）のうち、製品Bは2番目の行にあります。FIRST()は先頭行からの距離で-1（先頭から1行離れている）、LAST()は最終行までの距離で2（最終行まで2行ある）、INDEX()は行番号で2です。\nB. FIRST()=1, LAST()=-2, INDEX()=2 - FIRST()が正の値を取ることはありません（先頭行で0、それ以降は負の値）。また、LAST()が負の値を取ることもありません。\nC. FIRST()=-1, LAST()=-2, INDEX()=2 - LAST()は最終行までの残り行数なので常に0以上です。負の値にはなりません。\nD. FIRST()=1, LAST()=2, INDEX()=1 - FIRST()は先頭行からの距離（先頭行=0、2行目=-1）であり、正の値にはなりません。INDEX()=1は先頭行（製品A）を示すため、2番目の行ではありません。",
     "category": "表計算"
   },
   {
@@ -2204,20 +2194,20 @@ const allQuestions = [
       "D. Webブラウザでデータソースをダウンロードし、ローカルファイルとして接続する"
     ],
     "answer": "A",
-    "explanation": "A. 「データ」メニュー→「新しいデータソース」→「Tableau Server」 - パブリッシュ済みデータソースへの接続方法として有効ですが、最も直接的な方法ではありません。\nB. 「ファイル」メニュー→「開く」→サーバー上のデータソースを選択 - 「ファイル」→「開く」はワークブックを開く操作であり、データソースへの接続方法ではありません。\nC. 「サーバー」メニュー→「データソースに接続」→パブリッシュ済みデータソースを選択 - 正解です。Tableau Desktopの「サーバー」メニューからサーバーにサインインし、パブリッシュ済みデータソースを一覧から選択して接続します。\nD. Webブラウザでデータソースをダウンロードしてローカルで接続する - ダウンロードは不要な手順であり、パブリッシュ済みデータソースの利点（一元管理、自動更新）が失われます。",
+    "explanation": "A. 「データ」メニュー→「新しいデータソース」→「Tableau Server」を選択し、サーバーにサインインしてデータソースを選択する - 正解です。Tableau Desktopの「データ」メニューから「新しいデータソース」を選択し、コネクタリストで「Tableau Server」を指定します。サーバーURLを入力してサインインすると、アクセス権のあるパブリッシュ済みデータソースが一覧表示され、接続できます。\nB. 「ファイル」メニュー→「開く」でサーバー上のデータソースファイルを直接開く - 「ファイル」→「開く」はワークブック(.twb/.twbx)を開く操作であり、パブリッシュ済みデータソースへの接続方法ではありません。\nC. 「サーバー」メニュー→「データのダウンロード」でローカルにコピーしてから接続する - ダウンロードするとパブリッシュ済みデータソースの利点（一元管理、自動更新）が失われます。\nD. Webブラウザでデータソースをダウンロードし、ローカルファイルとして接続する - これもデータソースの一元管理の利点を失う方法であり不適切です。",
     "category": "データ接続"
   },
   {
     "id": 158,
-    "question": "データアナリストが、各顧客の最初の注文日における売上金額を計算し、その平均を地域ごとに表示したいと考えています。使用すべきLOD式の組み合わせとして正しいものはどれですか?",
+    "question": "データアナリストが、各顧客の最初の注文日における売上金額を計算し、その平均を地域ごとに表示したいと考えています。ビューの行シェルフに[Region]を配置した状態で、メジャーとして使用すべき計算式はどれですか？",
     "options": [
-      "A. AVG({FIXED [Customer Name]: MIN([Order Date])})",
-      "B. AVG(IF [Order Date] = {FIXED [Customer Name]: MIN([Order Date])} THEN [Sales] END)",
-      "C. {FIXED [Region]: AVG({FIXED [Customer Name]: SUM([Sales])})}",
-      "D. {EXCLUDE [Customer Name]: AVG([Sales])}"
+      "A. AVG({FIXED [Customer ID] : MIN([Order Date])})",
+      "B. AVG(IF [Order Date] = {FIXED [Customer ID] : MIN([Order Date])} THEN [Sales] END)",
+      "C. {FIXED [Region] : AVG([Sales])}",
+      "D. {EXCLUDE [Customer ID] : AVG([Sales])}"
     ],
     "answer": "B",
-    "explanation": "A. AVG({FIXED [Customer ID] : MIN([Order Date])}) を地域ごとに表示 - この式は各顧客の初回注文「日付」の平均を計算しますが、初回注文「日の売上金額」ではありません。\nB. AVG(IF [Order Date] = {FIXED [Customer ID] : MIN([Order Date])} THEN [Sales] END) - 正解です。内側のFIXED LODで各顧客の最初の注文日を特定し、IF文でその日の注文かどうかを判定して売上を取得します。AVGで地域ごとの平均を計算します。ネストLODとIF文の組み合わせです。\nC. {FIXED [Region] : AVG([Sales])} - この式は地域ごとの平均売上を計算しますが、「最初の注文日」という条件が含まれていません。\nD. {EXCLUDE [Customer ID] : AVG([Sales])} を地域別に表示 - EXCLUDEで顧客を除外すると地域レベルの平均になりますが、「最初の注文日」の条件は適用されません。",
+    "explanation": "A. AVG({FIXED [Customer ID] : MIN([Order Date])}) - この式は各顧客の初回注文「日付」の平均を返します。日付の平均値であり、売上金額ではないため要件を満たしません。\nB. AVG(IF [Order Date] = {FIXED [Customer ID] : MIN([Order Date])} THEN [Sales] END) - 正解です。内側の{FIXED [Customer ID] : MIN([Order Date])}で各顧客の初回注文日を特定し、IF文で注文日が初回注文日と一致する行のみ[Sales]を返します。AVGで集計すると、ビューの行シェルフに配置した[Region]ごとに「初回注文日の売上」の平均が自動的にパーティションされます。FIXEDはビューのディメンションに依存しないため、地域に関係なく正しい初回注文日が取得されます。\nC. {FIXED [Region] : AVG([Sales])} - 地域ごとの全売上の平均を計算します。「最初の注文日」という条件が含まれておらず、要件を満たしません。\nD. {EXCLUDE [Customer ID] : AVG([Sales])} - Customer IDを除外して平均を計算しますが、「最初の注文日」の条件が含まれていないため要件を満たしません。",
     "category": "LOD表現"
   },
   {
@@ -2281,8 +2271,8 @@ const allQuestions = [
       "C. ペイン（横）",
       "D. セル"
     ],
-    "answer": "A",
-    "explanation": "A. 表（横） - 「表（横）」は左から右に計算しますが、テーブル全体を通して計算されるため、地域をまたいで計算されてしまいます。\nB. 表（下） - 「表（下）」は上から下に計算するため、四半期の変化率（横方向の比較）には適しません。\nC. ペイン（横） - 正解です。各地域が1つのペインを形成し、その中で四半期方向（横方向）に差の割合が計算されます。地域をまたがず、各地域内での四半期変化率が正確に算出されます。\nD. セル - 「セル」は個々のセルに対する計算で、前の値を参照する差の割合計算には適していません。",
+    "answer": "C",
+    "explanation": "A. 表（横） - 「表（横）」は左から右にテーブル全体を通して計算するため、地域の境界をまたいで計算されてしまいます。\nB. 表（下） - 「表（下）」は上から下に計算するため、四半期方向（横）の変化率計算には適しません。\nC. ペイン（横） - 正解です。各地域が1つのペインを形成し、その中で四半期方向（横方向）に差の割合が計算されます。地域をまたがず、各地域内での四半期ごとの変化率が正確に算出されます。\nD. セル - 「セル」は個々のセルに対する計算で、前の値を参照する差の割合計算には適していません。",
     "category": "表計算"
   },
   {
@@ -2295,6 +2285,7 @@ const allQuestions = [
       "D. リレーションシップはデータの粒度が異なるテーブルを自動的に処理できる"
     ],
     "correctAnswers": [
+      "A",
       "D"
     ],
     "explanation": "A. リレーションシップはクエリ実行時に必要なデータのみを結合する（遅延結合） - 正解です。リレーションシップは遅延評価で、クエリ実行時に必要なJOINのみを自動生成します。\nB. ジョインは常にすべてのデータを事前に結合する - 正しい記述ですが、厳密には「常にすべて」ではなく結合条件に合致するデータを事前結合します。この問題では正解の選択肢に含まれていません。\nC. リレーションシップでは結合タイプ（内部/左/右/完全）を指定する必要がある - 誤りです。リレーションシップでは結合タイプの指定は不要で、Tableauが自動的に最適な結合を選択します。結合タイプの明示的な指定はJOINの特徴です。\nD. リレーションシップはデータの粒度が異なるテーブルを自動的に処理できる - 正解です。リレーションシップはテーブルごとの粒度を維持するため、ファクトテーブルとディメンションテーブルの粒度が異なっても正しく結合されます。",
@@ -2336,7 +2327,7 @@ const allQuestions = [
       "D. BとCの両方が有効"
     ],
     "answer": "D",
-    "explanation": "A. 値フィルター（個別値のリストから選択） - 値フィルターは特定の値を手動で選択する方法であり、日付範囲の動的なフィルタリングには計算フィルターが適しています。\nB. 範囲フィルター（開始日を2023-01-01に指定） - 範囲フィルターは有効な方法です。日付フィールドに対して開始日を指定してフィルタリングできます。\nC. 計算フィルター（YEAR([Order Date]) >= 2023） - 正解です。クリーニングステップで「フィルター」→「計算」から式を記述し、日付関数（YEAR, DATEPART等）と組み合わせた柔軟な条件でフィルタリングできます。\nD. BとCの両方が有効 - 正解です。Bの範囲フィルターもCの計算フィルターも、2023年以降のデータを抽出する有効な方法です。",
+    "explanation": "A. 値フィルター（個別値のリストから選択） - 値フィルターは特定の日付値を手動で選択する方法です。動的な範囲指定には適していません。\nB. 範囲フィルター（開始日を2023年1月1日に設定） - 有効な方法です。日付フィールドに対して範囲フィルターで開始日を指定し、2023年以降のデータのみを保持できます。\nC. 計算フィルター（YEAR([Order Date]) >= 2023） - 有効な方法です。計算式でYEAR関数を使い、2023年以降という条件で柔軟にフィルタリングできます。\nD. BとCの両方が有効 - 正解です。Bの範囲フィルターもCの計算フィルターも、2023年以降のデータを抽出する有効な方法です。範囲フィルターはUI操作で設定でき、計算フィルターはより柔軟な条件指定が可能です。",
     "category": "Tableau Prep"
   },
   {
@@ -2367,6 +2358,343 @@ const allQuestions = [
     "answer": "A",
     "explanation": "A. ダッシュボードの「アイテム階層」ペインからオブジェクトを選択する - 正解です。アイテム階層ペインでツリーを展開し、対象のシートを直接クリックすることで、ネストされたオブジェクトを正確に選択できます。コンテナ内の深い階層にあるオブジェクトでも確実に選択可能です。\nB. シートのタイトルをダブルクリックする - タイトルのダブルクリックはタイトルの編集モードに入る操作であり、オブジェクトの選択方法としては不確実です。コンテナ内でのネスト構造では意図しないオブジェクトが選択される可能性があります。\nC. Ctrl+Zで操作を取り消して再配置する - Ctrl+Zは操作の取り消し（Undo）であり、オブジェクトの選択とは無関係です。\nD. ダッシュボードの書式設定メニューからオブジェクトを選択する - 書式設定メニューにはオブジェクト選択機能はありません。",
     "category": "ダッシュボード"
+  },
+  {
+    "id": 170,
+    "question": "データアナリストが、各地域における「顧客1人あたりの平均注文金額」を計算したいと考えています。まず顧客ごとの注文合計を計算し、それを地域ごとに平均する必要があります。正しいネストLOD式はどれですか？",
+    "options": [
+      "A. AVG({FIXED [Customer ID] : SUM([Sales])})",
+      "B. {FIXED [Region] : AVG({FIXED [Customer ID] : SUM([Sales])})}",
+      "C. {FIXED [Region] : SUM({FIXED [Customer ID] : AVG([Sales])})}",
+      "D. {INCLUDE [Customer ID] : AVG([Sales])}"
+    ],
+    "answer": "B",
+    "explanation": "A. AVG({FIXED [Customer ID] : SUM([Sales])}) - 内側のFIXEDで顧客ごとの注文合計を計算し、AVGで平均を取ります。ビューに[Region]があれば地域ごとの値になりますが、FIXEDではなくビュー依存の集計であるため、他のフィルターの影響を受けます。\nB. {FIXED [Region] : AVG({FIXED [Customer ID] : SUM([Sales])})} - 正解です。これはネストLOD式です。内側の{FIXED [Customer ID] : SUM([Sales])}で各顧客の注文合計を計算し、外側の{FIXED [Region] : AVG(...)}で地域ごとの平均を算出します。フィルターに依存しない安定した結果を返します。\nC. {FIXED [Region] : SUM({FIXED [Customer ID] : AVG([Sales])})} - 内側でAVG、外側でSUMを使っているため、「顧客の平均注文額の地域合計」になり、要件の「地域ごとの平均」とは異なります。\nD. {INCLUDE [Customer ID] : AVG([Sales])} - INCLUDEはビューの詳細レベルに顧客を追加しますが、ネストLODではなく、地域レベルの固定計算にはなりません。",
+    "category": "LOD表現"
+  },
+  {
+    "id": 171,
+    "question": "データアナリストが、Tableau DesktopからMySQLデータベースに初めて接続する際に必要な情報として正しいものはどれですか？（2つ選択）",
+    "options": [
+      "A. サーバー名（ホスト名またはIPアドレス）",
+      "B. Tableauライセンスキー",
+      "C. データベースのユーザー名とパスワード",
+      "D. Tableau Serverの管理者権限"
+    ],
+    "correctAnswers": [
+      "A",
+      "C"
+    ],
+    "answer": "",
+    "explanation": "A. サーバー名（ホスト名またはIPアドレス） - 正解です。リレーショナルデータベースに接続するには、データベースサーバーのホスト名またはIPアドレスが必要です。ポート番号も必要な場合があります。\nB. Tableauライセンスキー - Tableauライセンスはアプリケーションのアクティベーションに使用されますが、データベース接続には不要です。\nC. データベースのユーザー名とパスワード - 正解です。認証が必要なデータベースに接続するには、アクセス権限を持つユーザー名とパスワードが必要です。\nD. Tableau Serverの管理者権限 - Tableau Serverの権限はデータベースへの直接接続には不要です。データベース自体の認証情報が必要です。",
+    "category": "データ接続"
+  },
+  {
+    "id": 172,
+    "question": "データアナリストが、新しいデータソースの品質を評価しています。データ品質の3つの主要な評価基準として正しい組み合わせはどれですか？",
+    "options": [
+      "A. 完全性（Completeness）、一貫性（Consistency）、正確性（Accuracy）",
+      "B. 速度（Speed）、サイズ（Size）、セキュリティ（Security）",
+      "C. 書式（Format）、構造（Structure）、可視化（Visualization）",
+      "D. 接続性（Connectivity）、互換性（Compatibility）、拡張性（Scalability）"
+    ],
+    "answer": "A",
+    "explanation": "A. 完全性（Completeness）、一貫性（Consistency）、正確性（Accuracy） - 正解です。完全性はデータの欠損（NULL値）の有無、一貫性は同じ事象を表すデータの統一性（例：日付形式の統一）、正確性はデータ値が実際の値を正しく反映しているかを評価します。\nB. 速度（Speed）、サイズ（Size）、セキュリティ（Security） - これらはインフラやパフォーマンスの評価基準であり、データ品質の基準ではありません。\nC. 書式（Format）、構造（Structure）、可視化（Visualization） - 可視化はデータ品質の評価基準ではなく、分析結果の表現方法です。\nD. 接続性（Connectivity）、互換性（Compatibility）、拡張性（Scalability） - これらはシステム要件であり、データそのものの品質基準ではありません。",
+    "category": "データ操作"
+  },
+  {
+    "id": 173,
+    "question": "データアナリストが、注文金額に基づいて顧客を分類する計算フィールドを作成しています。$0-$100を「低」、$101-$500を「中」、$501以上を「高」に分類する場合、正しい式はどれですか？",
+    "options": [
+      "A. IF [Sales] <= 100 THEN '低' ELSEIF [Sales] <= 500 THEN '中' ELSE '高' END",
+      "B. IF [Sales] < 100 THEN '低' IF [Sales] < 500 THEN '中' IF [Sales] >= 500 THEN '高'",
+      "C. CASE [Sales] WHEN <= 100 THEN '低' WHEN <= 500 THEN '中' ELSE '高' END",
+      "D. IIF([Sales] <= 100, '低', IIF([Sales] <= 500, '中', '高'))"
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "answer": "",
+    "explanation": "A. IF [Sales] <= 100 THEN '低' ELSEIF [Sales] <= 500 THEN '中' ELSE '高' END - 正解です。IF/ELSEIF/ELSE構文で複数条件を順番に評価します。最初の条件がTrueの行はそこで評価が終了し、次のELSEIFは評価されません。\nB. IF [Sales] < 100 THEN '低' IF [Sales] < 500 THEN '中' IF [Sales] >= 500 THEN '高' - 構文エラーです。複数のIFを連続して記述することはできません。ELSEIFまたはネストしたIIF/CASEを使用する必要があります。\nC. CASE [Sales] WHEN <= 100 THEN '低' WHEN <= 500 THEN '中' ELSE '高' END - 構文エラーです。CASE文のWHEN句では不等号（<=）を使用できません。CASE文は特定の値との一致判定にのみ使用します。\nD. IIF([Sales] <= 100, '低', IIF([Sales] <= 500, '中', '高')) - 正解です。ネストしたIIF関数でも同じ結果が得られます。IIFは条件、True値、False値の3引数を取り、False値に別のIIFをネストして複数条件を処理します。",
+    "category": "計算・関数"
+  },
+  {
+    "id": 174,
+    "question": "データアナリストが、緯度・経度データを持つ2つの店舗間の距離を計算したいと考えています。Tableauの空間関数として正しい使い方はどれですか？",
+    "options": [
+      "A. DISTANCE(MAKEPOINT([Lat1],[Lng1]), MAKEPOINT([Lat2],[Lng2]), 'km')",
+      "B. DISTANCE([Lat1], [Lng1], [Lat2], [Lng2])",
+      "C. SQRT(([Lat1]-[Lat2])^2 + ([Lng1]-[Lng2])^2)",
+      "D. BUFFER(MAKEPOINT([Lat1],[Lng1]), 10, 'km')"
+    ],
+    "answer": "A",
+    "explanation": "A. DISTANCE(MAKEPOINT([Lat1],[Lng1]), MAKEPOINT([Lat2],[Lng2]), 'km') - 正解です。DISTANCE関数は2つのポイントオブジェクト間の距離を指定した単位で返します。MAKEPOINTで緯度・経度からポイントを生成し、DISTANCEで距離を計算します。\nB. DISTANCE([Lat1], [Lng1], [Lat2], [Lng2]) - 構文エラーです。DISTANCE関数はポイントオブジェクトを引数に取ります。緯度・経度の数値を直接渡すことはできません。\nC. SQRT(([Lat1]-[Lat2])^2 + ([Lng1]-[Lng2])^2) - ユークリッド距離の計算ですが、地球の曲率を考慮していないため不正確です。Tableau空間関数は測地線距離を使用します。\nD. BUFFER(MAKEPOINT([Lat1],[Lng1]), 10, 'km') - BUFFER関数はポイントの周囲に円形の領域（バッファ）を生成する関数であり、2点間の距離計算には使用しません。",
+    "category": "計算・関数"
+  },
+  {
+    "id": 175,
+    "question": "データアナリストが、月別売上チャートに3か月間の移動平均線を追加したいと考えています。正しい表計算関数はどれですか？",
+    "options": [
+      "A. WINDOW_AVG(SUM([Sales]), -2, 0)",
+      "B. RUNNING_AVG(SUM([Sales]))",
+      "C. AVG([Sales])",
+      "D. WINDOW_SUM(SUM([Sales]), -2, 0) / 3"
+    ],
+    "correctAnswers": [
+      "A",
+      "D"
+    ],
+    "answer": "",
+    "explanation": "A. WINDOW_AVG(SUM([Sales]), -2, 0) - 正解です。WINDOW_AVG関数で、開始位置を-2（2行前）、終了位置を0（現在行）に設定すると、現在月を含む過去3か月の売上平均（移動平均）が計算されます。\nB. RUNNING_AVG(SUM([Sales])) - RUNNING_AVGは先頭行から現在行までのすべての値の累積平均を返します。直近3か月のみの移動平均ではありません。\nC. AVG([Sales]) - AVG関数は行レベルの集計であり、表計算（ビューレベルの計算）ではありません。月別の移動平均は計算できません。\nD. WINDOW_SUM(SUM([Sales]), -2, 0) / 3 - 正解です。WINDOW_SUMで過去3か月の合計を計算し、3で割ることで移動平均と同じ結果が得られます。Aの方がシンプルですが、こちらも有効です。",
+    "category": "表計算"
+  },
+  {
+    "id": 176,
+    "question": "データアナリストが、四半期ごとの売上チャートで、前の四半期からの売上変化率（差の割合）を表示したいと考えています。簡易表計算を使用する場合の正しい手順はどれですか？",
+    "options": [
+      "A. SUM([Sales])を右クリック→「簡易表計算」→「差の割合」を選択する",
+      "B. SUM([Sales])を右クリック→「簡易表計算」→「累計」を選択する",
+      "C. SUM([Sales])を右クリック→「簡易表計算」→「合計に対する割合」を選択する",
+      "D. 計算フィールドでSUM([Sales]) / SUM([Sales]) - 1を記述する"
+    ],
+    "answer": "A",
+    "explanation": "A. SUM([Sales])を右クリック→「簡易表計算」→「差の割合」を選択する - 正解です。「差の割合」（Percent Difference）は、前の値からの変化率を自動計算します。計算式は (現在値 - 前の値) / 前の値 です。\nB. SUM([Sales])を右クリック→「簡易表計算」→「累計」を選択する - 「累計」は値を順次加算する計算であり、変化率の計算ではありません。\nC. SUM([Sales])を右クリック→「簡易表計算」→「合計に対する割合」を選択する - 「合計に対する割合」は各値が全体合計に占める比率を計算するものであり、前期との差の割合ではありません。\nD. 計算フィールドでSUM([Sales]) / SUM([Sales]) - 1を記述する - この式は常に0を返します。前期との比較にはLOOKUP関数が必要です。",
+    "category": "表計算"
+  },
+  {
+    "id": 177,
+    "question": "データアナリストが、売上データの90パーセンタイルの値を計算し、その値を上回る注文を特定したいと考えています。使用すべき関数はどれですか？",
+    "options": [
+      "A. PERCENTILE([Sales], 0.9)",
+      "B. RANK_PERCENTILE(SUM([Sales]))",
+      "C. WINDOW_PERCENTILE(SUM([Sales]), 0.9)",
+      "D. TOP(SUM([Sales]), 10)"
+    ],
+    "answer": "C",
+    "explanation": "A. PERCENTILE([Sales], 0.9) - PERCENTILE関数は集計関数であり、ビュー全体ではなくグループ内の行レベルの計算です。表計算として特定のパーセンタイル値を取得するにはWINDOW_PERCENTILEが適切です。\nB. RANK_PERCENTILE(SUM([Sales])) - RANK_PERCENTILEは各値のパーセンタイルランク（0〜1の範囲で相対位置）を返します。特定のパーセンタイル「値」を返すわけではありません。\nC. WINDOW_PERCENTILE(SUM([Sales]), 0.9) - 正解です。WINDOW_PERCENTILE関数はパーティション全体の中で指定したパーセンタイル位置の値を返します。0.9を指定すると90パーセンタイルの売上値が取得でき、これを参照線や計算フィールドで使用して閾値を設定できます。\nD. TOP(SUM([Sales]), 10) - Tableauに「TOP」という関数は存在しません。上位N件のフィルタリングにはフィルターのTop N機能を使用します。",
+    "category": "表計算"
+  },
+  {
+    "id": 178,
+    "question": "データアナリストが、製品サブカテゴリの売上ランキングを表示しています。RANK関数、RANK_DENSE関数、RANK_UNIQUE関数の違いとして正しいものはどれですか？",
+    "options": [
+      "A. RANK: 同順位あり・次をスキップ、RANK_DENSE: 同順位あり・スキップなし、RANK_UNIQUE: 同順位なし",
+      "B. RANK: 同順位なし、RANK_DENSE: 同順位あり・次をスキップ、RANK_UNIQUE: 同順位あり・スキップなし",
+      "C. 3つの関数はすべて同じ結果を返す",
+      "D. RANK: 降順のみ、RANK_DENSE: 昇順のみ、RANK_UNIQUE: 両方対応"
+    ],
+    "answer": "A",
+    "explanation": "A. RANK: 同順位あり・次をスキップ、RANK_DENSE: 同順位あり・スキップなし、RANK_UNIQUE: 同順位なし - 正解です。例えば売上が100, 100, 80の場合：RANK→1,1,3（3位が2つスキップ）、RANK_DENSE→1,1,2（スキップなし）、RANK_UNIQUE→1,2,3（同値でも異なる順位）。\nB. RANK: 同順位なし、RANK_DENSE: 同順位あり・次をスキップ、RANK_UNIQUE: 同順位あり・スキップなし - 関数の説明が入れ替わっています。RANKは同順位を許可しスキップ、RANK_DENSEは同順位を許可しスキップなしです。\nC. 3つの関数はすべて同じ結果を返す - 誤りです。同じ値のデータが存在する場合、3つの関数は異なる結果を返します。\nD. RANK: 降順のみ、RANK_DENSE: 昇順のみ、RANK_UNIQUE: 両方対応 - 誤りです。3つの関数はすべて昇順・降順の両方に対応しています。第2引数で'asc'または'desc'を指定できます。",
+    "category": "表計算"
+  },
+  {
+    "id": 179,
+    "question": "データアナリストが、ダッシュボード上の複数のシートに対して同じカテゴリフィルターを一括適用したいと考えています。方法として正しくないものはどれですか？",
+    "options": [
+      "A. フィルターカードのドロップダウンから「ワークシートに適用」→「このデータソースを使用するすべてのワークシート」を選択する",
+      "B. ダッシュボードのアクション機能でフィルターアクションを作成し、ソースとターゲットシートを指定する",
+      "C. フィルターをデータソースフィルターとして設定する",
+      "D. 各シートのマークカードに同じフィールドを色として追加する"
+    ],
+    "answer": "D",
+    "explanation": "A. フィルターカードのドロップダウンから「ワークシートに適用」→「このデータソースを使用するすべてのワークシート」を選択する - 有効な方法です。グローバルフィルターとして、同じデータソースのすべてのシートにフィルターが適用されます。\nB. ダッシュボードのアクション機能でフィルターアクションを作成し、ソースとターゲットシートを指定する - 有効な方法です。ユーザーのインタラクション（選択、ホバー等）に基づいてターゲットシートにフィルターを適用します。\nC. フィルターをデータソースフィルターとして設定する - 有効な方法です。データソースフィルターはすべてのシートに適用されるフィルターです。\nD. 各シートのマークカードに同じフィールドを色として追加する - 正解（正しくない方法）。色のマークカードにフィールドを追加しても、フィルタリングは行われません。色はデータの視覚的な区別のみで、データの絞り込みとは異なります。",
+    "category": "フィルター"
+  },
+  {
+    "id": 180,
+    "question": "データアナリストが、パラメーターを使用して参照線の値をユーザーが動的に変更できるようにしたいと考えています。参照線にパラメーターを適用する正しい手順はどれですか？",
+    "options": [
+      "A. パラメーターを作成 → アナリティクスペインから参照線を追加 → 値のドロップダウンでパラメーターを選択",
+      "B. 参照線を追加 → 参照線の値に直接パラメーター名をテキスト入力する",
+      "C. パラメーターを計算フィールドに組み込み → 計算フィールドをフィルターシェルフに追加する",
+      "D. パラメーターをマークカードの「詳細」にドロップする"
+    ],
+    "answer": "A",
+    "explanation": "A. パラメーターを作成 → アナリティクスペインから参照線を追加 → 値のドロップダウンでパラメーターを選択 - 正解です。参照線の編集ダイアログで「値」のドロップダウンリストに作成済みのパラメーターが表示されます。選択するとパラメーター値の変更に連動して参照線の位置が動的に変化します。\nB. 参照線を追加 → 参照線の値に直接パラメーター名をテキスト入力する - 参照線の値フィールドにテキストを直接入力する方法はありません。ドロップダウンから選択します。\nC. パラメーターを計算フィールドに組み込み → フィルターシェルフに追加する - フィルターは参照線とは別の機能です。この方法では参照線は作成されません。\nD. パラメーターをマークカードの「詳細」にドロップする - マークカードへの追加はビューの詳細レベルに影響しますが、参照線の作成には無関係です。",
+    "category": "パラメータ"
+  },
+  {
+    "id": 181,
+    "question": "データアナリストが、地図上に売上の塗りつぶしマップ（コロプレス）と各店舗の位置を示すポイントを同時に表示したいと考えています。デュアル軸マップを作成する正しい手順はどれですか？",
+    "options": [
+      "A. 緯度フィールドを複製して行シェルフに2つ配置 → 2つ目の軸を右クリックして「二重軸」を選択 → 各マークカードで異なるマークタイプを設定",
+      "B. 列シェルフに経度を2つ配置 → 各マークカードで異なるマークタイプを設定",
+      "C. マップメニューから「レイヤーを追加」を選択 → データソースを指定",
+      "D. ダッシュボードで2つのマップシートを浮動レイアウトで重ねる"
+    ],
+    "answer": "A",
+    "explanation": "A. 緯度フィールドを複製して行シェルフに2つ配置 → 2つ目の軸を右クリックして「二重軸」を選択 → 各マークカードで異なるマークタイプを設定 - 正解です。緯度（生成）を行シェルフに2回配置し、2つ目を右クリック→「二重軸」を選択すると、同じ地図上に2つのマークレイヤーが重なります。一方を「マップ」（塗りつぶし）、もう一方を「円」（ポイント）に設定します。\nB. 列シェルフに経度を2つ配置 → 各マークカードで異なるマークタイプを設定 - 列シェルフに経度を2つ配置すると横に2つのマップが並びます。重ね合わせにはなりません。\nC. マップメニューから「レイヤーを追加」を選択 → データソースを指定 - マップメニューにこのようなオプションはありません。\nD. ダッシュボードで2つのマップシートを浮動レイアウトで重ねる - 理論的には可能ですが、軸の同期が困難で、デュアル軸マップが推奨されます。",
+    "category": "マップ"
+  },
+  {
+    "id": 182,
+    "question": "データアナリストが、地域×カテゴリの売上クロステーブルに小計と総計を追加しています。小計の配置位置を変更するにはどの操作を行いますか？",
+    "options": [
+      "A. 「分析」メニュー→「合計」→「小計を上に配置」を選択する",
+      "B. 小計行を手動でドラッグして移動する",
+      "C. 計算フィールドで小計を別途作成する",
+      "D. 「分析」メニュー→「合計」→「合計を上に配置」を選択する"
+    ],
+    "answer": "D",
+    "explanation": "A. 「分析」メニュー→「合計」→「小計を上に配置」 - Tableauのメニューには「小計を上に配置」という個別のオプションはありません。\nB. 小計行を手動でドラッグして移動する - 小計行はドラッグで移動できません。メニューから設定を変更する必要があります。\nC. 計算フィールドで小計を別途作成する - 計算フィールドでの再現は複雑で、Tableauの組み込み機能を使うのが適切です。\nD. 「分析」メニュー→「合計」→「合計を上に配置」を選択する - 正解です。このオプションを選択すると、小計と総計の行がテーブルの上部（各グループの先頭）に配置されます。デフォルトでは下部に表示されますが、この設定で上部に変更できます。",
+    "category": "分析"
+  },
+  {
+    "id": 183,
+    "question": "データアナリストが、月別売上チャートに「目標売上の下限と上限」を示す色付きの範囲を表示したいと考えています。使用すべきアナリティクス機能はどれですか？",
+    "options": [
+      "A. 参照線を2本追加する",
+      "B. リファレンスバンド（参照バンド）を追加する",
+      "C. 分布バンドを追加する",
+      "D. 傾向線を追加する"
+    ],
+    "answer": "B",
+    "explanation": "A. 参照線を2本追加する - 参照線は個別の水平線を引くだけで、2本の線の間の範囲を色付けする機能はありません。\nB. リファレンスバンド（参照バンド）を追加する - 正解です。参照バンドは2つの値（定数、パラメーター、または計算値）の間の範囲を色付きの帯として表示します。アナリティクスペインから「参照バンド」をドラッグし、上限と下限の値を設定します。\nC. 分布バンドを追加する - 分布バンドは統計的な分布（標準偏差、パーセンタイルなど）に基づく範囲を表示します。任意の目標値の範囲指定には参照バンドが適切です。\nD. 傾向線を追加する - 傾向線はデータの全体的なトレンドを示す線であり、範囲の表示には使用しません。",
+    "category": "分析"
+  },
+  {
+    "id": 184,
+    "question": "データアナリストが、カテゴリ別売上の棒グラフに全カテゴリの平均売上を示す水平線を追加する最も簡単な方法はどれですか？",
+    "options": [
+      "A. 計算フィールドでWINDOW_AVG(SUM([Sales]))を作成してデュアル軸で表示する",
+      "B. アナリティクスペインから「平均線」をビューにドラッグする",
+      "C. {FIXED : AVG([Sales])} LOD式を作成して参照線に設定する",
+      "D. 各棒に平均値のラベルを手動で追加する"
+    ],
+    "answer": "B",
+    "explanation": "A. 計算フィールドでWINDOW_AVG(SUM([Sales]))を作成してデュアル軸で表示する - 技術的に可能ですが、アナリティクスペインの平均線が最も簡単です。\nB. アナリティクスペインから「平均線」をビューにドラッグする - 正解です。アナリティクスペインの「平均線」をビューにドラッグするだけで、全カテゴリの平均売上を示す水平線が追加されます。スコープ（テーブル全体/ペイン/セル）も選択できます。\nC. {FIXED : AVG([Sales])} LOD式を作成して参照線に設定する - 技術的に可能ですが手順が多く、「最も簡単な方法」ではありません。\nD. 各棒に平均値のラベルを手動で追加する - 手動追加は非効率で、平均線の表示とは異なります。",
+    "category": "分析"
+  },
+  {
+    "id": 185,
+    "question": "データアナリストが、散布図にデータの標準偏差に基づく分布バンドを追加したいと考えています。分布バンドの設定で選択できる計算タイプとして正しくないものはどれですか？",
+    "options": [
+      "A. 標準偏差",
+      "B. パーセンタイル",
+      "C. 四分位数",
+      "D. 移動平均"
+    ],
+    "answer": "D",
+    "explanation": "A. 標準偏差 - 分布バンドで選択可能です。平均±1σ、±2σなどの範囲を表示できます。\nB. パーセンタイル - 分布バンドで選択可能です。例えば5%〜95%の範囲を指定できます。\nC. 四分位数 - 分布バンドで選択可能です。第1四分位（25%）〜第3四分位（75%）の範囲を表示できます。\nD. 移動平均 - 正解（選択できない）。移動平均は分布バンドの計算タイプには含まれません。移動平均は表計算（WINDOW_AVG）で別途計算する必要があります。分布バンドで選択できるのは標準偏差、パーセンタイル、四分位数です。",
+    "category": "分析"
+  },
+  {
+    "id": 186,
+    "question": "データアナリストが、ダッシュボード上のシート内部のコンテンツとシートの境界線の間に余白を追加して、見やすくしたいと考えています。設定すべきレイアウトオプションはどれですか？",
+    "options": [
+      "A. 外側のパディング",
+      "B. 内側のパディング",
+      "C. 背景色を白に変更する",
+      "D. ダッシュボードサイズを拡大する"
+    ],
+    "answer": "B",
+    "explanation": "A. 外側のパディング - 外側のパディングはオブジェクトの外側（オブジェクト間）の余白を設定します。シート内部のコンテンツと境界線の間ではなく、シートと隣接オブジェクトの間隔です。\nB. 内側のパディング - 正解です。内側のパディングはオブジェクトの境界線とその内部コンテンツ（チャート）の間の余白を設定します。レイアウトタブで上下左右のピクセル値を個別に指定できます。\nC. 背景色を白に変更する - 背景色の変更は視覚的な変更であり、実際の余白スペースを追加するものではありません。\nD. ダッシュボードサイズを拡大する - ダッシュボード全体のサイズ変更は個別のシート内の余白を制御する方法ではありません。",
+    "category": "書式設定"
+  },
+  {
+    "id": 187,
+    "question": "データアナリストが、Tableau Serverにパブリッシュ済みのダッシュボードを、データアクセス権のない外部パートナーに配布する必要があります。最も適切な方法はどれですか？",
+    "options": [
+      "A. パートナーのメールアドレスでTableau Serverアカウントを作成し、Viewer権限を付与する",
+      "B. ダッシュボードをPDFまたは画像としてエクスポートして送付する",
+      "C. .twbxファイルとしてダウンロードし、Tableau Readerで開くよう案内する",
+      "D. BとCの両方が状況に応じて有効"
+    ],
+    "answer": "D",
+    "explanation": "A. パートナーのメールアドレスでTableau Serverアカウントを作成し、Viewer権限を付与する - 外部パートナーにサーバーアカウントを作成するのはセキュリティリスクがあり、ライセンスコストも発生します。「データアクセス権のない」という制約にも反します。\nB. ダッシュボードをPDFまたは画像としてエクスポートして送付する - 有効な方法です。静的なスナップショットとして配布でき、データへのアクセスは発生しません。ただしインタラクティブ機能は失われます。\nC. .twbxファイルとしてダウンロードし、Tableau Readerで開くよう案内する - 有効な方法です。パッケージドワークブック(.twbx)にはデータの抽出が含まれ、無料のTableau Readerでインタラクティブに閲覧できます。ただし、含まれるデータの範囲に注意が必要です。\nD. BとCの両方が状況に応じて有効 - 正解です。静的な配布にはPDF/画像エクスポート（B）、インタラクティブな共有にはTableau Reader向け.twbx（C）が適しています。",
+    "category": "パブリッシュ"
+  },
+  {
+    "id": 188,
+    "category": "データ接続",
+    "question": "データアナリストが、Tableau DesktopからPostgreSQLデータベースに接続しています。接続設定でカスタムSQLを使用する利点として正しいものはどれですか？",
+    "options": [
+      "A. Tableauが自動生成するクエリよりも常に高速に実行できる",
+      "B. データソースに接続する前に、必要なテーブルの結合やフィルタリングをSQL文で定義できる",
+      "C. カスタムSQLはExcelファイルへの接続でも使用できる",
+      "D. カスタムSQLを使用するとライブ接続が不要になる"
+    ],
+    "answer": "B",
+    "explanation": "A. Tableauが自動生成するクエリよりも常に高速に実行できる - 誤りです。カスタムSQLが必ずしも高速とは限りません。複雑なクエリはパフォーマンスを低下させる場合があります。\nB. データソースに接続する前に、必要なテーブルの結合やフィルタリングをSQL文で定義できる - 正解です。カスタムSQLを使用すると、データベース側でJOIN、WHERE、GROUP BYなどを記述し、Tableauに取り込むデータを事前に制御できます。\nC. カスタムSQLはExcelファイルへの接続でも使用できる - 誤りです。カスタムSQLはリレーショナルデータベース接続でのみ使用可能で、ファイルベースのデータソースには使用できません。\nD. カスタムSQLを使用するとライブ接続が不要になる - 誤りです。カスタムSQLと接続モード（ライブ/抽出）は独立した設定です。"
+  },
+  {
+    "id": 189,
+    "category": "表計算",
+    "question": "データアナリストが、散布図に各データポイントのパーセンタイルランク（0〜1の範囲で相対的な位置）を色で表現したいと考えています。使用すべき表計算関数はどれですか？",
+    "options": [
+      "A. RANK(SUM([Sales]))",
+      "B. RANK_PERCENTILE(SUM([Sales]))",
+      "C. PERCENTILE(SUM([Sales]), 0.5)",
+      "D. WINDOW_PERCENTILE(SUM([Sales]), 0.5)"
+    ],
+    "answer": "B",
+    "explanation": "A. RANK(SUM([Sales])) - RANK関数は順位（1, 2, 3...）を返しますが、0〜1の範囲のパーセンタイルランクではありません。\nB. RANK_PERCENTILE(SUM([Sales])) - 正解です。RANK_PERCENTILE関数は各値のパーセンタイルランクを0〜1の範囲で返します。例えば0.95は上位5%に位置することを意味します。この値を色に配置すると連続的なグラデーションで表現できます。\nC. PERCENTILE(SUM([Sales]), 0.5) - PERCENTILE関数は指定したパーセンタイル位置の「値」を返す集計関数です。各行のランクではなく、データ全体の50パーセンタイル値（中央値）を返します。\nD. WINDOW_PERCENTILE(SUM([Sales]), 0.5) - WINDOW_PERCENTILE関数もパーティション全体の特定パーセンタイル位置の値を返します。各行のランクではありません。"
+  },
+  {
+    "id": 190,
+    "category": "ビジュアライゼーション",
+    "question": "データアナリストが、各製品カテゴリの利益の分布を箱ひげ図で表示したいと考えています。箱ひげ図で表示される要素として正しくないものはどれですか？",
+    "options": [
+      "A. 中央値（第2四分位数）",
+      "B. 第1四分位数と第3四分位数（箱の上端と下端）",
+      "C. 外れ値",
+      "D. 標準偏差"
+    ],
+    "answer": "D",
+    "explanation": "A. 中央値（第2四分位数） - 箱ひげ図の箱の中央に表示される線です。データの50パーセンタイル値を示します。\nB. 第1四分位数と第3四分位数（箱の上端と下端） - 箱の範囲はQ1（25%）からQ3（75%）で、四分位範囲（IQR）を表します。\nC. 外れ値 - ひげの範囲外のデータポイントが個別の点として表示されます。\nD. 標準偏差 - 正解（表示されない）。箱ひげ図は四分位数ベースの分布表示であり、標準偏差は表示されません。標準偏差を示すには分布バンドやリファレンスラインを使用します。"
+  },
+  {
+    "id": 191,
+    "category": "ビジュアライゼーション",
+    "question": "データアナリストが、地域×カテゴリのハイライト表（ヒートマップ）を作成し、売上金額に応じてセルの色の濃淡で表現したいと考えています。必要な操作はどれですか？",
+    "options": [
+      "A. 行にカテゴリ、列に地域、マークカードの「色」にSUM([Sales])を配置し、マークタイプを「四角」にする",
+      "B. 行にカテゴリ、列に地域、マークカードの「サイズ」にSUM([Sales])を配置する",
+      "C. 行にカテゴリ、列にSUM([Sales])を配置し、マークタイプを「棒」にする",
+      "D. 行にカテゴリ、列に地域を配置し、「分析」メニューから「ハイライト表」を選択する"
+    ],
+    "answer": "A",
+    "explanation": "A. 行にカテゴリ、列に地域、マークカードの「色」にSUM([Sales])を配置し、マークタイプを「四角」にする - 正解です。ハイライト表はクロステーブルの各セルを色の濃淡で表現するチャートです。マークタイプを「四角」にし、メジャーを「色」に配置することで作成できます。「表示形式」パネルからも直接作成可能です。\nB. 行にカテゴリ、列に地域、マークカードの「サイズ」にSUM([Sales])を配置する - 「サイズ」に配置するとバブルチャートのような表現になり、ハイライト表の色の濃淡表現とは異なります。\nC. 行にカテゴリ、列にSUM([Sales])を配置し、マークタイプを「棒」にする - これは横棒グラフであり、ハイライト表ではありません。\nD. 行にカテゴリ、列に地域を配置し、「分析」メニューから「ハイライト表」を選択する - 「分析」メニューにはハイライト表を作成する直接のオプションはありません。「表示形式」パネルを使用します。"
+  },
+  {
+    "id": 192,
+    "category": "ダッシュボード",
+    "question": "データアナリストが、ダッシュボードに追加できるオブジェクトとして正しくないものはどれですか？",
+    "options": [
+      "A. 水平コンテナ",
+      "B. テキストオブジェクト",
+      "C. データソースオブジェクト",
+      "D. 空白オブジェクト"
+    ],
+    "answer": "C",
+    "explanation": "A. 水平コンテナ - ダッシュボードに追加可能です。複数のオブジェクトを横並びに配置するレイアウト要素です。\nB. テキストオブジェクト - ダッシュボードに追加可能です。タイトルや説明文などの静的テキストを表示します。\nC. データソースオブジェクト - 正解（追加できない）。ダッシュボードの「オブジェクト」セクションにデータソースオブジェクトは存在しません。追加可能なオブジェクトは水平/垂直コンテナ、テキスト、画像、Webページ、空白、ナビゲーション、拡張機能、「データに聞く」です。\nD. 空白オブジェクト - ダッシュボードに追加可能です。スペーサーとして使用し、オブジェクト間の間隔を調整します。"
+  },
+  {
+    "id": 193,
+    "category": "書式設定",
+    "question": "データアナリストが、棒グラフのツールヒントをカスタマイズして、デフォルトの項目に加えて利益率のメジャーを追加表示したいと考えています。正しい手順はどれですか？",
+    "options": [
+      "A. マークカードの「ツールヒント」をクリックし、編集画面で「挿入」からフィールドを追加する",
+      "B. 「書式設定」メニューからツールヒントの項目を選択する",
+      "C. データペインからフィールドをツールヒントアイコンに直接ドラッグする",
+      "D. AとCの両方が有効"
+    ],
+    "answer": "D",
+    "explanation": "A. マークカードの「ツールヒント」をクリックし、編集画面で「挿入」からフィールドを追加する - 有効な方法です。ツールヒントの編集画面が開き、テキストの書式設定や「挿入」メニューからフィールドを追加・配置できます。\nB. 「書式設定」メニューからツールヒントの項目を選択する - 「書式設定」メニューはフォントや線の外観設定であり、ツールヒントの内容編集には使用しません。\nC. データペインからフィールドをツールヒントアイコンに直接ドラッグする - 有効な方法です。フィールドをマークカードの「ツールヒント」に直接ドラッグすると、そのフィールドがツールヒントに追加されます。\nD. AとCの両方が有効 - 正解です。ツールヒント編集画面からの追加（A）とドラッグ＆ドロップ（C）の両方でフィールドを追加できます。"
+  },
+  {
+    "id": 194,
+    "category": "書式設定",
+    "question": "データアナリストが、利益のメジャーを色に使用している棒グラフで、負の値を赤、正の値を青で表示したいと考えています。正しい設定方法はどれですか？",
+    "options": [
+      "A. マークカードの「色」をクリック→「色の編集」→分岐パレットを選択し、中心を0に設定する",
+      "B. 計算フィールドでIF [Profit] < 0 THEN 'Red' ELSE 'Blue' ENDを作成し、色に配置する",
+      "C. 「書式設定」メニューから「ワークブックのテーマ」を変更する",
+      "D. 棒ごとに手動で色を選択する"
+    ],
+    "answer": "A",
+    "explanation": "A. マークカードの「色」をクリック→「色の編集」→分岐パレットを選択し、中心を0に設定する - 正解です。連続メジャーが色に配置されている場合、「色の編集」で分岐（Diverging）パレット（例：赤-青）を選択し、「詳細設定」で中心を0に設定すると、負の値と正の値が異なる色で自動的に表現されます。\nB. 計算フィールドでIF文を使用する - 動作しますが、結果は離散的な2色になり、値の大小に応じたグラデーション表現ができません。Aの方が適切です。\nC. 「書式設定」メニューから「ワークブックのテーマ」を変更する - テーマはワークブック全体のフォントやスタイルの設定であり、個別のメジャーの色設定ではありません。\nD. 棒ごとに手動で色を選択する - Tableauでは個別のマークに手動で色を割り当てることはできません。"
   }
 ];
 
