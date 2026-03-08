@@ -804,15 +804,15 @@ const allQuestions = [
   },
   {
     "id": 56,
-    "question": "データアナリストが、カテゴリ別の売上ビューで、各カテゴリ内の顧客数をカウントしたいと考えています。ビューにはカテゴリのみが表示されています。INCLUDE LOD表現を使用して正しく計算するにはどれですか？",
+    "question": "データアナリストが、カテゴリ別の売上ビューで、各カテゴリ内の顧客ごとの売上合計を集計し、その平均をカテゴリレベルで表示したいと考えています。ビューにはカテゴリのみが表示されています。使用すべきLOD式はどれですか？",
     "options": [
-      "A. {INCLUDE [Customer ID] : COUNTD([Customer ID])}",
-      "B. {INCLUDE [Customer ID] : SUM([Sales])}",
-      "C. {FIXED [Category] : COUNTD([Customer ID])}",
-      "D. COUNTD([Customer ID])"
+      "A. AVG({INCLUDE [Customer ID] : SUM([Sales])})",
+      "B. AVG({FIXED [Customer ID] : SUM([Sales])})",
+      "C. {FIXED [Category] : AVG([Sales])}",
+      "D. SUM([Sales]) / COUNTD([Customer ID])"
     ],
-    "answer": "D",
-    "explanation": "A. {INCLUDE [Customer ID] : COUNTD([Customer ID])} - LOD表現内でCOUNTDと同じディメンションを使うのは不適切です。INCLUDE内の集計関数は指定したディメンションを追加した粒度で計算されます。\nB. {INCLUDE [Customer ID] : SUM([Sales])} - 顧客ごとの売上合計を計算しますが、顧客数のカウントではありません。\nC. {FIXED [Category] : COUNTD([Customer ID])} - これも正しい結果を返しますが、FIXEDはビューのフィルターの影響を受けません（コンテキストフィルターを除く）。要件によってはDの方が適切です。\nD. COUNTD([Customer ID]) - 正解です。ビューにカテゴリが配置されている場合、COUNTD関数は自動的にカテゴリごとの一意の顧客数を計算します。LOD表現は不要で、標準の集計関数で十分です。",
+    "answer": "A",
+    "explanation": "A. AVG({INCLUDE [Customer ID] : SUM([Sales])}) - 正解です。INCLUDE LODはビューの詳細レベル（カテゴリ）に[Customer ID]を追加した粒度で計算します。内側のSUM([Sales])が各カテゴリ×顧客の売上合計を算出し、外側のAVGがカテゴリレベルでその平均を返します。INCLUDEはビューのフィルターの影響を受けるため、フィルター適用時も正しく動作します。\nB. AVG({FIXED [Customer ID] : SUM([Sales])}) - FIXEDは顧客ごとの売上合計をビューに関係なく計算します。カテゴリのフィルターを適用しても、FIXEDは全データで計算されるため、カテゴリ内の顧客に限定されません。\nC. {FIXED [Category] : AVG([Sales])} - カテゴリごとの行レベル売上の平均を返しますが、「顧客ごとの売上合計の平均」とは異なる結果になります。顧客の粒度が考慮されません。\nD. SUM([Sales]) / COUNTD([Customer ID]) - 売上合計を顧客数で割る計算です。顧客ごとの売上にばらつきがある場合、AVG({INCLUDE...})とは異なる結果になります（加重平均 vs 単純平均）。",
     "category": "LOD表現",
     "image": ""
   },
