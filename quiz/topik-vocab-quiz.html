@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TOPIK I 単語模擬試験</title>
+<title>TOPIK I 単語学習</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -310,10 +310,21 @@ body {
 }
 .option-btn.disabled {
   cursor: default;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .option-btn.disabled.correct {
   opacity: 1;
+}
+.option-btn.disabled.wrong {
+  opacity: 1;
+}
+.option-pair {
+  margin-left: auto;
+  font-size: 13px;
+  color: #6B7280;
+  font-weight: 500;
+  white-space: nowrap;
+  animation: fadeIn 0.3s ease;
 }
 
 /* Feedback */
@@ -490,6 +501,233 @@ body {
   margin-top: 12px;
 }
 
+/* ======== Flashcard ======== */
+.fc-range-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.fc-range-presets .chip {
+  font-size: 12px;
+  padding: 6px 12px;
+  min-width: 0;
+}
+.fc-range-presets::-webkit-scrollbar {
+  width: 4px;
+}
+.fc-range-presets::-webkit-scrollbar-track {
+  background: transparent;
+}
+.fc-range-presets::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 4px;
+}
+.fc-screen { animation: slideUp 0.35s ease; }
+.fc-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.fc-header-bar .fc-count {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--main);
+}
+.fc-header-bar .fc-close {
+  padding: 6px 14px;
+  border: 2px solid #E5E7EB;
+  border-radius: 100px;
+  background: var(--bg-white);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--body);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.fc-header-bar .fc-close:hover {
+  border-color: var(--main);
+  color: var(--main);
+}
+.fc-card-wrap {
+  perspective: 1000px;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+.fc-card {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.fc-card.flipped {
+  transform: rotateY(180deg);
+}
+.fc-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+}
+.fc-front {
+  background: var(--bg-white);
+}
+.fc-back {
+  background: linear-gradient(135deg, var(--main), var(--main-light));
+  transform: rotateY(180deg);
+}
+.fc-word {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--heading);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.fc-back .fc-word {
+  color: white;
+  font-size: 36px;
+}
+.fc-sub {
+  font-size: 14px;
+  color: var(--body);
+}
+.fc-back .fc-sub {
+  color: rgba(255,255,255,0.7);
+}
+.fc-tap-hint {
+  font-size: 12px;
+  color: #9CA3AF;
+  margin-top: 16px;
+}
+.fc-back .fc-tap-hint {
+  color: rgba(255,255,255,0.5);
+}
+.fc-no {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #9CA3AF;
+}
+.fc-back .fc-no {
+  color: rgba(255,255,255,0.5);
+}
+.fc-controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.fc-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #E5E7EB;
+  background: var(--bg-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  color: var(--body);
+  font-family: inherit;
+}
+.fc-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+.fc-btn:hover {
+  border-color: var(--main);
+  color: var(--main);
+  background: var(--bg-light);
+}
+.fc-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.fc-btn:disabled:hover {
+  border-color: #E5E7EB;
+  color: var(--body);
+  background: var(--bg-white);
+}
+.fc-btn-flip {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--main), var(--accent));
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(45,106,79,0.3);
+  font-family: inherit;
+}
+.fc-btn-flip svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+.fc-btn-flip:hover {
+  transform: scale(1.05);
+}
+.fc-progress {
+  height: 4px;
+  background: #E5E7EB;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.fc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--main), var(--accent));
+  border-radius: 100px;
+  transition: width 0.3s ease;
+}
+.fc-mode-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.fc-mode-toggle .chip {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+.fc-shortcut-hint {
+  font-size: 11px;
+  color: #9CA3AF;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Swipe animation */
+@keyframes swipeLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-60px); }
+}
+@keyframes swipeRight {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(60px); }
+}
+.fc-card-wrap.swipe-left { animation: swipeLeft 0.2s ease forwards; }
+.fc-card-wrap.swipe-right { animation: swipeRight 0.2s ease forwards; }
+
 /* Responsive */
 @media (max-width: 480px) {
   .question-word { font-size: 32px; }
@@ -504,7 +742,7 @@ body {
   <!-- Start Screen -->
   <div id="startScreen" class="start-screen">
     <div class="header">
-      <h1>TOPIK I 単語模擬試験</h1>
+      <h1>TOPIK I 単語学習</h1>
       <p class="sub">한국어능력시험 初級 1,671語</p>
     </div>
 
@@ -512,29 +750,98 @@ body {
       <div class="icon">📝</div>
     </div>
 
-    <p>TOPIK I（初級）の頻出単語から出題します。<br>韓国語→日本語、日本語→韓国語の両方向で<br>しっかり語彙力をチェックしましょう。</p>
+    <p>TOPIK I（初級）の頻出単語から出題します。<br>モードを選んで学習を始めましょう。</p>
 
     <div class="config-section">
-      <h3>出題数</h3>
+      <h3>学習モード</h3>
       <div class="config-row">
-        <button class="chip" data-count="10">10問</button>
-        <button class="chip active" data-count="20">20問</button>
-        <button class="chip" data-count="30">30問</button>
-        <button class="chip" data-count="50">50問</button>
+        <button class="chip active" data-appmode="quiz">📋 模擬試験</button>
+        <button class="chip" data-appmode="flashcard">🔄 単語帳</button>
       </div>
     </div>
 
-    <div class="config-section">
-      <h3>出題形式</h3>
-      <div class="config-row">
-        <button class="chip active" data-mode="mixed">ミックス</button>
-        <button class="chip" data-mode="kr2jp">韓→日</button>
-        <button class="chip" data-mode="jp2kr">日→韓</button>
+    <!-- Quiz settings -->
+    <div id="quizSettings">
+      <div class="config-section">
+        <h3>出題数</h3>
+        <div class="config-row">
+          <button class="chip" data-count="10">10問</button>
+          <button class="chip active" data-count="20">20問</button>
+          <button class="chip" data-count="30">30問</button>
+          <button class="chip" data-count="50">50問</button>
+        </div>
+      </div>
+
+      <div class="config-section">
+        <h3>出題形式</h3>
+        <div class="config-row">
+          <button class="chip active" data-mode="mixed">ミックス</button>
+          <button class="chip" data-mode="kr2jp">韓→日</button>
+          <button class="chip" data-mode="jp2kr">日→韓</button>
+        </div>
       </div>
     </div>
 
-    <div class="config-section">
-      <h3>出題範囲</h3>
+    <!-- Flashcard settings -->
+    <div id="fcSettings" class="hidden">
+      <div class="config-section">
+        <h3>表面の言語</h3>
+        <div class="config-row">
+          <button class="chip active" data-fcfront="kr">韓国語（裏に日本語）</button>
+          <button class="chip" data-fcfront="jp">日本語（裏に韓国語）</button>
+        </div>
+      </div>
+      <div class="config-section">
+        <h3>順番</h3>
+        <div class="config-row">
+          <button class="chip active" data-fcorder="sequential">番号順</button>
+          <button class="chip" data-fcorder="random">ランダム</button>
+        </div>
+      </div>
+      <div class="config-section">
+        <h3>範囲</h3>
+        <div class="fc-range-presets">
+          <button class="chip active" data-fcrange="all">全範囲</button>
+          <button class="chip" data-fcrange="1-50">1〜50</button>
+          <button class="chip" data-fcrange="51-100">51〜100</button>
+          <button class="chip" data-fcrange="101-150">101〜150</button>
+          <button class="chip" data-fcrange="151-200">151〜200</button>
+          <button class="chip" data-fcrange="201-250">201〜250</button>
+          <button class="chip" data-fcrange="251-300">251〜300</button>
+          <button class="chip" data-fcrange="301-350">301〜350</button>
+          <button class="chip" data-fcrange="351-400">351〜400</button>
+          <button class="chip" data-fcrange="401-450">401〜450</button>
+          <button class="chip" data-fcrange="451-500">451〜500</button>
+          <button class="chip" data-fcrange="501-550">501〜550</button>
+          <button class="chip" data-fcrange="551-600">551〜600</button>
+          <button class="chip" data-fcrange="601-650">601〜650</button>
+          <button class="chip" data-fcrange="651-700">651〜700</button>
+          <button class="chip" data-fcrange="701-750">701〜750</button>
+          <button class="chip" data-fcrange="751-800">751〜800</button>
+          <button class="chip" data-fcrange="801-850">801〜850</button>
+          <button class="chip" data-fcrange="851-900">851〜900</button>
+          <button class="chip" data-fcrange="901-950">901〜950</button>
+          <button class="chip" data-fcrange="951-1000">951〜1000</button>
+          <button class="chip" data-fcrange="1001-1050">1001〜1050</button>
+          <button class="chip" data-fcrange="1051-1100">1051〜1100</button>
+          <button class="chip" data-fcrange="1101-1150">1101〜1150</button>
+          <button class="chip" data-fcrange="1151-1200">1151〜1200</button>
+          <button class="chip" data-fcrange="1201-1250">1201〜1250</button>
+          <button class="chip" data-fcrange="1251-1300">1251〜1300</button>
+          <button class="chip" data-fcrange="1301-1350">1301〜1350</button>
+          <button class="chip" data-fcrange="1351-1400">1351〜1400</button>
+          <button class="chip" data-fcrange="1401-1450">1401〜1450</button>
+          <button class="chip" data-fcrange="1451-1500">1451〜1500</button>
+          <button class="chip" data-fcrange="1501-1550">1501〜1550</button>
+          <button class="chip" data-fcrange="1551-1600">1551〜1600</button>
+          <button class="chip" data-fcrange="1601-1671">1601〜1671</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz range setting -->
+    <div id="quizRangeSection" class="config-section">
+      <h3>範囲</h3>
       <div class="config-row">
         <button class="chip active" data-range="all">全範囲</button>
         <button class="chip" data-range="1-500">1〜500</button>
@@ -543,13 +850,13 @@ body {
       </div>
     </div>
 
-    <button class="btn-primary" id="startBtn">試験を開始する →</button>
+    <button class="btn-primary" id="startBtn">開始する →</button>
   </div>
 
   <!-- Quiz Screen -->
   <div id="quizScreen" class="hidden">
     <div class="header">
-      <h1>TOPIK I 単語模擬試験</h1>
+      <h1>TOPIK I 模擬試験</h1>
     </div>
 
     <div class="progress-area">
@@ -627,6 +934,46 @@ body {
       <button class="btn-outline" id="retryWrongBtn">間違いだけ復習</button>
       <button class="btn-primary" id="restartBtn">もう一度 →</button>
     </div>
+  </div>
+
+  <!-- Flashcard Screen -->
+  <div id="flashcardScreen" class="hidden fc-screen">
+    <div class="header">
+      <h1>TOPIK I 単語帳</h1>
+    </div>
+
+    <div class="fc-header-bar">
+      <span class="fc-count" id="fcCount">1 / 1671</span>
+      <button class="fc-close" id="fcCloseBtn">✕ 終了</button>
+    </div>
+
+    <div class="fc-progress">
+      <div class="fc-progress-fill" id="fcProgressFill" style="width:0%"></div>
+    </div>
+
+    <div class="fc-card-wrap" id="fcCardWrap">
+      <div class="fc-card" id="fcCard">
+        <div class="fc-face fc-front">
+          <span class="fc-no" id="fcNo">No.1</span>
+          <div class="fc-word" id="fcFrontWord">가게</div>
+          <div class="fc-tap-hint">タップでめくる</div>
+        </div>
+        <div class="fc-face fc-back">
+          <span class="fc-no" id="fcNoBack">No.1</span>
+          <div class="fc-word" id="fcBackWord">店</div>
+          <div class="fc-sub" id="fcBackSub">가게</div>
+          <div class="fc-tap-hint">タップで戻す</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fc-controls">
+      <button class="fc-btn" id="fcPrevBtn" title="前へ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <button class="fc-btn-flip" id="fcFlipBtn" title="めくる"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></button>
+      <button class="fc-btn" id="fcNextBtn" title="次へ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+
+    <div class="fc-shortcut-hint">← → で移動 ・ Space でめくる</div>
   </div>
 
 </div>
@@ -713,7 +1060,11 @@ const VOCAB = [
 ["하나","1"],["하늘","空"],["하늘색","水色"],["하다","する"],["하루","１日"],["하숙","下宿"],["하얗다","白い"],["하지만","しかし"],["학교","学校"],["학기","学期"],["학년","学年"],["학생","学生"],["학생증","学生証"],["학원","塾"],["한","１つの～"],["한강","漢江"],["한국","韓国"],["한국어","韓国語"],["한국요리","韓国料理"],["한글","ハングル"],
 ["한번","一度"],["한복","韓服"],["한자","漢字"],["할머니","祖母"],["할아버지","祖父"],["할인","割引"],["함께","一緒に"],["합격","合格"],["항상","いつも"],["해","太陽"],["해외","海外"],["해외여행","海外旅行"],["핸드폰","携帯電話"],["햄버거","ハンバーガー"],["햇빛","日差し"],["행복","幸せ"],["행복하다","幸せだ"],["행사","行事"],["허리","腰"],["현금","現金"],
 ["현재","現在"],["형","兄"],["형제","兄弟"],["호랑이","虎"],["호주","オーストラリア"],["호텔","ホテル"],["혼자","独り"],["홈페이지","ホームページ"],["홍차","紅茶"],["화","怒り"],["화가","画家"],["화나다","怒る"],["화요일","火曜日"],["화장실","トイレ"],["화장품","化粧品"],["화장하다","化粧する"],["확인하다","確認する"],["환자","患者"],["회사","会社"],["회사원","会社員"],
-["회의","会議"],["횡단보도","横断歩道"],["후","～後"],["후배","後輩"],["휴가","休暇"],["휴대전화","携帯電話"],["휴일","休日"],["휴지","トイレットペーパー"],["흐리다","曇る"],["흰색","白色"],["힘","力"]
+["회의","会議"],["횡단보도","横断歩道"],["후","～後"],["후배","後輩"],["휴가","休暇"],["휴대전화","携帯電話"],["휴일","休日"],["휴지","トイレットペーパー"],["흐리다","曇る"],["흰색","白色"],["힘","力"],
+["디브이디","DVD"],["시디","CD"],["어떻습니까?","どうですか"],["어머","まあ"],["어머님","お母様"],["어저께","昨日"],["오래간만입니다","お久しぶりです"],["오랜만","久しぶり"],["오랫동안","長い間"],["외삼촌","母方のおじ"],["외숙모","母方のおば"],["요르단","ヨルダン"],["웬일","何事"],["응","うん"],["이모부","母方のおじ"],["이집트","エジプト"],["인기스타","人気スター"],["인터뷰하다","インタビューする"],["일본드라마","日本のドラマ"],["일본말","日本語"],
+["일본사람","日本人"],["일본요리","日本料理"],["일식","日本料理"],["일어나다","起きる"],["일어서다","立ち上がる"],["자","さあ"],["자동차회사","自動車会社"],["작은아버지","父の弟"],["작은어머니","父の弟の妻"],["저거","あれ"],["저것","あれ"],["저곳","あそこ"],["저기","あそこ"],["저렇게","あのように"],["저분","あの方"],["적","的"],["전기자동차","電気自動車"],["전자사전","電子辞書"],["전하다","伝える"],["전화기","電話機"],
+["점심식사","昼食"],["조선","朝鮮"],["조선말","朝鮮語"],["조선어","朝鮮語"],["좀더","もう少し"],["종로","鍾路"],["주황색","オレンジ色"],["중국집","中華料理店"],["중요","重要"],["즐거워하다","楽しがる"],["증세","病状"],["지난번","前回"],["지하도","地下道"],["진달래","ツツジ"],["짜리","価値があるもの"],["차리다","準備する"],["찾아오다","訪ねて来る"],["처음 뵙겠습니다","はじめまして"],["콧노래","鼻歌"],["큰아버지","伯父"],
+["큰어머니","伯母"],["탤런트","タレント"],["평양","ピョンヤン"],["푹","ぐっすり"],["프린트","プリント"],["피우다","咲かせる"],["필름","フィルム"],["하숙집","下宿屋"],["하얀색","白色"],["학","つる"],["한국드라마","韓国ドラマ"],["한국말","韓国語"],["한국사람","韓国人"],["한식","韓国料理"],["형님","お兄様"],["호","～号"],["화내다","腹を立てる"],["환영하다","歓迎する"],["회색","灰色"],["휴지통","ゴミ箱"]
 ];
 
 // ======== App State ========
@@ -924,13 +1275,13 @@ function generateQuestions(sourceVocab) {
     let options;
     if (type === 'kr2jp') {
       options = shuffle([
-        { text: item[1], correct: true },
-        ...wrongChoices.map(w => ({ text: w[1], correct: false }))
+        { text: item[1], pair: item[0], correct: true },
+        ...wrongChoices.map(w => ({ text: w[1], pair: w[0], correct: false }))
       ]);
     } else {
       options = shuffle([
-        { text: item[0], correct: true },
-        ...wrongChoices.map(w => ({ text: w[0], correct: false }))
+        { text: item[0], pair: item[1], correct: true },
+        ...wrongChoices.map(w => ({ text: w[0], pair: w[1], correct: false }))
       ]);
     }
 
@@ -964,8 +1315,7 @@ document.querySelectorAll('[data-range]').forEach(btn => {
   });
 });
 
-// Start
-$('startBtn').addEventListener('click', () => startQuiz());
+
 
 function startQuiz(sourceVocab) {
   state.currentQ = 0;
@@ -976,6 +1326,7 @@ function startQuiz(sourceVocab) {
   state.questions = generateQuestions(sourceVocab);
   $('startScreen').classList.add('hidden');
   $('resultsScreen').classList.add('hidden');
+  $('flashcardScreen').classList.add('hidden');
   $('quizScreen').classList.remove('hidden');
   renderQuestion();
 }
@@ -1029,6 +1380,11 @@ function handleAnswer(idx) {
     btn.classList.add('disabled');
     if (q.options[i].correct) btn.classList.add('correct');
     if (i === idx && !isCorrect) btn.classList.add('wrong');
+    // Show translation pair on all options
+    const pairEl = document.createElement('span');
+    pairEl.className = 'option-pair';
+    pairEl.textContent = q.options[i].pair;
+    btn.appendChild(pairEl);
   });
 
   const fb = $('feedback');
@@ -1114,6 +1470,7 @@ $('retryWrongBtn').addEventListener('click', () => {
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
+  // Quiz shortcuts
   if (!$('quizScreen').classList.contains('hidden')) {
     if (!state.answered && e.key >= '1' && e.key <= '4') {
       handleAnswer(parseInt(e.key) - 1);
@@ -1122,6 +1479,228 @@ document.addEventListener('keydown', (e) => {
       e.preventDefault();
       nextQuestion();
     }
+  }
+  // Flashcard shortcuts
+  if (!$('flashcardScreen').classList.contains('hidden')) {
+    if (e.key === 'ArrowRight') fcNext();
+    if (e.key === 'ArrowLeft') fcPrev();
+    if (e.key === ' ') { e.preventDefault(); fcFlip(); }
+  }
+});
+
+// ======== App Mode Toggle ========
+let appMode = 'quiz';
+let fcFrontLang = 'kr';
+let fcOrder = 'sequential';
+let fcRange = 'all';
+
+document.querySelectorAll('[data-appmode]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-appmode]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    appMode = btn.dataset.appmode;
+    if (appMode === 'quiz') {
+      $('quizSettings').classList.remove('hidden');
+      $('fcSettings').classList.add('hidden');
+      $('quizRangeSection').classList.remove('hidden');
+    } else {
+      $('quizSettings').classList.add('hidden');
+      $('fcSettings').classList.remove('hidden');
+      $('quizRangeSection').classList.add('hidden');
+    }
+  });
+});
+
+document.querySelectorAll('[data-fcfront]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-fcfront]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    fcFrontLang = btn.dataset.fcfront;
+  });
+});
+
+document.querySelectorAll('[data-fcorder]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-fcorder]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    fcOrder = btn.dataset.fcorder;
+  });
+});
+
+document.querySelectorAll('[data-fcrange]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-fcrange]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    fcRange = btn.dataset.fcrange;
+  });
+});
+
+// (startBtn handled below after appMode init)
+
+// ======== Flashcard Logic ========
+let fcState = {
+  cards: [],
+  currentIdx: 0,
+  flipped: false
+};
+
+function startFlashcard() {
+  let pool;
+  if (fcRange === 'all') {
+    pool = VOCAB;
+  } else {
+    const [s, e] = fcRange.split('-').map(Number);
+    pool = VOCAB.slice(s - 1, e);
+  }
+  fcState.cards = fcOrder === 'random' ? shuffle([...pool]) : [...pool];
+  fcState.currentIdx = 0;
+  fcState.flipped = false;
+  $('startScreen').classList.add('hidden');
+  $('flashcardScreen').classList.remove('hidden');
+  renderFlashcard();
+}
+
+function renderFlashcard() {
+  const currentCard = fcState.cards[fcState.currentIdx];
+  const total = fcState.cards.length;
+  const idx = fcState.currentIdx;
+
+  // Find original number
+  const origIdx = VOCAB.findIndex(v => v[0] === currentCard[0] && v[1] === currentCard[1]);
+  const no = origIdx >= 0 ? origIdx + 1 : idx + 1;
+
+  $('fcCount').textContent = `${idx + 1} / ${total}`;
+  $('fcProgressFill').style.width = `${((idx + 1) / total) * 100}%`;
+  $('fcNo').textContent = `No.${no}`;
+  $('fcNoBack').textContent = `No.${no}`;
+
+  if (fcFrontLang === 'kr') {
+    $('fcFrontWord').textContent = currentCard[0];
+    $('fcFrontWord').style.fontFamily = "'Noto Sans KR', sans-serif";
+    $('fcBackWord').textContent = currentCard[1];
+    $('fcBackWord').style.fontFamily = "'Noto Sans JP', sans-serif";
+    $('fcBackSub').textContent = currentCard[0];
+  } else {
+    $('fcFrontWord').textContent = currentCard[1];
+    $('fcFrontWord').style.fontFamily = "'Noto Sans JP', sans-serif";
+    $('fcBackWord').textContent = currentCard[0];
+    $('fcBackWord').style.fontFamily = "'Noto Sans KR', sans-serif";
+    $('fcBackSub').textContent = currentCard[1];
+  }
+
+  // Reset flip instantly (no animation) before content swap
+  const fcCardEl = $('fcCard');
+  fcCardEl.style.transition = 'none';
+  fcCardEl.classList.remove('flipped');
+  fcState.flipped = false;
+  fcCardEl.offsetHeight;
+  fcCardEl.style.transition = '';
+
+  // Button states
+  $('fcPrevBtn').disabled = idx === 0;
+  $('fcNextBtn').disabled = idx === total - 1;
+}
+
+function fcFlip() {
+  fcState.flipped = !fcState.flipped;
+  $('fcCard').classList.toggle('flipped');
+}
+
+function fcNext() {
+  if (fcState.currentIdx >= fcState.cards.length - 1) return;
+  const wrap = $('fcCardWrap');
+  // Reset flip instantly before swipe animation
+  const card = $('fcCard');
+  card.style.transition = 'none';
+  card.classList.remove('flipped');
+  fcState.flipped = false;
+  card.offsetHeight;
+  card.style.transition = '';
+
+  wrap.classList.add('swipe-left');
+  setTimeout(() => {
+    wrap.classList.remove('swipe-left');
+    fcState.currentIdx++;
+    renderFlashcard();
+  }, 200);
+}
+
+function fcPrev() {
+  if (fcState.currentIdx <= 0) return;
+  const wrap = $('fcCardWrap');
+  // Reset flip instantly before swipe animation
+  const card = $('fcCard');
+  card.style.transition = 'none';
+  card.classList.remove('flipped');
+  fcState.flipped = false;
+  card.offsetHeight;
+  card.style.transition = '';
+
+  wrap.classList.add('swipe-right');
+  setTimeout(() => {
+    wrap.classList.remove('swipe-right');
+    fcState.currentIdx--;
+    renderFlashcard();
+  }, 200);
+}
+
+// Touch swipe support
+let touchStartX = 0;
+let touchStartY = 0;
+let touchHandled = false;
+$('fcCardWrap').addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+  touchHandled = false;
+}, { passive: true });
+
+$('fcCardWrap').addEventListener('touchend', (e) => {
+  if (touchHandled) return;
+  touchHandled = true;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+    // Swipe
+    if (dx < 0) fcNext();
+    else fcPrev();
+  } else if (Math.abs(dx) < 20 && Math.abs(dy) < 20) {
+    // Tap
+    fcFlip();
+  }
+});
+
+// Click to flip (desktop only, prevent double-fire on touch)
+$('fcCardWrap').addEventListener('click', (e) => {
+  if (e.target.closest('.fc-btn') || e.target.closest('.fc-btn-flip')) return;
+  // Skip if touch device just handled this
+  if ('ontouchstart' in window) return;
+  fcFlip();
+});
+
+$('fcFlipBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  fcFlip();
+});
+$('fcPrevBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  fcPrev();
+});
+$('fcNextBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  fcNext();
+});
+
+$('fcCloseBtn').addEventListener('click', () => {
+  $('flashcardScreen').classList.add('hidden');
+  $('startScreen').classList.remove('hidden');
+});
+
+// ======== Start Button (handles both modes) ========
+$('startBtn').addEventListener('click', () => {
+  if (appMode === 'flashcard') {
+    startFlashcard();
+  } else {
+    startQuiz();
   }
 });
 </script>
