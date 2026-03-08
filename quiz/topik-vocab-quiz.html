@@ -746,6 +746,170 @@ function getRangeVocab() {
   return VOCAB.slice(s - 1, e);
 }
 
+// ======== Smart Distractor System ========
+function getWordType(kr, jp) {
+  if (kr.endsWith('다')) {
+    if (jp.includes('する') || jp.includes('行く') || jp.includes('来る') || jp.includes('食べ') || jp.includes('飲') || jp.includes('書') || jp.includes('読') || jp.includes('見') || jp.includes('聞') || jp.includes('話') || jp.includes('買') || jp.includes('売') || jp.includes('作') || jp.includes('会') || jp.includes('待') || jp.includes('乗') || jp.includes('歩') || jp.includes('走') || jp.includes('送') || jp.includes('着') || jp.includes('脱') || jp.includes('洗') || jp.includes('開') || jp.includes('閉') || jp.includes('入') || jp.includes('出') || jp.includes('持') || jp.includes('置') || jp.includes('取') || jp.includes('教') || jp.includes('習') || jp.includes('遊') || jp.includes('働') || jp.includes('住') || jp.includes('休') || jp.includes('起') || jp.includes('寝') || jp.includes('泣') || jp.includes('笑') || jp.includes('踊') || jp.includes('歌')) return 'verb';
+    if (jp.includes('い') || jp.includes('だ') || jp.includes('な')) return 'adj';
+    return 'verb';
+  }
+  if (kr.startsWith('～') || kr.startsWith('~') || jp.startsWith('～') || jp.startsWith('~')) return 'counter';
+  return 'noun';
+}
+
+const SEMANTIC_GROUPS = {
+  family: ['가족','아버지','어머니','형','누나','오빠','언니','동생','남동생','여동생','할머니','할아버지','아들','딸','아내','남편','부모','부부','아빠','엄마','고모','고모부','삼촌','이모','이모부','조카','사촌','형제','아기','아이','어린이','외할머니','외할아버지','외삼촌','외숙모','큰아버지','큰어머니','작은아버지','작은어머니','아버님','어머님','형님'],
+  food_main: ['밥','국','김치','고기','빵','라면','만두','비빔밥','불고기','김밥','떡볶이','삼계탕','갈비','냉면','된장찌개','김치찌개','볶음밥','설렁탕','갈비탕','감자탕','떡국','두부찌개','자장면','죽','쌀밥','냉면','양식','한식','중식','일식'],
+  food_ingredient: ['감자','당근','양파','달걀','계란','두부','소금','설탕','간장','고추장','된장','소고기','돼지고기','닭고기','생선','쌀','밀가루','마늘','고추','파','기름','새우','오징어','콩','닭'],
+  fruit: ['사과','수박','딸기','포도','바나나','오이','복숭아','귤','오렌지','토마토','감','배'],
+  drink: ['물','우유','커피','맥주','술','녹차','홍차','주스','콜라','사이다','음료수'],
+  furniture: ['책상','의자','침대','소파','식탁','테이블','책장','옷장','거울'],
+  school_item: ['책','공책','노트','연필','볼펜','펜','지우개','가방','가위','칠판','필통','교과서','사전'],
+  place_building: ['가게','학교','병원','도서관','공원','식당','은행','우체국','공항','역','시장','백화점','미술관','박물관','호텔','카페','약국','서점','교회','극장','영화관','대학교','수영장','운동장','빵집','꽃집','옷가게','커피숍','문구점','슈퍼마켓','빌딩','대사관','경찰서','시청','방송국','세탁소','미용실','부동산','도서관','독서실','터미널','정거장','정류장'],
+  room: ['교실','사무실','거실','방','부엌','화장실','입구','출구'],
+  body: ['머리','얼굴','눈','코','입','귀','목','어깨','가슴','배','허리','손','손가락','발','발가락','다리','팔','무릎','이','허리','몸'],
+  time_when: ['오늘','내일','어제','지금','요즘','올해','작년','내년','모레','아까','그저께','이따가','금방'],
+  time_period: ['아침','점심','저녁','밤','주말','평일','오전','오후','새벽','낮'],
+  weekday: ['월요일','화요일','수요일','목요일','금요일','토요일','일요일'],
+  month: ['일월','이월','삼월','사월','오월','유월','칠월','팔월','구월','시월','십일월','십이월'],
+  weather: ['날씨','비','눈','바람','구름','태풍','기온'],
+  weather_adj: ['맑다','흐리다','춥다','덥다','따뜻하다','시원하다','뜨겁다','차갑다'],
+  clothes: ['옷','바지','치마','양말','모자','신발','구두','넥타이','양복','코트','티셔츠','청바지','블라우스','스웨터','점퍼','반바지','한복','운동화','등산복','등산화','수영복','와이셔츠','스타킹','장갑','원피스','재킷'],
+  transport: ['버스','택시','자동차','자전거','비행기','기차','지하철','배','고속버스','열차','전기자동차'],
+  emotion_feel: ['기쁘다','슬프다','좋다','싫다','무섭다','외롭다','행복하다','걱정하다','긴장되다','감동하다','놀라다','기뻐하다','슬퍼하다','좋아하다','싫어하다','화나다','화내다','반갑다','괜찮다'],
+  color: ['빨간색','파란색','노란색','검은색','흰색','초록색','갈색','하늘색','까만색','녹색','주황색','빨갛다','파랗다','노랗다','까맣다','하얗다'],
+  number_pure: ['하나','둘','셋','넷','다섯','여섯','일곱','여덟','아홉','열'],
+  number_sino: ['십','이십','삼십','사십','오십','육십','칠십','팔십','구십','백','천','만'],
+  number_native10: ['스물','서른','마흔','쉰','예순','일흔'],
+  country: ['한국','일본','중국','미국','영국','독일','프랑스','러시아','베트남','태국','인도','브라질','캐나다','호주','몽골','멕시코','이집트','뉴욕','대한민국','도쿄','베이징','부산','서울','경주'],
+  direction: ['앞','뒤','위','아래','옆','오른쪽','왼쪽','동쪽','서쪽','남쪽','북쪽','안','밖','건너편','맞은편','뒤쪽'],
+  move_go: ['가다','오다','나가다','들어가다','올라가다','내려가다','돌아가다','돌아오다','걸어가다','걸어오다','따라가다','뛰다','걷다','달리다','건너다','넘다','떠나다','나오다','들어오다','올라오다','내려오다','찾아가다','찾아오다','다녀오다','건너가다'],
+  study: ['공부','공부하다','숙제','시험','수업','학생','교과서','연습','연습하다','졸업','졸업하다','입학','합격','단어','질문','대학교','학원','학기','학년','교수','전공'],
+  sport: ['운동','축구','야구','농구','배구','수영','테니스','탁구','골프','스키','스케이트','태권도','등산','운동하다'],
+  kitchen: ['냄비','칼','컵','숟가락','젓가락','수저','그릇','접시','냉장고','식탁'],
+  comm: ['전화','편지','이메일','메시지','메모','인터넷','핸드폰','휴대전화','컴퓨터','텔레비전','라디오'],
+  job: ['의사','간호사','경찰관','선생님','교수','기자','가수','배우','변호사','공무원','군인','약사','사장','부장','사업가','운동선수','소설가','음악가','화가'],
+  size_adj: ['크다','작다','넓다','좁다','높다','낮다','길다','짧다','두껍다','얇다','무겁다','가볍다'],
+  taste_adj: ['맛있다','맛없다','맵다','달다','싱겁다','시다','쓰다'],
+  speed_adj: ['빠르다','느리다','늦다','일찍'],
+  look_adj: ['예쁘다','멋있다','아름답다','귀엽다','곱다','잘생기다','깨끗하다','더럽다','밝다','어둡다'],
+  money: ['돈','가격','값','현금','월급','월세','요금','할인','원','달러','엔'],
+  house: ['집','아파트','하숙','하숙집','부동산','이사']
+};
+
+// Build reverse lookup: kr -> [groupName, ...]
+const _krToGroups = {};
+for (const [group, words] of Object.entries(SEMANTIC_GROUPS)) {
+  for (const w of words) {
+    if (!_krToGroups[w]) _krToGroups[w] = [];
+    _krToGroups[w].push(group);
+  }
+}
+function getSemanticGroups(kr) {
+  return _krToGroups[kr] || [];
+}
+
+// Japanese meaning similarity: extract key kanji/katakana chunks for comparison
+function jpSimilarity(jp1, jp2) {
+  // Extract meaningful characters (kanji + katakana blocks)
+  const extract = (s) => {
+    const clean = s.replace(/[、（）～〜]/g, ' ');
+    const parts = clean.split(/[\s,、]+/).filter(Boolean);
+    return parts;
+  };
+  const a = extract(jp1), b = extract(jp2);
+  let score = 0;
+  for (const wa of a) {
+    for (const wb of b) {
+      if (wa === wb) { score += 3; continue; }
+      // Shared kanji
+      const shared = [...wa].filter(c => c.charCodeAt(0) >= 0x4E00 && wb.includes(c));
+      score += shared.length;
+    }
+  }
+  return score;
+}
+
+function pickSmartDistractors(item, pool, count) {
+  const kr = item[0], jp = item[1];
+  const wordType = getWordType(kr, jp);
+  const semGroups = getSemanticGroups(kr);
+  const others = pool.filter(w => w[0] !== kr && w[1] !== jp);
+  const picked = [];
+  const usedKr = new Set([kr]);
+  const usedJp = new Set([jp]);
+
+  function addCandidate(w) {
+    if (usedKr.has(w[0]) || usedJp.has(w[1])) return false;
+    picked.push(w);
+    usedKr.add(w[0]);
+    usedJp.add(w[1]);
+    return true;
+  }
+
+  // Priority 1: Same semantic group (strongest confusers)
+  if (semGroups.length > 0) {
+    const sameGroupWords = shuffle(others.filter(w => {
+      const wGroups = getSemanticGroups(w[0]);
+      return wGroups.some(g => semGroups.includes(g));
+    }));
+    for (const w of sameGroupWords) {
+      if (picked.length >= count) break;
+      addCandidate(w);
+    }
+  }
+
+  // Priority 2: Japanese meaning similarity (shared kanji = confusing)
+  if (picked.length < count) {
+    const scored = others
+      .filter(w => !usedKr.has(w[0]) && getWordType(w[0], w[1]) === wordType)
+      .map(w => ({ w, sim: jpSimilarity(jp, w[1]) }))
+      .filter(x => x.sim > 0)
+      .sort((a, b) => b.sim - a.sim);
+    const topSimilar = scored.slice(0, 10);
+    for (const { w } of shuffle(topSimilar)) {
+      if (picked.length >= count) break;
+      addCandidate(w);
+    }
+  }
+
+  // Priority 3: Same word type + similar Korean length
+  if (picked.length < count) {
+    const krLen = kr.length;
+    const sameTypeLen = shuffle(others.filter(w =>
+      getWordType(w[0], w[1]) === wordType &&
+      Math.abs(w[0].length - krLen) <= 1 &&
+      !usedKr.has(w[0])
+    ));
+    for (const w of sameTypeLen) {
+      if (picked.length >= count) break;
+      addCandidate(w);
+    }
+  }
+
+  // Priority 4: Same word type only
+  if (picked.length < count) {
+    const sameType = shuffle(others.filter(w =>
+      getWordType(w[0], w[1]) === wordType && !usedKr.has(w[0])
+    ));
+    for (const w of sameType) {
+      if (picked.length >= count) break;
+      addCandidate(w);
+    }
+  }
+
+  // Fallback: random
+  if (picked.length < count) {
+    const remaining = shuffle(others.filter(w => !usedKr.has(w[0])));
+    for (const w of remaining) {
+      if (picked.length >= count) break;
+      addCandidate(w);
+    }
+  }
+
+  return picked.slice(0, count);
+}
+
 function generateQuestions(sourceVocab) {
   const pool = sourceVocab || getRangeVocab();
   const selected = shuffle(pool).slice(0, state.questionCount);
@@ -755,9 +919,7 @@ function generateQuestions(sourceVocab) {
     else if (state.mode === 'jp2kr') type = 'jp2kr';
     else type = Math.random() > 0.5 ? 'kr2jp' : 'jp2kr';
 
-    // Pick 3 wrong answers from pool
-    const wrongPool = pool.filter(w => w[0] !== item[0]);
-    const wrongChoices = shuffle(wrongPool).slice(0, 3);
+    const wrongChoices = pickSmartDistractors(item, pool, 3);
 
     let options;
     if (type === 'kr2jp') {
