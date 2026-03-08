@@ -716,6 +716,93 @@ body {
   margin-top: 12px;
 }
 
+/* Check toggle */
+.fc-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.fc-check-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  border: 2px solid #E5E7EB;
+  background: var(--bg-white);
+  color: var(--body);
+}
+.fc-check-btn:hover {
+  border-color: var(--accent);
+}
+.fc-check-btn.checked {
+  border-color: var(--accent);
+  background: #FEF3E2;
+  color: #B45309;
+}
+.fc-check-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #D1D5DB;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.fc-check-btn.checked .fc-check-box {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.fc-check-box svg {
+  display: none;
+}
+.fc-check-btn.checked .fc-check-box svg {
+  display: block;
+}
+
+/* Review status */
+.fc-review-status {
+  text-align: center;
+  font-size: 12px;
+  color: var(--body);
+  margin-bottom: 4px;
+}
+.fc-review-status span {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Review chip in range presets */
+.chip-review {
+  width: 100%;
+  justify-content: center;
+  border-color: var(--accent) !important;
+  color: #B45309 !important;
+  background: #FEF3E2 !important;
+}
+.chip-review:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.chip-review:not(:disabled):hover {
+  background: var(--accent) !important;
+  color: white !important;
+}
+.chip-review.active {
+  background: var(--accent) !important;
+  color: white !important;
+  border-color: var(--accent) !important;
+}
+
 /* Swipe animation */
 @keyframes swipeLeft {
   from { opacity: 1; transform: translateX(0); }
@@ -801,6 +888,7 @@ body {
       <div class="config-section">
         <h3>範囲</h3>
         <div class="fc-range-presets">
+          <button class="chip chip-review" data-fcrange="review" id="fcReviewChip" disabled>✔ チェック済み（<span id="fcReviewCount">0</span>語）</button>
           <button class="chip active" data-fcrange="all">全範囲</button>
           <button class="chip" data-fcrange="1-50">1〜50</button>
           <button class="chip" data-fcrange="51-100">51〜100</button>
@@ -971,6 +1059,17 @@ body {
       <button class="fc-btn" id="fcPrevBtn" title="前へ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
       <button class="fc-btn-flip" id="fcFlipBtn" title="めくる"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></button>
       <button class="fc-btn" id="fcNextBtn" title="次へ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+
+    <div class="fc-check">
+      <button class="fc-check-btn" id="fcCheckBtn">
+        <span class="fc-check-box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        あとでチェック
+      </button>
+    </div>
+
+    <div class="fc-review-status" id="fcReviewStatus">
+      チェック済み: <span id="fcReviewLive">0</span>語
     </div>
 
     <div class="fc-shortcut-hint">← → で移動 ・ Space でめくる</div>
@@ -1544,9 +1643,38 @@ let fcState = {
   flipped: false
 };
 
+// ======== Review List (persists across sessions within page) ========
+let reviewSet = new Set(); // stores "kr|jp" keys
+
+function reviewKey(card) { return card[0] + '|' + card[1]; }
+
+function updateReviewUI() {
+  const count = reviewSet.size;
+  $('fcReviewCount').textContent = count;
+  $('fcReviewLive').textContent = count;
+  const chip = $('fcReviewChip');
+  if (count > 0) {
+    chip.disabled = false;
+  } else {
+    chip.disabled = true;
+    // If review was active, reset to all
+    if (fcRange === 'review') {
+      fcRange = 'all';
+      document.querySelectorAll('[data-fcrange]').forEach(b => b.classList.remove('active'));
+      document.querySelector('[data-fcrange="all"]').classList.add('active');
+    }
+  }
+}
+
 function startFlashcard() {
   let pool;
-  if (fcRange === 'all') {
+  if (fcRange === 'review') {
+    pool = VOCAB.filter(v => reviewSet.has(reviewKey(v)));
+    if (pool.length === 0) {
+      alert('要復習リストが空です');
+      return;
+    }
+  } else if (fcRange === 'all') {
     pool = VOCAB;
   } else {
     const [s, e] = fcRange.split('-').map(Number);
@@ -1595,6 +1723,17 @@ function renderFlashcard() {
   fcState.flipped = false;
   fcCardEl.offsetHeight;
   fcCardEl.style.transition = '';
+
+  // Hide judge buttons (show on flip)
+  // Update check button state
+  const key = reviewKey(currentCard);
+  const isChecked = reviewSet.has(key);
+  const checkBtn = $('fcCheckBtn');
+  if (isChecked) {
+    checkBtn.classList.add('checked');
+  } else {
+    checkBtn.classList.remove('checked');
+  }
 
   // Button states
   $('fcPrevBtn').disabled = idx === 0;
@@ -1693,6 +1832,22 @@ $('fcNextBtn').addEventListener('click', (e) => {
 $('fcCloseBtn').addEventListener('click', () => {
   $('flashcardScreen').classList.add('hidden');
   $('startScreen').classList.remove('hidden');
+  updateReviewUI();
+});
+
+// Check toggle button
+$('fcCheckBtn').addEventListener('click', () => {
+  const currentCard = fcState.cards[fcState.currentIdx];
+  const key = reviewKey(currentCard);
+  const checkBtn = $('fcCheckBtn');
+  if (reviewSet.has(key)) {
+    reviewSet.delete(key);
+    checkBtn.classList.remove('checked');
+  } else {
+    reviewSet.add(key);
+    checkBtn.classList.add('checked');
+  }
+  updateReviewUI();
 });
 
 // ======== Start Button (handles both modes) ========
