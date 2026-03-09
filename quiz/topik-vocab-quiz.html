@@ -1643,10 +1643,27 @@ let fcState = {
   flipped: false
 };
 
-// ======== Review List (persists across sessions within page) ========
-let reviewSet = new Set(); // stores "kr|jp" keys
+// ======== Review List (persists via localStorage) ========
+let reviewSet = new Set();
+const REVIEW_STORAGE_KEY = 'topik-review-set';
 
 function reviewKey(card) { return card[0] + '|' + card[1]; }
+
+function saveReviewSet() {
+  try {
+    localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify([...reviewSet]));
+  } catch (e) { /* private browsing etc */ }
+}
+
+function loadReviewSet() {
+  try {
+    const data = localStorage.getItem(REVIEW_STORAGE_KEY);
+    if (data) {
+      reviewSet = new Set(JSON.parse(data));
+    }
+  } catch (e) { /* ignore */ }
+  updateReviewUI();
+}
 
 function updateReviewUI() {
   const count = reviewSet.size;
@@ -1657,7 +1674,6 @@ function updateReviewUI() {
     chip.disabled = false;
   } else {
     chip.disabled = true;
-    // If review was active, reset to all
     if (fcRange === 'review') {
       fcRange = 'all';
       document.querySelectorAll('[data-fcrange]').forEach(b => b.classList.remove('active'));
@@ -1665,6 +1681,9 @@ function updateReviewUI() {
     }
   }
 }
+
+// Load on startup
+loadReviewSet();
 
 function startFlashcard() {
   let pool;
@@ -1848,6 +1867,7 @@ $('fcCheckBtn').addEventListener('click', () => {
     checkBtn.classList.add('checked');
   }
   updateReviewUI();
+  saveReviewSet();
 });
 
 // ======== Start Button (handles both modes) ========
