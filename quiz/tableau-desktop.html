@@ -212,6 +212,15 @@ body {
 }
 .glossary-filter .chip { font-size: 11px; padding: 5px 12px; }
 .hidden { display: none !important; }
+.stock-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 18px; height: 18px; border-radius: 100px; font-size: 10px; font-weight: 700;
+  background: var(--accent); color: white; padding: 0 5px; margin-left: 4px; vertical-align: middle;
+}
+.stock-summary-cat { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #F3F4F6; font-size: 12px; }
+.stock-summary-cat:last-child { border-bottom: none; }
+.stock-summary-cat .cat-name { color: var(--heading); font-weight: 500; }
+.stock-summary-cat .cat-count { color: var(--main); font-weight: 700; }
 .shortcut-hint { font-size: 10px; color: #9CA3AF; text-align: center; margin-top: 10px; }
 @media (max-width: 480px) {
   .q-text { font-size: 14px; }
@@ -237,6 +246,7 @@ body {
       <button class="chip active" data-appmode="quiz">📋 模擬試験</button>
       <button class="chip" data-appmode="exam">🎯 本番形式</button>
       <button class="chip" data-appmode="glossary">📖 用語集</button>
+      <button class="chip" data-appmode="stock">📌 ストック問題 <span id="stockBadge" class="stock-badge hidden">0</span></button>
     </div>
   </div>
 
@@ -267,6 +277,20 @@ body {
         ・合格ライン：70%（32問正解）<br>
         ・回答後すぐに正誤と解説を表示
       </p>
+    </div>
+  </div>
+
+  <div id="stockInfo" class="hidden">
+    <div class="config-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <h3 style="margin-bottom:0;">ストック問題</h3>
+        <button class="wi-btn" id="clearStockBtn" onclick="clearStock()" style="font-size:11px;">🗑 全削除</button>
+      </div>
+      <p style="font-size:12px;color:var(--body);line-height:1.8;">
+        間違えた問題が自動的にストックされます。<br>
+        ブラウザを閉じても保持されます。
+      </p>
+      <div id="stockSummary" style="margin-top:10px;"></div>
     </div>
   </div>
 
@@ -381,6 +405,8 @@ function initChips() {
       appMode = btn.dataset.appmode;
       $("quizSettings").classList.toggle("hidden", appMode !== "quiz");
       $("examInfo").classList.toggle("hidden", appMode !== "exam");
+      $("stockInfo").classList.toggle("hidden", appMode !== "stock");
+      if (appMode === "stock") updateStockSummary();
     };
   });
   document.querySelectorAll("[data-count]").forEach(function(btn) {
@@ -418,10 +444,12 @@ function initChips() {
 // ===== START =====
 $("startBtn").onclick = function() {
   if (appMode === "glossary") { showGlossary(); return; }
+  if (appMode === "stock") { startStockReview(); return; }
   var pool = quizCat === "all" ? ALL_Q.slice() : ALL_Q.filter(function(q) { return q.category === quizCat; });
   var count = appMode === "exam" ? 45 : (quizCount === 0 ? pool.length : Math.min(quizCount, pool.length));
   st.questions = shuffle(pool).slice(0, count);
   st.idx = 0; st.correct = 0; st.wrong = 0; st.answered = false; st.selectedAnswers = []; st.wrongItems = [];
+  st.isStockReview = false;
   $("startScreen").classList.add("hidden");
   $("quizScreen").classList.remove("hidden");
   $("quizTitle").textContent = appMode === "exam" ? "Tableau 本番形式テスト" : "Tableau 模擬試験";
@@ -591,6 +619,8 @@ function copyAllWrong() {
 function showResults() {
   $("quizScreen").classList.add("hidden");
   $("resultsScreen").classList.remove("hidden");
+  // Save wrong items to localStorage
+  if (st.wrongItems.length > 0) saveWrongToStock(st.wrongItems);
   var total = st.questions.length;
   var pct = Math.round(st.correct / total * 100);
   var isExam = appMode === "exam";
@@ -700,7 +730,117 @@ document.addEventListener("keydown", function(e) {
   }
 });
 
+// ===== STOCK (localStorage) =====
+var STOCK_KEY = "tds_wrong_stock";
+
+function getStock() {
+  try {
+    var raw = localStorage.getItem(STOCK_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function saveWrongToStock(wrongItems) {
+  var stock = getStock();
+  wrongItems.forEach(function(item) {
+    var qid = String(item.q.id);
+    if (!stock[qid]) {
+      stock[qid] = { id: item.q.id, count: 0, lastWrong: null };
+    }
+    stock[qid].count++;
+    stock[qid].lastWrong = new Date().toISOString();
+  });
+  try { localStorage.setItem(STOCK_KEY, JSON.stringify(stock)); } catch(e) {}
+  updateStockBadge();
+}
+
+function removeFromStock(qid) {
+  var stock = getStock();
+  delete stock[String(qid)];
+  try { localStorage.setItem(STOCK_KEY, JSON.stringify(stock)); } catch(e) {}
+  updateStockBadge();
+}
+
+function clearStock() {
+  if (!confirm("\u30B9\u30C8\u30C3\u30AF\u3057\u305F\u554F\u984C\u3092\u3059\u3079\u3066\u524A\u9664\u3057\u307E\u3059\u304B\uFF1F")) return;
+  try { localStorage.removeItem(STOCK_KEY); } catch(e) {}
+  updateStockBadge();
+  updateStockSummary();
+}
+
+function getStockQuestions() {
+  var stock = getStock();
+  var ids = Object.keys(stock);
+  return ALL_Q.filter(function(q) { return ids.indexOf(String(q.id)) >= 0; });
+}
+
+function updateStockBadge() {
+  var stock = getStock();
+  var count = Object.keys(stock).length;
+  var badge = $("stockBadge");
+  if (badge) {
+    badge.textContent = count;
+    badge.classList.toggle("hidden", count === 0);
+  }
+}
+
+function updateStockSummary() {
+  var stock = getStock();
+  var ids = Object.keys(stock);
+  var el = $("stockSummary");
+  if (!el) return;
+  if (ids.length === 0) {
+    el.innerHTML = '<p style="font-size:12px;color:var(--body);text-align:center;padding:8px 0;">\u30B9\u30C8\u30C3\u30AF\u3055\u308C\u305F\u554F\u984C\u306F\u3042\u308A\u307E\u305B\u3093</p>';
+    return;
+  }
+  var catCounts = {};
+  ids.forEach(function(id) {
+    var q = ALL_Q.find(function(q) { return String(q.id) === id; });
+    if (q) catCounts[q.category] = (catCounts[q.category] || 0) + 1;
+  });
+  var html = '<div style="font-size:13px;font-weight:700;color:var(--heading);margin-bottom:6px;">\u5408\u8A08 ' + ids.length + ' \u554F\u30B9\u30C8\u30C3\u30AF\u4E2D</div>';
+  Object.keys(catCounts).forEach(function(cat) {
+    html += '<div class="stock-summary-cat"><span class="cat-name">' + cat + '</span><span class="cat-count">' + catCounts[cat] + '\u554F</span></div>';
+  });
+  // Show mistake count info for top offenders
+  var sorted = ids.map(function(id) { return stock[id]; }).sort(function(a,b) { return b.count - a.count; });
+  if (sorted.length > 0 && sorted[0].count > 1) {
+    html += '<div style="margin-top:8px;font-size:11px;color:var(--wrong);">\u26A0 \u6700\u591A\u9593\u9055\u3044: ' + sorted[0].count + '\u56DE (' + sorted.filter(function(s) { return s.count > 1; }).length + '\u554F\u304C\u8907\u6570\u56DE\u9593\u9055\u3044)</div>';
+  }
+  el.innerHTML = html;
+}
+
+function startStockReview() {
+  var stockQs = getStockQuestions();
+  if (stockQs.length === 0) {
+    alert("\u30B9\u30C8\u30C3\u30AF\u3055\u308C\u305F\u554F\u984C\u306F\u3042\u308A\u307E\u305B\u3093\u3002\n\u6A21\u64EC\u8A66\u9A13\u3084\u672C\u756A\u5F62\u5F0F\u3067\u9593\u9055\u3048\u305F\u554F\u984C\u304C\u81EA\u52D5\u7684\u306B\u30B9\u30C8\u30C3\u30AF\u3055\u308C\u307E\u3059\u3002");
+    return;
+  }
+  st.questions = shuffle(stockQs);
+  st.idx = 0; st.correct = 0; st.wrong = 0; st.answered = false; st.selectedAnswers = []; st.wrongItems = [];
+  st.isStockReview = true;
+  $("startScreen").classList.add("hidden");
+  $("quizScreen").classList.remove("hidden");
+  $("quizTitle").textContent = "\uD83D\uDCCC \u30B9\u30C8\u30C3\u30AF\u554F\u984C\u5FA9\u7FD2 (" + stockQs.length + "\u554F)";
+  renderQuestion();
+}
+
+// Override submitAnswer to remove from stock on correct
+var _origSubmitAnswer = submitAnswer;
+submitAnswer = function() {
+  _origSubmitAnswer();
+  // If in stock review mode and answered correctly, remove from stock
+  if (st.isStockReview) {
+    var q = st.questions[st.idx];
+    var correctAnswers = q.correctAnswers ? q.correctAnswers.slice().sort() : [q.answer];
+    var userAnswers = st.selectedAnswers.slice().sort();
+    var isCorrect = correctAnswers.length === userAnswers.length && correctAnswers.every(function(a, i) { return a === userAnswers[i]; });
+    if (isCorrect) removeFromStock(q.id);
+  }
+};
+
 initChips();
+updateStockBadge();
 </script>
 </body>
 </html>
