@@ -289,6 +289,21 @@ body {
 .hidden { display: none !important; }
 .shortcut-hint { font-size: 10px; color: #9CA3AF; text-align: center; margin-top: 10px; }
 
+/* Stock badge */
+.chip[data-appmode="stock"] { position: relative; }
+.stock-badge {
+  display: inline-block;
+  min-width: 16px; height: 16px; border-radius: 100px;
+  font-size: 10px; font-weight: 700; font-family: Arial, sans-serif;
+  line-height: 16px; text-align: center;
+  background: var(--accent); color: white; padding: 0 4px;
+  margin-left: 2px; vertical-align: middle;
+}
+.stock-summary-cat { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid #F3F4F6; font-size: 12px; }
+.stock-summary-cat:last-child { border-bottom: none; }
+.stock-summary-cat .cat-name { color: var(--heading); font-weight: 500; }
+.stock-summary-cat .cat-count { color: var(--main); font-weight: 700; }
+
 /* Subcategory selection */
 .sub-select { max-height: 200px; overflow-y: auto; }
 .sub-select::-webkit-scrollbar { width: 4px; }
@@ -348,6 +363,7 @@ body {
     <div class="config-row">
       <button class="chip active" data-appmode="quiz">📋 模擬試験</button>
       <button class="chip" data-appmode="exam">🎯 本番形式</button>
+      <button class="chip" data-appmode="stock">📌 ストック問題 <span id="stockBadge" class="stock-badge hidden">0</span></button>
     </div>
   </div>
 
@@ -386,6 +402,22 @@ body {
         ・制限時間：105分<br>
         ・回答後すぐに正誤と解説を表示
       </p>
+    </div>
+  </div>
+
+  <!-- Stock info -->
+  <div id="stockInfo" class="hidden">
+    <div class="config-section">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <h3 style="margin-bottom:0;">ストック問題</h3>
+        <button class="chip" id="clearStockBtn" onclick="clearStock()" style="font-size:11px;padding:4px 10px;">🗑 全削除</button>
+      </div>
+      <p style="font-size:12px;color:var(--body);line-height:1.8;">
+        間違えた問題が自動的にストックされます。<br>
+        正解するとストックから自動削除されます。<br>
+        ブラウザを閉じても保持されます。
+      </p>
+      <div id="stockSummary" style="margin-top:10px;"></div>
     </div>
   </div>
 
@@ -585,6 +617,8 @@ document.querySelectorAll('[data-appmode]').forEach(btn => {
     appMode = btn.dataset.appmode;
     $('quizSettings').classList.toggle('hidden', appMode !== 'quiz');
     $('examInfo').classList.toggle('hidden', appMode !== 'exam');
+    $('stockInfo').classList.toggle('hidden', appMode !== 'stock');
+    if (appMode === 'stock') updateStockSummary();
   });
 });
 
@@ -619,6 +653,7 @@ function getPool() {
 
 // ===== START =====
 $('startBtn').addEventListener('click', () => {
+  if (appMode === 'stock') { startStockReview(); return; }
   let pool, count, title;
   if (appMode === 'exam') {
     pool = shuffle(ALL_Q).slice(0, 60);
@@ -646,6 +681,7 @@ $('startBtn').addEventListener('click', () => {
 
   st.questions = pool;
   st.idx = 0; st.correct = 0; st.wrong = 0; st.answered = false; st.wrongItems = []; st.selected = [];
+  st.isStockReview = false;
 
   $('quizTitle').textContent = title;
   $('startScreen').classList.add('hidden');
@@ -840,6 +876,9 @@ function showResults() {
   $('resultsScreen').classList.remove('hidden');
   $('timerArea').classList.add('hidden');
 
+  // Save wrong items to stock
+  if (st.wrongItems.length > 0) saveWrongToStock(st.wrongItems);
+
   const total = st.questions.length;
   const pct = Math.round(st.correct / total * 100);
   const isExam = appMode === 'exam';
@@ -902,6 +941,8 @@ function backToMenu() {
   $('resultCircle').style.strokeDashoffset = 439.8;
   $('timerDisplay').style.background = 'var(--correct-light)';
   $('timerDisplay').style.color = 'var(--correct)';
+  updateStockBadge();
+  if (appMode === 'stock') updateStockSummary();
   window.scrollTo(0, 0);
 }
 
@@ -1036,6 +1077,136 @@ document.addEventListener('keydown', e => {
     if (st.answered && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); nextQuestion(); }
   }
 });
+
+// ===== STOCK (localStorage) =====
+var STOCK_KEY = 'tda_wrong_stock';
+
+function getStock() {
+  try {
+    var raw = localStorage.getItem(STOCK_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function saveWrongToStock(wrongItems) {
+  var stock = getStock();
+  wrongItems.forEach(function(item) {
+    var q = item.q;
+    var qid = String(q.id);
+    // BANK_Bの問題はid+1000で保存（MIX時の重複回避）
+    if (BANK_B.indexOf(q) >= 0 || (q.id <= 200 && ALL_Q === BANK_B)) {
+      qid = String(q.id + 1000);
+    }
+    // BANK_MIX使用時はqのidをそのまま使う（BANK_MIXでは既にオフセット済み）
+    if (ALL_Q === BANK_MIX) {
+      qid = String(q.id);
+    }
+    if (!stock[qid]) {
+      stock[qid] = { id: q.id, count: 0, lastWrong: null, bank: (q.id >= 1000 ? 'B' : 'A') };
+    }
+    stock[qid].count++;
+    stock[qid].lastWrong = new Date().toISOString();
+  });
+  try { localStorage.setItem(STOCK_KEY, JSON.stringify(stock)); } catch(e) {}
+  updateStockBadge();
+}
+
+function removeFromStock(qid) {
+  var stock = getStock();
+  delete stock[String(qid)];
+  try { localStorage.setItem(STOCK_KEY, JSON.stringify(stock)); } catch(e) {}
+  updateStockBadge();
+}
+
+function clearStock() {
+  if (!confirm('ストックした問題をすべて削除しますか？')) return;
+  try { localStorage.removeItem(STOCK_KEY); } catch(e) {}
+  updateStockBadge();
+  updateStockSummary();
+}
+
+function getStockQuestions() {
+  var stock = getStock();
+  var ids = Object.keys(stock);
+  // BANK_MIXから検索（全問カバー）
+  return BANK_MIX.filter(function(q) { return ids.indexOf(String(q.id)) >= 0; });
+}
+
+function updateStockBadge() {
+  var stock = getStock();
+  var count = Object.keys(stock).length;
+  var badge = $('stockBadge');
+  if (badge) {
+    badge.textContent = count;
+    badge.classList.toggle('hidden', count === 0);
+  }
+}
+
+function updateStockSummary() {
+  var stock = getStock();
+  var ids = Object.keys(stock);
+  var el = $('stockSummary');
+  if (!el) return;
+  if (ids.length === 0) {
+    el.innerHTML = '<p style="font-size:12px;color:var(--body);text-align:center;padding:8px 0;">ストックされた問題はありません</p>';
+    return;
+  }
+  var catCounts = {};
+  var allMix = BANK_MIX;
+  ids.forEach(function(id) {
+    var q = allMix.find(function(q) { return String(q.id) === id; });
+    if (q) catCounts[q.cat] = (catCounts[q.cat] || 0) + 1;
+  });
+  var html = '<div style="font-size:13px;font-weight:700;color:var(--heading);margin-bottom:6px;">合計 ' + ids.length + ' 問ストック中</div>';
+  Object.keys(catCounts).forEach(function(cat) {
+    html += '<div class="stock-summary-cat"><span class="cat-name">' + cat + '</span><span class="cat-count">' + catCounts[cat] + '問</span></div>';
+  });
+  // Show mistake count info for top offenders
+  var sorted = ids.map(function(id) { return stock[id]; }).sort(function(a,b) { return b.count - a.count; });
+  if (sorted.length > 0 && sorted[0].count > 1) {
+    html += '<div style="margin-top:8px;font-size:11px;color:var(--wrong);">⚠ 最多間違い: ' + sorted[0].count + '回 (' + sorted.filter(function(s) { return s.count > 1; }).length + '問が複数回間違い)</div>';
+  }
+  el.innerHTML = html;
+}
+
+function startStockReview() {
+  var stockQs = getStockQuestions();
+  if (stockQs.length === 0) {
+    alert('ストックされた問題はありません。\n模擬試験や本番形式で間違えた問題が自動的にストックされます。');
+    return;
+  }
+  st.questions = shuffle(stockQs);
+  st.idx = 0; st.correct = 0; st.wrong = 0; st.answered = false; st.wrongItems = []; st.selected = [];
+  st.isStockReview = true;
+  $('startScreen').classList.add('hidden');
+  $('quizScreen').classList.remove('hidden');
+  $('quizTitle').textContent = '📌 ストック問題復習 (' + stockQs.length + '問)';
+  $('timerArea').classList.add('hidden');
+  renderQuestion();
+  window.scrollTo(0, 0);
+}
+
+// Override submitAnswer to handle stock review (remove on correct)
+var _origSubmitAnswer = submitAnswer;
+submitAnswer = function() {
+  _origSubmitAnswer();
+  // If in stock review mode and answered correctly, remove from stock
+  if (st.isStockReview && st.answered) {
+    var q = st.questions[st.idx];
+    var correctIdxs = q.ans.map(function(a) { return a.charCodeAt(0) - 65; });
+    var selectedLetters = st.selected.map(function(i) { return String.fromCharCode(65 + i); });
+    var isCorrect = q.ans.every(function(a) { return selectedLetters.includes(a); }) && selectedLetters.every(function(a) { return q.ans.includes(a); });
+    if (isCorrect) removeFromStock(q.id);
+  }
+};
+
+// Reset isStockReview flag in start handler
+var _origStartClick = $('startBtn').onclick;
+$('startBtn').addEventListener('click', function() {
+  if (appMode !== 'stock') st.isStockReview = false;
+});
+
+updateStockBadge();
 </script>
 </body>
 </html>
