@@ -350,7 +350,7 @@ body {
     <h3>問題バンク</h3>
     <div class="config-row">
       <button class="chip active" data-bank="A">📘 基本194問</button>
-      <button class="chip" data-bank="B">📕 苦手克服160問</button>
+      <button class="chip" data-bank="B">📕 応用160問</button>
       <button class="chip" data-bank="MIX">🔀 ミックス354問</button>
       <button class="chip" id="guideBtn">📘 ガイド</button>
       <button class="chip" id="refBtn">📗 関数集</button>
@@ -598,7 +598,7 @@ document.querySelectorAll('[data-bank]').forEach(btn => {
     btn.classList.add('active');
     const b = btn.dataset.bank;
     if (b === 'A') { ALL_Q = BANK_A; $('subTitle').textContent = '基本問題 194問'; }
-    else if (b === 'B') { ALL_Q = BANK_B; $('subTitle').textContent = '苦手克服 160問'; }
+    else if (b === 'B') { ALL_Q = BANK_B; $('subTitle').textContent = '応用問題 160問'; }
     else { ALL_Q = BANK_MIX; $('subTitle').textContent = 'ミックス 354問'; }
     initDomChips();
     updateCountChips();
